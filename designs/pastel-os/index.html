@@ -1,0 +1,1138 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Logan Oscher · Portfolio</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon_io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="../../assets/favicon_io/apple-touch-icon.png">
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Retro Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;family=VT323&amp;family=JetBrains+Mono:wght@400;600;700;800&amp;family=Bricolage+Grotesque:opsz,wght@12..96,700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              pastelYellow: "#fef08a",
+              pastelPink: "#fbcfe8",
+              pastelMint: "#bbf7d0",
+              pastelBlue: "#bfdbfe",
+              pastelLavender: "#ddd6fe",
+              pastelPeach: "#fed7aa"
+            },
+            fontFamily: {
+              pixel: ['"Press Start 2P"', 'monospace'],
+              vt: ['VT323', 'monospace'],
+              code: ['"JetBrains Mono"', 'monospace'],
+              sans: ['"Bricolage Grotesque"', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            font-family: 'VT323', 'JetBrains Mono', monospace;
+            user-select: none;
+            overscroll-behavior: none;
+        }
+
+        /* Pastel Grid Desktop Background */
+        .bg-pixel-grid {
+            background-color: #dbeafe;
+            background-image: 
+                linear-gradient(to right, rgba(165, 180, 252, 0.45) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(165, 180, 252, 0.45) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Retro Window Frame with High-contrast Bevels */
+        .retro-window {
+            background-color: #ffffff;
+            border: 3px solid #1e293b;
+            box-shadow: 4px 4px 0px #1e293b;
+        }
+
+        /* Interactive Retro Button Mechanics */
+        .retro-button {
+            border: 2px solid #1e293b;
+            box-shadow: 2px 2px 0px #1e293b;
+            transition: all 0.08s ease;
+        }
+
+        .retro-button:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0px #1e293b;
+        }
+
+        .retro-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #1e293b;
+        }
+
+        /* Retro Card Container */
+        .retro-card {
+            border: 2px solid #1e293b;
+            box-shadow: 3px 3px 0px #1e293b;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .retro-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 5px 5px 0px #1e293b;
+        }
+
+        /* Segmented Progress bar pulse animation */
+        @keyframes pulse-block {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.35; }
+        }
+        .pulse-cell {
+            animation: pulse-block 1.1s infinite ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-left: 2px solid #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f472b6;
+            border: 2px solid #1e293b;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ec4899;
+        }
+    </style>
+</head>
+<body class="bg-pixel-grid min-h-screen flex flex-col justify-between text-slate-800 antialiased selection:bg-pink-300">
+<!-- Top System Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#e8e7f4] border-b-2 border-slate-800 shadow-[0_2px_0px_#1e293b]">
+<div class="h-8 px-3 sm:px-5 flex items-center justify-between font-code text-xs select-none">
+<!-- Left Menu Options -->
+<div class="flex items-center gap-2 sm:gap-4">
+<div class="flex items-center gap-1.5 font-bold text-slate-900 cursor-pointer pr-2 border-r border-slate-400" onclick="playPixelBeep(520, 'square');">
+<span class="material-symbols-outlined text-[18px] text-amber-900">desktop_windows</span>
+<span class="font-pixel text-[11px] tracking-tight">System7.os</span>
+<span class="text-[9px] px-1 bg-pink-200 text-pink-800 border border-slate-800 rounded font-code font-bold">LOGAN_26</span>
+</div>
+<nav class="flex items-center gap-1 sm:gap-2 text-[12px] font-bold font-code">
+<div class="relative group">
+<button class="px-1.5 py-0.5 hover:bg-slate-200 border border-transparent hover:border-slate-800 rounded flex items-center">File</button>
+</div>
+<div class="relative group hidden sm:block">
+<button class="px-1.5 py-0.5 hover:bg-slate-200 border border-transparent hover:border-slate-800 rounded">Edit</button>
+</div>
+<div class="relative group hidden sm:block">
+<button class="px-1.5 py-0.5 hover:bg-slate-200 border border-transparent hover:border-slate-800 rounded">View</button>
+</div>
+<div class="relative group">
+<button class="px-1.5 py-0.5 hover:bg-amber-200 border border-transparent hover:border-slate-800 rounded text-amber-900 font-bold flex items-center gap-0.5">Special ★</button>
+</div>
+</nav>
+</div>
+<!-- Right System Indicators -->
+<div class="flex items-center gap-2 sm:gap-3">
+<div class="hidden md:flex items-center gap-1.5 px-2 py-0.5 bg-white border border-slate-800 shadow-[inset_1px_1px_0px_#cbd5e1]">
+<span class="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+<span class="text-[10px] text-slate-700 font-code font-bold">RAM: 64MB OK</span>
+</div>
+<button class="retro-button flex items-center gap-1 px-1.5 py-0.5 bg-amber-200 border border-slate-800 text-[10px] font-pixel font-bold hover:bg-amber-300" id="audio-toggle-btn" onclick="toggleAudio()" title="Toggle Sound FX">
+<span class="material-symbols-outlined text-[13px]">volume_up</span>
+<span id="audio-btn-label" class="hidden sm:inline">SFX: ON</span>
+</button>
+<div class="flex items-center gap-1 pl-1 border-l border-slate-400 font-code text-[11px] font-bold text-slate-800">
+<span class="material-symbols-outlined text-[14px] text-blue-600">schedule</span>
+<span id="system-clock" class="">12:37:51 PM</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Tiled Desktop Workspace -->
+<main class="flex-1 w-full max-w-7xl mx-auto p-3 sm:p-5 pt-14 sm:pt-16 flex flex-col gap-6">
+<!-- PANE 1: HERO SHOWCASE WINDOW (Top Modular Pane) -->
+<section class="retro-window w-full flex flex-col">
+<!-- Window Title Bar -->
+<div class="bg-gradient-to-r from-amber-200 via-pink-200 to-indigo-200 border-b-2 border-slate-800 px-4 flex justify-between items-center select-none py-2">
+<div class="font-pixel text-[11px] font-bold text-slate-900 flex items-center gap-2">
+<span class="">💻</span>
+<span class="">LOGAN_OSCHER_WORKSPACE.EXE // Designer &amp; Developer · UNC Chapel Hill</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-white border border-slate-800 text-[9px] font-pixel px-1.5 py-0.5 hidden sm:inline">UNC_CHAPEL_HILL.SYS</span>
+<div class="flex gap-1">
+<span class="w-4 h-4 bg-white border border-slate-800 text-center font-bold text-[10px] leading-none flex items-center justify-center">_</span>
+<span class="w-4 h-4 bg-rose-400 text-white border border-slate-800 text-center font-bold text-[10px] leading-none flex items-center justify-center">×</span>
+</div>
+</div>
+</div>
+<!-- Hero Content Grid -->
+<div class="p-5 sm:p-6 bg-white flex flex-col lg:flex-row gap-6 items-stretch">
+<!-- Left: Avatar & Pixel Identity Card -->
+<div class="flex flex-row lg:flex-col items-center gap-4 bg-pink-50 p-4 border-2 border-slate-800 rounded flex-shrink-0 lg:w-60 text-center justify-center">
+<div class="w-24 h-28 sm:w-32 sm:h-40 bg-pink-200 border-2 border-slate-800 rounded shadow-[3px_3px_0px_#1e293b] relative overflow-hidden flex-shrink-0">
+<img src="../../assets/about-photo.png" alt="Portrait of Logan Oscher" class="w-full h-full object-cover">
+<span class="absolute bottom-1 right-1 text-[8px] bg-slate-900 text-white px-1.5 font-pixel">UNC_26</span>
+</div>
+<div class="text-left lg:text-center space-y-1">
+<div class="font-pixel text-xs font-bold text-slate-900">Logan Oscher</div>
+<div class="font-code text-xs text-pink-700 font-bold bg-pink-200 px-2 py-0.5 border border-slate-800 inline-block">DESIGNER &amp; DEVELOPER</div>
+<div class="font-vt text-lg text-slate-600 leading-tight">UNC Chapel Hill · Computer Science + Media AD/PR</div>
+</div>
+</div>
+<!-- Middle: Bio, Technologist Statement & Direct Triggers -->
+<div class="flex-1 flex flex-col justify-between space-y-4">
+<div class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="bg-amber-100 border border-slate-800 font-pixel text-[9px] px-2 py-0.5 text-amber-900 font-bold">THIRD-YEAR · UNC CHAPEL HILL</span>
+<span class="font-code text-xs text-slate-500">// Computer Science + Media AD/PR</span>
+</div>
+<h1 class="font-vt text-3xl sm:text-4xl text-pink-600 font-bold leading-none tracking-wide">
+                        Curious by default. Intentional by design.
+                    </h1>
+<p class="font-vt text-xl sm:text-2xl text-slate-700 leading-snug">
+                        I'm Logan, a UNC Computer Science + Media AD/PR major interested in <span class="text-pink-600">web design</span>, <span class="text-purple-700">graphic design</span>, &amp; <span class="text-sky-700">software engineering</span>. I build interfaces that are visually appealing and user-centric.
+                    </p>
+<!-- Focus skills pills / tags -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-pink-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-pink-800">UI / UX</span>
+<span class="bg-purple-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-purple-800">Web Design</span>
+<span class="bg-amber-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-amber-900">Graphic Design</span>
+<span class="bg-sky-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-sky-800">Software Eng</span>
+<span class="bg-emerald-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-emerald-800">Digital Media</span>
+</div>
+</div>
+<!-- Action Button Cluster -->
+<div class="pt-2 flex flex-wrap gap-2.5">
+<button class="retro-button bg-pink-300 hover:bg-pink-400 px-4 py-2 font-pixel text-xs font-bold flex items-center gap-2" onclick="scrollToGallery()">
+<span class="">🚀</span> FEATURED WORK
+                    </button>
+<button class="retro-button bg-amber-200 hover:bg-amber-300 px-4 py-2 font-pixel text-xs font-bold flex items-center gap-2" onclick="openAboutModal()">
+<span class="">📄</span> ABOUT.TXT
+                    </button>
+<button class="retro-button bg-emerald-200 hover:bg-emerald-300 px-4 py-2 font-pixel text-xs font-bold flex items-center gap-2" onclick="triggerContactModal()">
+<span class="">✉️</span> CONTACT / SAY HELLO
+                    </button>
+</div>
+</div>
+<!-- Right: VERIFY_HUMANITY.DLL Quick Verification Box -->
+<div class="lg:w-72 bg-purple-50 border-2 border-slate-800 p-3.5 flex flex-col justify-between rounded shadow-[2px_2px_0px_#1e293b]">
+<div class="space-y-2">
+<div class="flex items-center justify-between border-b border-purple-200 pb-1.5">
+<div class="font-pixel text-[9px] font-bold text-purple-900 flex items-center gap-1.5">
+<span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
+<span class="">VERIFY_HUMANITY.DLL</span>
+</div>
+<span class="text-xs bg-white px-1 border border-slate-800 font-pixel">v1.0</span>
+</div>
+<p class="font-pixel text-[11px] text-slate-900 font-bold">I am not a robot.</p>
+<p class="font-vt text-lg text-slate-600 leading-tight">
+                        Confirm your organic carbon-based consciousness before compiling code.
+                    </p>
+</div>
+<div class="space-y-2 mt-2">
+<div class="flex items-center gap-2">
+<button class="retro-button flex-1 bg-emerald-200 hover:bg-emerald-300 py-1.5 font-pixel text-[10px] font-bold" onclick="confirmHuman(true)">
+                            sure :)
+                        </button>
+<button class="retro-button flex-1 bg-amber-200 hover:bg-amber-300 py-1.5 font-pixel text-[10px] font-bold" onclick="confirmHuman(false)">
+                            idk ¯\_(ツ)_/¯
+                        </button>
+</div>
+<div class="font-code text-xs font-bold text-purple-700 min-h-[1.25rem] text-center" id="humanResponse">
+                        Status: Pending validation...
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- PANE 2: FULL-WIDTH PROJECTS GALLERY WINDOW ("C:\PORTFOLIO\GALLERY_VIEW.EXE") -->
+<section class="retro-window w-full flex flex-col" id="gallery-pane">
+<!-- Window Title Bar with Path & View Options -->
+<div class="bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 border-b-2 border-slate-800 px-4 py-2 flex flex-wrap justify-between items-center gap-2 select-none">
+<div class="font-pixel text-xs font-bold text-slate-900 flex items-center gap-2">
+<span class="">📂</span>
+<span class="">C:\PORTFOLIO\LOGAN_PROJECTS.DIR [5 WORKS LOADED]</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[9px] font-pixel bg-emerald-200 px-2 py-0.5 border border-slate-800">SELECTED PROJECTS</span>
+<span class="text-[9px] font-pixel bg-white px-2 py-0.5 border border-slate-800">GRID: 3x2</span>
+</div>
+</div>
+<!-- Sub-Header / Search & Filter Bar -->
+<div class="px-4 py-2 bg-slate-100 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 font-code text-xs">
+<div class="flex items-center gap-2 flex-1 max-w-md">
+<span class="font-bold text-slate-700">Filter:</span>
+<div class="relative flex-1">
+<input class="w-full bg-white border border-slate-800 px-2.5 py-1 text-xs font-code focus:outline-none focus:bg-yellow-50" id="project-search-input" onkeyup="handleFilterSearch(this.value)" placeholder="Search projects by name, tool, or stack..." type="text">
+</div>
+</div>
+<!-- Quick Filter Tags in Toolbar -->
+<div class="flex items-center gap-1.5 font-pixel text-[9px]">
+<span class="text-slate-500 hidden sm:inline">TAGS:</span>
+<button class="sub-filter bg-pink-200 border border-slate-800 px-2 py-0.5 hover:bg-pink-300" onclick="setFilter('all', this)">ALL</button>
+<button class="sub-filter bg-white border border-slate-800 px-2 py-0.5 hover:bg-pink-100" onclick="setFilter('apps', this)">FULL-STACK</button>
+<button class="sub-filter bg-white border border-slate-800 px-2 py-0.5 hover:bg-pink-100" onclick="setFilter('product', this)">UI/UX</button>
+<button class="sub-filter bg-white border border-slate-800 px-2 py-0.5 hover:bg-pink-100" onclick="setFilter('creative', this)">MEDIA &amp; GFX</button>
+</div>
+</div>
+<!-- 6-Project Responsive Cards Grid -->
+<div class="bg-sky-50/70 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-3" id="projects-grid">
+<article class="retro-card bg-white rounded overflow-hidden flex flex-col justify-between project-item" data-category="product" data-stack="Figma UserTesting UX Research Personas Card Sort Wireframes Fintech MEJO 581" data-title="Vanguard Year-in-Review Redesign">
+<div class="flex items-center justify-between px-3 py-1.5 bg-indigo-100 border-b-2 border-slate-800 text-slate-900 font-code select-none w-full"><div class="flex items-center gap-2"><span class="w-3 h-3 border border-slate-800 bg-white inline-block flex-shrink-0"></span><span class="font-bold text-xs tracking-tight text-slate-900">01_Vanguard_YIR.fig</span></div><div class="flex items-center gap-2"><span class="text-[11px] font-bold text-slate-800">9.4 MB</span><span class="bg-sky-200 border border-slate-800 px-1 text-[10px] font-bold font-pixel">Fintech UX</span></div></div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-3"><div class="space-y-2">
+<div class="h-32 bg-gradient-to-br from-sky-200 to-indigo-100 border-2 border-slate-800 rounded flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openProjectModal('Vanguard')"><img src="../../assets/portfolio/vanguard.png" alt="Vanguard Year-in-Review Redesign thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"><span class="absolute top-1 left-2 bg-sky-100 text-sky-900 border border-slate-800 px-1 py-0.5 font-pixel text-[8px]">UI/UX</span><span class="absolute bottom-1 right-2 px-1 bg-white border border-slate-800 font-code text-[9px] font-bold">CASE STUDY</span><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-pixel text-[9px] text-slate-900 bg-white/70">CLICK TO EXPAND</div></div>
+<div><h3 class="font-pixel text-xs font-bold text-slate-900 mb-1">Vanguard Year-in-Review Redesign</h3><p class="font-vt text-base text-slate-600 leading-snug">Year-in-Review redesign for investors 50+ with plain language, numbered anchors, and next steps that feel obvious.</p></div>
+<div class="flex flex-wrap gap-1"><span class="bg-sky-100 text-sky-900 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Figma</span><span class="bg-sky-200 text-sky-900 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">UserTesting</span><span class="bg-indigo-100 text-indigo-900 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">MEJO 581</span></div></div>
+<div class="pt-2.5 mt-2 border-t border-dashed border-slate-300"><button class="retro-button w-full bg-sky-200 hover:bg-sky-300 py-1.5 font-pixel text-[9px] font-bold text-slate-900 flex items-center justify-center gap-1.5" onclick="openProjectModal('Vanguard')"><span>🔍</span> LAUNCH SPECS</button></div></div>
+</article>
+<article class="retro-card bg-white rounded overflow-hidden flex flex-col justify-between project-item" data-category="apps" data-stack="Next.js 15 TypeScript React Supabase Realtime Drizzle tRPC Tailwind shadcn OpenAI API COMP 426" data-title="Swiped: Meal Swaps Made Easy">
+<div class="flex items-center justify-between px-3 py-1.5 bg-indigo-100 border-b-2 border-slate-800 text-slate-900 font-code select-none w-full"><div class="flex items-center gap-2"><span class="w-3 h-3 border border-slate-800 bg-white inline-block flex-shrink-0"></span><span class="font-bold text-xs tracking-tight text-slate-900">02_Swiped.app</span></div><div class="flex items-center gap-2"><span class="text-[11px] font-bold text-slate-800">14.2 MB</span><span class="bg-pink-200 border border-slate-800 px-1 text-[10px] font-bold font-pixel">Next.js 15</span></div></div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-3"><div class="space-y-2">
+<div class="h-32 bg-gradient-to-br from-pink-200 to-purple-200 border-2 border-slate-800 rounded flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openProjectModal('Swiped')"><img src="../../assets/swiped/alt_cover.png" alt="Swiped: Meal Swaps Made Easy thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"><span class="absolute top-1 left-2 bg-pink-100 text-pink-800 border border-slate-800 px-1 py-0.5 font-pixel text-[8px]">FULL STACK</span><span class="absolute bottom-1 right-2 px-1 bg-white border border-slate-800 font-code text-[9px] font-bold">LIVE APP</span><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-pixel text-[9px] text-slate-900 bg-white/70">CLICK TO EXPAND</div></div>
+<div><h3 class="font-pixel text-xs font-bold text-slate-900 mb-1">Swiped: Meal Swaps Made Easy</h3><p class="font-vt text-base text-slate-600 leading-snug">Full-stack Next.js marketplace where UNC students buy and sell dining swipes, with per-listing chat and an AI nutrition planner.</p></div>
+<div class="flex flex-wrap gap-1"><span class="bg-indigo-100 text-slate-800 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Next.js 15</span><span class="bg-purple-100 text-purple-800 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Supabase</span><span class="bg-pink-100 text-pink-800 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">OpenAI</span></div></div>
+<div class="pt-2.5 mt-2 border-t border-dashed border-slate-300"><button class="retro-button w-full bg-pink-200 hover:bg-pink-300 py-1.5 font-pixel text-[9px] font-bold text-slate-900 flex items-center justify-center gap-1.5" onclick="openProjectModal('Swiped')"><span>🚀</span> LAUNCH SPECS</button></div></div>
+</article>
+<article class="retro-card bg-white rounded overflow-hidden flex flex-col justify-between project-item" data-category="product" data-stack="Figma FigJam UserTesting Mobile UI/UX Product Design MEJO 433" data-title="DinkLink: Pickleball Matchmaking">
+<div class="flex items-center justify-between px-3 py-1.5 bg-indigo-100 border-b-2 border-slate-800 text-slate-900 font-code select-none w-full"><div class="flex items-center gap-2"><span class="w-3 h-3 border border-slate-800 bg-white inline-block flex-shrink-0"></span><span class="font-bold text-xs tracking-tight text-slate-900">03_DinkLink.fig</span></div><div class="flex items-center gap-2"><span class="text-[11px] font-bold text-slate-800">12.8 MB</span><span class="bg-emerald-200 border border-slate-800 px-1 text-[10px] font-bold font-pixel">Mobile App</span></div></div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-3"><div class="space-y-2">
+<div class="h-32 bg-gradient-to-br from-emerald-200 to-teal-100 border-2 border-slate-800 rounded flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openProjectModal('DinkLink')"><img src="../../assets/portfolio/dinklink.png" alt="DinkLink: Pickleball Matchmaking thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"><span class="absolute top-1 left-2 bg-emerald-100 text-emerald-900 border border-slate-800 px-1 py-0.5 font-pixel text-[8px]">UI/UX</span><span class="absolute bottom-1 right-2 px-1 bg-white border border-slate-800 font-code text-[9px] font-bold">BEHANCE</span><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-pixel text-[9px] text-slate-900 bg-white/70">CLICK TO EXPAND</div></div>
+<div><h3 class="font-pixel text-xs font-bold text-slate-900 mb-1">DinkLink: Pickleball Matchmaking</h3><p class="font-vt text-base text-slate-600 leading-snug">Mobile app concept with player profiles, stats, messaging, and location-based court discovery.</p></div>
+<div class="flex flex-wrap gap-1"><span class="bg-emerald-100 text-emerald-800 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Figma</span><span class="bg-emerald-200 text-emerald-900 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">FigJam</span><span class="bg-teal-100 text-slate-800 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">MEJO 433</span></div></div>
+<div class="pt-2.5 mt-2 border-t border-dashed border-slate-300"><button class="retro-button w-full bg-emerald-200 hover:bg-emerald-300 py-1.5 font-pixel text-[9px] font-bold text-slate-900 flex items-center justify-center gap-1.5" onclick="openProjectModal('DinkLink')"><span>🏓</span> LAUNCH SPECS</button></div></div>
+</article>
+<article class="retro-card bg-white rounded overflow-hidden flex flex-col justify-between project-item" data-category="product" data-stack="UI/UX Redesign Responsive Product Page Bidding Navigation Error Screen E-Commerce" data-title="eBay Interface Redesign">
+<div class="flex items-center justify-between px-3 py-1.5 bg-indigo-100 border-b-2 border-slate-800 text-slate-900 font-code select-none w-full"><div class="flex items-center gap-2"><span class="w-3 h-3 border border-slate-800 bg-white inline-block flex-shrink-0"></span><span class="font-bold text-xs tracking-tight text-slate-900">04_eBay_Redesign.fig</span></div><div class="flex items-center gap-2"><span class="text-[11px] font-bold text-slate-800">24.1 MB</span><span class="bg-purple-200 border border-slate-800 px-1 text-[10px] font-bold font-pixel">E-Commerce</span></div></div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-3"><div class="space-y-2">
+<div class="h-32 bg-gradient-to-br from-purple-200 to-pink-200 border-2 border-slate-800 rounded flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openProjectModal('eBay')"><img src="../../assets/portfolio/ebayredesign.png" alt="eBay Interface Redesign thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"><span class="absolute top-1 left-2 bg-purple-100 text-purple-900 border border-slate-800 px-1 py-0.5 font-pixel text-[8px]">REDESIGN</span><span class="absolute bottom-1 right-2 px-1 bg-white border border-slate-800 font-code text-[9px] font-bold">BEHANCE</span><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-pixel text-[9px] text-slate-900 bg-white/70">CLICK TO EXPAND</div></div>
+<div><h3 class="font-pixel text-xs font-bold text-slate-900 mb-1">eBay Interface Redesign</h3><p class="font-vt text-base text-slate-600 leading-snug">Responsive redesign of eBay product pages and bidding interactions, focused on clarity, hierarchy, and ease of use.</p></div>
+<div class="flex flex-wrap gap-1"><span class="bg-purple-100 text-purple-800 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Product Page</span><span class="bg-purple-200 text-purple-900 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Bidding UX</span><span class="bg-pink-100 text-pink-800 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Responsive</span></div></div>
+<div class="pt-2.5 mt-2 border-t border-dashed border-slate-300"><button class="retro-button w-full bg-purple-200 hover:bg-purple-300 py-1.5 font-pixel text-[9px] font-bold text-slate-900 flex items-center justify-center gap-1.5" onclick="openProjectModal('eBay')"><span>🛍️</span> LAUNCH SPECS</button></div></div>
+</article>
+<article class="retro-card bg-white rounded overflow-hidden flex flex-col justify-between project-item" data-category="creative" data-stack="Graphic Design Social Media Instagram Sports Branding Typography Digital Media" data-title="UNC Hockey Graphic Collection">
+<div class="flex items-center justify-between px-3 py-1.5 bg-indigo-100 border-b-2 border-slate-800 text-slate-900 font-code select-none w-full"><div class="flex items-center gap-2"><span class="w-3 h-3 border border-slate-800 bg-white inline-block flex-shrink-0"></span><span class="font-bold text-xs tracking-tight text-slate-900">05_UNC_Hockey.gfx</span></div><div class="flex items-center gap-2"><span class="text-[11px] font-bold text-slate-800">18.5 MB</span><span class="bg-rose-200 border border-slate-800 px-1 text-[10px] font-bold font-pixel">Sports GFX</span></div></div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-3"><div class="space-y-2">
+<div class="h-32 bg-gradient-to-br from-rose-200 to-amber-100 border-2 border-slate-800 rounded flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer" onclick="openProjectModal('UNCHockey')"><img src="../../assets/portfolio/Hockey.png" alt="UNC Hockey Graphic Collection thumbnail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"><span class="absolute top-1 left-2 bg-rose-100 text-rose-900 border border-slate-800 px-1 py-0.5 font-pixel text-[8px]">GRAPHICS</span><span class="absolute bottom-1 right-2 px-1 bg-white border border-slate-800 font-code text-[9px] font-bold">BEHANCE</span><div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center font-pixel text-[9px] text-slate-900 bg-white/70">CLICK TO EXPAND</div></div>
+<div><h3 class="font-pixel text-xs font-bold text-slate-900 mb-1">UNC Hockey Graphic Collection</h3><p class="font-vt text-base text-slate-600 leading-snug">Social graphics for UNC Hockey: game promotions, countdowns, and team-focused visual branding.</p></div>
+<div class="flex flex-wrap gap-1"><span class="bg-rose-100 text-rose-900 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Social Media</span><span class="bg-amber-100 text-amber-900 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Game Promos</span><span class="bg-pink-100 text-pink-800 border border-slate-800 px-1.5 py-0.5 font-pixel text-[8px]">Branding</span></div></div>
+<div class="pt-2.5 mt-2 border-t border-dashed border-slate-300"><button class="retro-button w-full bg-rose-200 hover:bg-rose-300 py-1.5 font-pixel text-[9px] font-bold text-slate-900 flex items-center justify-center gap-1.5" onclick="openProjectModal('UNCHockey')"><span>🏒</span> LAUNCH SPECS</button></div></div>
+</article>
+</div>
+<!-- Gallery Bottom Status Bar -->
+<div class="h-8 bg-slate-100 px-4 border-t-2 border-slate-800 flex items-center justify-between font-code text-xs text-slate-600">
+<div class="">Logan Oscher · UNC CS + Media AD/PR (5 Selected Projects)</div>
+<div class="font-pixel text-[9px] text-emerald-700 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="">COMP 426 · MEJO 433 · MEJO 581</span>
+</div>
+</div>
+</section>
+<!-- PANE 3: BOTTOM UTILITY BAR (Progress Monitor, Mini Synth & Contact Note) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+<!-- Utility 1: FILE_TRANSFER.EXE Progress Monitor (Left) -->
+<div class="md:col-span-7 lg:col-span-5 retro-window flex flex-col">
+<div class="h-7 bg-amber-200 px-3 border-b-2 border-slate-800 flex items-center justify-between">
+<div class="font-pixel text-[9px] font-bold text-slate-900 flex items-center gap-1.5">
+<span class="">⏳</span>
+<span class="">FILE_TRANSFER.EXE: Syncing portfolio repositories...</span>
+</div>
+<span class="w-4 h-4 bg-white border border-slate-800 flex items-center justify-center text-[10px] font-bold">_</span>
+</div>
+<div class="p-3.5 bg-white space-y-2 flex-1 flex flex-col justify-center">
+<div class="flex justify-between items-center font-pixel text-[9px]">
+<span class="text-slate-700">Syncing Figma, Next.js &amp; Adobe files...</span>
+<span class="text-pink-600 font-bold" id="progress-pct">100%</span>
+</div>
+<!-- Segmented Retro Progress Bar -->
+<div class="w-full h-6 bg-slate-100 border-2 border-slate-800 p-0.5 flex gap-1 items-center overflow-hidden">
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600 pulse-cell"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+<div class="w-3.5 h-full bg-blue-600"></div>
+</div>
+<div class="flex items-center justify-between font-code text-[11px] text-slate-500 pt-0.5">
+<span class="">TRANSFER RATE: SYNC COMPLETE</span>
+<span class="">CONNECTED: CHAPEL HILL, NC [UNC SERVER]</span>
+</div>
+</div>
+</div>
+<!-- Utility 2: Interactive 4-Note Mini Synth Pad (Right) -->
+<div class="md:col-span-5 lg:col-span-4 retro-window flex flex-col bg-amber-50">
+<div class="h-7 bg-pink-200 px-3 border-b-2 border-slate-800 flex items-center justify-between">
+<div class="font-pixel text-[9px] font-bold text-slate-900 flex items-center gap-1.5">
+<span class="">🎹</span>
+<span class="">MINI_SYNTH.DSP [4-TONE KEYPAD]</span>
+</div>
+<span class="text-[9px] font-code bg-white px-1 border border-slate-800">44.1kHz</span>
+</div>
+<div class="p-3 flex flex-col gap-2 flex-1 justify-center">
+<div class="flex justify-between items-center text-[11px] font-code text-slate-600">
+<span class="">Click keys to trigger Web Audio osc:</span>
+<span class="font-pixel text-[9px] text-pink-700">CHIPTUNE</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="retro-button bg-pink-200 hover:bg-pink-300 text-xs font-pixel py-2 font-bold flex flex-col items-center justify-center gap-0.5" onclick="playPixelBeep(261.63, 'square', 0.16)">
+<span class="">C4</span>
+<span class="text-[8px] font-code font-normal text-slate-600">261Hz</span>
+</button>
+<button class="retro-button bg-sky-200 hover:bg-sky-300 text-xs font-pixel py-2 font-bold flex flex-col items-center justify-center gap-0.5" onclick="playPixelBeep(329.63, 'square', 0.16)">
+<span class="">E4</span>
+<span class="text-[8px] font-code font-normal text-slate-600">329Hz</span>
+</button>
+<button class="retro-button bg-emerald-200 hover:bg-emerald-300 text-xs font-pixel py-2 font-bold flex flex-col items-center justify-center gap-0.5" onclick="playPixelBeep(392.00, 'square', 0.16)">
+<span class="">G4</span>
+<span class="text-[8px] font-code font-normal text-slate-600">392Hz</span>
+</button>
+<button class="retro-button bg-amber-200 hover:bg-amber-300 text-xs font-pixel py-2 font-bold flex flex-col items-center justify-center gap-0.5" onclick="playPixelBeep(523.25, 'triangle', 0.22)">
+<span class="">C5</span>
+<span class="text-[8px] font-code font-normal text-slate-600">523Hz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Contact: sticky note -->
+<div class="md:col-span-12 lg:col-span-3 flex flex-col bg-amber-200 border-2 border-slate-800 shadow-[4px_4px_0px_#1e293b]" id="contact-pane">
+<div class="bg-amber-100 border-b-2 border-slate-800 px-3 py-1.5 flex items-center justify-between select-none">
+<div class="font-pixel text-[9px] font-bold text-slate-900 flex items-center gap-1.5">
+<span class="">📌</span>
+<span class="">CONTACT.LNK</span>
+</div>
+<span class="font-code text-[10px] font-bold text-amber-900">memo</span>
+</div>
+<div class="p-3 flex flex-col gap-2.5 flex-1 justify-center">
+<p class="font-vt text-lg text-slate-800 leading-tight">For freelance work or collaborations, feel free to reach out.</p>
+<div class="grid grid-cols-2 gap-2">
+<a class="retro-button bg-white hover:bg-pink-100 px-2 py-1.5 font-pixel text-[9px] font-bold text-center" href="mailto:loganosc@unc.edu">✉️ EMAIL</a>
+<a class="retro-button bg-white hover:bg-sky-100 px-2 py-1.5 font-pixel text-[9px] font-bold text-center" href="https://www.linkedin.com/in/logan-oscher/" target="_blank" rel="noreferrer">💼 LINKEDIN</a>
+<a class="retro-button bg-white hover:bg-purple-100 px-2 py-1.5 font-pixel text-[9px] font-bold text-center" href="https://www.behance.net/loganoscher" target="_blank" rel="noreferrer">🎨 BEHANCE</a>
+<a class="retro-button bg-white hover:bg-emerald-100 px-2 py-1.5 font-pixel text-[9px] font-bold text-center" href="https://www.instagram.com/loganocreates" target="_blank" rel="noreferrer">📷 INSTAGRAM</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Case Study Viewer Modal -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 items-center justify-center p-2 sm:p-4 hidden" id="project-modal">
+<div class="retro-window w-full max-w-6xl h-[94vh] flex flex-col">
+<div class="bg-gradient-to-r from-amber-200 via-pink-200 to-purple-200 border-b-2 border-slate-800 px-4 py-2 flex justify-between items-center gap-3 select-none flex-shrink-0">
+<div class="font-pixel text-xs font-bold text-slate-900 flex items-center gap-2 min-w-0">
+<span id="modal-icon" class="">📂</span>
+<span id="modal-header-title" class="truncate">C:\PORTFOLIO\PROJECT // CASE_STUDY</span>
+</div>
+<div class="flex items-center gap-2 flex-shrink-0">
+<a class="hidden sm:inline-block bg-white border border-slate-800 font-code text-[10px] font-bold px-1.5 py-0.5 hover:bg-yellow-50" href="#" id="modal-page-link" target="_blank" rel="noreferrer">OPEN AS PAGE ↗</a>
+<button class="retro-button bg-rose-400 text-white w-6 h-6 font-bold flex items-center justify-center text-xs" onclick="closeProjectModal()" aria-label="Close">×</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto bg-pixel-grid p-3 sm:p-5 space-y-5 select-text" id="modal-body"></div>
+<div class="h-8 bg-slate-100 px-4 border-t-2 border-slate-800 flex items-center justify-between font-code text-xs text-slate-600 flex-shrink-0">
+<span id="modal-status" class="truncate"></span>
+<span class="hidden sm:inline font-pixel text-[9px]">ESC TO CLOSE</span>
+</div>
+</div>
+</div>
+<!-- About Modal (README_ABOUT.TXT) -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 items-center justify-center p-4 hidden" id="about-modal">
+<div class="retro-window w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+<div class="bg-gradient-to-r from-sky-200 via-indigo-200 to-purple-200 border-b-2 border-slate-800 px-4 py-2 sticky top-0 z-10 flex justify-between items-center select-none">
+<div class="font-pixel text-[11px] font-bold text-slate-900 flex items-center gap-2">
+<span class="">📄</span>
+<span class="">C:\USERS\LOGAN\README_ABOUT.TXT</span>
+</div>
+<button class="retro-button bg-rose-400 text-white w-6 h-6 font-bold flex items-center justify-center text-xs" onclick="closeAboutModal()" aria-label="Close">×</button>
+</div>
+<div class="p-5 bg-white flex flex-col sm:flex-row gap-5 flex-1">
+<div class="sm:w-44 flex-shrink-0 border-2 border-slate-800 shadow-[3px_3px_0px_#1e293b] overflow-hidden bg-pink-100 aspect-[4/5] self-start w-40">
+<img src="../../assets/about-photo.png" alt="Logan Oscher" class="w-full h-full object-cover">
+</div>
+<div class="space-y-3">
+<h2 class="font-pixel text-sm text-slate-900">About</h2>
+<p class="font-vt text-xl text-slate-700 leading-snug">
+                        I've always been drawn to the intersection of design, technology, and user experience. As a third-year undergraduate student at UNC Chapel Hill pursuing a double major in Computer Science and Media &amp; Journalism, I am focused on UI/UX design, web design, and interactive media.
+                    </p>
+<p class="font-vt text-xl text-slate-700 leading-snug">
+                        My passion for UI/UX, graphic design, and web design drives me to create content that is both visually appealing and user-centric. From 3D printing and laser cutting to building user-friendly web interfaces, I am constantly seeking ways to enhance the way people interact with technology.
+                    </p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="bg-sky-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-sky-800">Computer Science</span>
+<span class="bg-purple-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-purple-800">Media &amp; Journalism</span>
+<span class="bg-amber-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-amber-900">3D Printing</span>
+<span class="bg-pink-100 border border-slate-800 px-2 py-0.5 font-pixel text-[9px] text-pink-800">Laser Cutting</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Modal (Contact form) -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 items-center justify-center p-4 hidden" id="quick-modal">
+<div class="retro-window w-full max-w-lg">
+<div class="bg-gradient-to-r from-emerald-200 to-teal-200 border-b-2 border-slate-800 px-4 py-2 flex justify-between items-center select-none">
+<div class="font-pixel text-xs font-bold text-slate-900 flex items-center gap-2" id="quick-modal-title">
+<span class="">📄</span>
+<span class="">SYSTEM_DOC.EXE</span>
+</div>
+<button class="retro-button bg-rose-400 text-white w-6 h-6 font-bold flex items-center justify-center text-xs" onclick="closeQuickModal()">×</button>
+</div>
+<div class="p-6 bg-white space-y-4" id="quick-modal-body">
+<!-- Injected via JS -->
+</div>
+</div>
+</div>
+<!-- Bottom System Taskbar -->
+<footer class="h-10 bg-slate-200 border-t-2 border-slate-800 px-3 sm:px-4 flex items-center justify-between z-40 sticky bottom-0 select-none shadow-[0_-2px_0px_#1e293b]">
+<div class="flex items-center gap-2">
+<!-- Start Button -->
+<button class="retro-button bg-pink-300 px-3 py-1 font-pixel text-[10px] font-bold flex items-center gap-1.5 hover:bg-pink-400" onclick="scrollToGallery()">
+<span class="">👾</span> START
+        </button>
+<div class="h-5 w-0.5 bg-slate-400"></div>
+<!-- Active Program Pill -->
+<div class="flex items-center gap-1.5 bg-white border border-slate-800 px-2 py-0.5 text-xs font-vt font-bold text-slate-800">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span id="taskbar-active-app" class="">Logan Oscher · UNC CS + Media AD/PR</span>
+</div>
+<div class="text-sm font-vt font-bold text-slate-500 hidden md:flex items-center gap-2">
+<span class="">//</span>
+<a class="hover:text-pink-600 underline" href="https://www.behance.net/loganoscher" target="_blank">Behance</a>
+<span class="">·</span>
+<a class="hover:text-pink-600 underline" href="https://www.linkedin.com/in/logan-oscher/" target="_blank">LinkedIn</a>
+<span class="">·</span>
+<a class="hover:text-pink-600 underline" href="https://www.instagram.com/loganocreates" target="_blank">Instagram</a>
+<span class="">·</span>
+<a class="hover:text-pink-600 underline" href="mailto:loganosc@unc.edu">loganosc@unc.edu</a>
+</div>
+</div>
+<!-- System Online Pulse -->
+<div class="flex items-center gap-2 font-pixel text-[10px] text-slate-700">
+<span class="w-2.5 h-2.5 bg-emerald-400 rounded-full border border-slate-800 animate-pulse"></span>
+<span class="hidden sm:inline">WORKSPACE ONLINE</span>
+</div>
+</footer>
+<!-- Full Vanilla JavaScript Engine -->
+<script>
+    // Web Audio Synthesizer for 8-bit Retro Chiptunes
+    let soundEnabled = true;
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function playPixelBeep(freq = 440, type = 'square', duration = 0.08) {
+        if (!soundEnabled) return;
+        try {
+            if (!audioCtx) audioCtx = new AudioContextClass();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+            gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        } catch (e) {
+            console.log('AudioContext initialized');
+        }
+    }
+
+    function toggleAudio() {
+        soundEnabled = !soundEnabled;
+        const label = document.getElementById('audio-btn-label');
+        if (label) label.textContent = soundEnabled ? 'SOUND: ON' : 'SOUND: OFF';
+        if (soundEnabled) playPixelBeep(523, 'square', 0.1);
+    }
+
+    // Live Clock Engine
+    function updateClock() {
+        const now = new Date();
+        let h = now.getHours();
+        const m = now.getMinutes().toString().padStart(2, '0');
+        const s = now.getSeconds().toString().padStart(2, '0');
+        const ampm = h >= 12 ? 'PM' : 'AM';
+        h = h % 12 || 12;
+        const el = document.getElementById('system-clock');
+        if (el) el.textContent = `${h}:${m}:${s} ${ampm}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Case study content, sourced from the portfolio-main case study pages
+    const A = '../../assets/';
+    const caseStudies = {
+        'Vanguard': {
+            file: 'VANGUARD_YIR.FIG',
+            icon: '📈',
+            eyebrow: 'UI/UX · Redesign',
+            title: 'Vanguard Year-in-Review Redesign',
+            lede: 'Making Vanguard’s Year-in-Review clearer for investors ages 50+, with stronger guidance, trustworthy visuals, and next steps that feel obvious.',
+            cover: A + 'portfolio/vanguard.png',
+            meta: [['Course', 'MEJO 581, Final Project'], ['Tools', 'Figma, UserTesting']],
+            actions: [
+                { label: '📄 FINAL PITCH.PDF', href: A + 'vanguard/Final%20Pitch.pdf', color: 'bg-amber-200 hover:bg-amber-300' }
+            ],
+            page: '../../vanguard-case-study.html',
+            sections: [
+                { title: 'Project Snapshot', blocks: [
+                    { type: 'cards', items: [
+                        { h: 'Role & Scope', p: 'UX researcher and product/visual designer redesigning Vanguard’s Year-in-Review for investors 50+.' },
+                        { h: 'Timeline & Tools', p: 'Semester project using Figma, user testing, card sort/flows, persona work, and PDF deliverables.' },
+                        { h: 'Deliverables', p: 'Personas, structure/flows, usability findings deck, UI kit, 10+ wireframes, 20+ hi-fi panels, interactive prototypes.' }
+                    ] }
+                ] },
+                { title: 'Overview', blocks: [
+                    { type: 'cards', cols: 2, items: [
+                        { h: 'The problem', p: 'Investors 50+ struggled to find key financial insights. Metrics lacked context, visuals felt decorative instead of informative, and fee information was hard to uncover—eroding clarity and trust.' },
+                        { h: 'The goal', p: 'Enhance clarity, trust, and usability for digitally active investors 50+. The work was driven by research, moderated tests, surveys, and accessibility priorities.' }
+                    ] }
+                ] },
+                { title: 'Audience', blocks: [
+                    { type: 'split',
+                      card: { h: 'User profile', p: ['Digitally active investors ages 50–70 who value straightforward wording, trust signals, and simplified navigation that tells a clear financial story.', 'They want reassurance that every step is purposeful, with language that reduces anxiety and highlights why actions matter.'] },
+                      figure: { src: A + 'vanguard/UX Persona.png', cap: 'Primary profile: digitally active investors ages 50–70.' } }
+                ] },
+                { title: 'Research & Discovery', blocks: [
+                    { type: 'cards', items: [
+                        { h: 'Listening & personas', p: '50–70 age group interviews and empathy work to surface needs for clarity, trust signals, and predictable next steps.' },
+                        { h: 'Usability testing', p: 'Think-aloud sessions and surveys with 50+ investors on the existing Year-in-Review revealed navigation confusion, jargon friction, and weak next-step guidance.' },
+                        { h: 'Insights → design', p: 'Guided anchors, plain language, contextual tooltips, and checklist clarity mapped directly to observed pain points.' }
+                    ] }
+                ] },
+                { title: 'User Testing Findings', blocks: [
+                    { type: 'cards', cols: 2, items: [
+                        { h: 'Study setup', p: '50+ participants evaluated the Year-in-Review prototype via think-aloud sessions, tasks, and pre/post surveys to measure comprehension, trust, and next-step clarity.' },
+                        { h: 'What worked', list: ['Clear language raised confidence and trust.', 'Progress indicators and checkmarks motivated completion.', 'Anchored steps and inline explanations reduced context switching.'] },
+                        { h: 'Minor problems', list: ['Abstract visuals felt unhelpful or unprofessional.', 'Users struggled to locate “Year in Review” and fee information.', 'Complex terminology still tripped up some participants.'] },
+                        { h: 'Major problems', list: ['Unclear where to go after finishing the Year-in-Review; checklist links felt abrupt.', 'Uncertain destinations made people hesitant to click and unsure how to return.', 'Advanced users wanted deeper breakdowns; beginners needed clearer metric explanations.'] }
+                    ] },
+                    { type: 'quotes', h: 'User voice', items: ['If I look at this checklist, I’m getting a little bit confused.', 'This kind of feels overwhelming, so I don’t know how those links work, or what is there on those pages?'] },
+                    { type: 'embed', label: 'MEJO_581_PRES.PDF — Testing report', src: A + 'vanguard/Mejo%20581%20Pres.pdf', ratio: '16/10' }
+                ] },
+                { title: 'Redesign Highlights', blocks: [
+                    { type: 'cards', items: [
+                        { h: 'Guided structure', list: ['Added visual anchors and numbered steps at the top.', 'Removed playful illustrations and refocused the hierarchy on readability.', 'Clear action labels: Edit Retirement, Review Contributions, Review Accounts, Goal Optimizer.'] },
+                        { h: 'Context & clarity', list: ['Contextual explanations, modals, and tooltips unpacked complex terms.', 'Narrative text explained why each section mattered.', 'Graphs tied directly to the insights they support.'] },
+                        { h: 'Tone for 50+ users', list: ['Reassuring language reduced anxiety.', 'Definitions via info icons and dropdown modals.', 'Predictable next-step flow removed end-of-journey confusion.'] }
+                    ] }
+                ] },
+                { title: 'Structure & Flows', blocks: [
+                    { type: 'text', p: ['Mapped the revised Year-in-Review structure and key flows to clarify entry points, task progression, and how users branch into deeper tasks without losing context.'] },
+                    { type: 'figures', cols: 1, items: [{ src: A + 'vanguard/Structure_Flows.png', cap: 'Updated structure and flows aligning the mac experience with the guided checkpoints.' }] }
+                ] },
+                { title: 'Wireframes', blocks: [
+                    { type: 'text', p: ['Initial sketches and grayscale frames to validate structure before adding visual polish and interactions.'] },
+                    { type: 'figures', items: [
+                        { src: A + 'vanguard/cards.png', cap: 'Sketches and card sorting to organize tasks and content.' },
+                        { src: A + 'vanguard/progress.png', cap: 'Progress tracking snapshots feeding mid-fi layout decisions.' }
+                    ] },
+                    { type: 'embed', label: 'FIGMA — Mid-fidelity wireframes', src: 'https://embed.figma.com/design/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?node-id=80303-49933&embed-host=share', ratio: '16/9', cap: '10+ grayscale/mid-fi screens vetted for hierarchy, flow, and terminology before hi-fi styling.' }
+                ] },
+                { title: 'Style Guide / UI Kit', blocks: [
+                    { type: 'text', p: ['Color palette, typography, and components aligned to Vanguard to keep the experience consistent end to end.'] },
+                    { type: 'figures', cols: 1, items: [{ src: A + 'vanguard/style.png', cap: 'Palette, type, and UI components used across the redesign.' }] }
+                ] },
+                { title: 'Challenges & Trade-offs', blocks: [
+                    { type: 'cards', items: [
+                        { h: 'Simplicity vs. depth', p: 'Balanced clarity for beginners with deeper breakdowns for advanced users by layering defaults, tooltips, and optional detail drawers.' },
+                        { h: 'Terminology vs. brevity', p: 'Kept language short but added inline definitions and info icons so jargon never blocks progress.' },
+                        { h: 'Guidance vs. clutter', p: 'Used numbered anchors and progress cues without overcrowding the UI, prioritizing readability over decorative visuals.' }
+                    ] }
+                ] },
+                { title: 'The Pitch', blocks: [
+                    { type: 'cards', items: [
+                        { h: '01', p: 'Lead with a signature flow: numbered anchors and plain-language action labels (Edit Retirement, Review Contributions, Review Accounts, Goal Optimizer) that create a predictable path for 50+ users.' },
+                        { h: '02', p: 'Replaces playful visuals with a readability-first hierarchy, tying graphs directly to insights and pairing each step with a short “why this matters” narrative.' },
+                        { h: '03', p: 'Builds confidence through contextual tooltips, info icons, and reassuring copy that keep complex terms and next steps clear—reducing end-of-journey confusion and anxiety.' }
+                    ] }
+                ] },
+                { title: 'Redesign PDF & Prototypes', blocks: [
+                    { type: 'embed', label: 'FINAL_PITCH.PDF', src: A + 'vanguard/Final%20Pitch.pdf', ratio: '16/10' },
+                    { type: 'embeds', items: [
+                        { label: 'Low-Fidelity Wireframes', src: 'https://embed.figma.com/proto/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?page-id=80354%3A7514&node-id=80354-7515&viewport=159%2C-934%2C0.16&scaling=scale-down&content-scaling=fixed&starting-point-node-id=80354%3A7515&embed-host=share' },
+                        { label: 'High-Fidelity Wireframes', src: 'https://embed.figma.com/proto/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?page-id=80303%3A49933&node-id=80334-8475&viewport=274%2C-1560%2C0.25&scaling=scale-down&content-scaling=fixed&starting-point-node-id=80334%3A8475&embed-host=share' }
+                    ] },
+                    { type: 'caption', text: '20+ hi-fi panels across the mac flow.' }
+                ] },
+                { title: 'Reflection', blocks: [
+                    { type: 'text', p: ['This redesign pairs straightforward language with a guided structure to lower friction for a regulated, high-stakes flow. Next iterations would A/B test the numbered path, refine checklist clarity, and expand analytics around where investors pause after reading their performance story.'] }
+                ] }
+            ]
+        },
+        'Swiped': {
+            file: 'SWIPED.APP',
+            icon: '🥪',
+            eyebrow: 'Full Stack Development · Product Design',
+            title: 'Swiped: Meal Swaps Made Easy',
+            lede: 'A full-stack Next.js app that lets classmates buy and sell UNC dining swipes with live chat, NutriAI assistance, and a dashboard for listings and history—built for COMP 426.',
+            cover: A + 'swiped/alt_cover.png',
+            meta: [['Team', 'Logan Oscher, Ryder, Lauren, Clay'], ['Course', 'COMP 426 final project'], ['Tools', 'Next.js, React, Supabase, Drizzle, Tailwind, OpenAI API']],
+            actions: [
+                { label: '🌐 OPEN LIVE APP', href: 'https://swipedunc.vercel.app/', color: 'bg-pink-200 hover:bg-pink-300' }
+            ],
+            page: '../../swiped-case-study.html',
+            sections: [
+                { title: 'App Snapshot', blocks: [
+                    { type: 'cards', items: [
+                        { h: 'Problem', p: 'Students with dining plans ended every week with unused swipes while classmates without plans struggled to afford campus meals.' },
+                        { h: 'Goal', p: 'Make exchanging swipes feel safe, fast, and fair with authenticated accounts, clear listings, and live chat.' },
+                        { h: 'Outcome', p: 'Full-stack web app with Supabase-authenticated accounts, live marketplace to sell/buy swipes, real-time chat per listing, and an AI nutrition planner backed by Supabase Realtime.' }
+                    ] }
+                ] },
+                { title: 'Why we built it', blocks: [
+                    { type: 'cards', cols: 2, items: [
+                        { h: 'Opportunity', p: 'Existing “group chat trading” was messy and slow. We saw a chance to replace ad-hoc posts with a structured marketplace where listings, pricing, and chat stay in one place.' },
+                        { h: 'Approach', p: 'Full-stack sprint: Next.js + TypeScript with Tailwind/shadcn UI, Supabase for auth/DB/Realtime, Drizzle + tRPC for type-safe data, and a scraper-fed OpenAI nutrition assistant.' }
+                    ] }
+                ] },
+                { title: 'What we built', blocks: [
+                    { type: 'cards', cols: 2, items: [
+                        { h: 'Account Management', p: 'Supabase Auth sign-up/login, profiles with display name, username, avatar, theme preference, and logout from Settings.' },
+                        { h: 'Marketplace & Chat', p: 'Create and manage sell listings; buyers can purchase at asking price or negotiate via one-to-one chat powered by Supabase Realtime with unread counts.' },
+                        { h: 'NutriAI Assistant', p: 'OpenAI-backed chat answers nutrition questions about UNC dining halls using scraped menu data; prompt guards keep replies nutrition-only.' },
+                        { h: 'Dashboard & History', p: 'Weekly activity, balances, and transaction tables (Recharts + tables) to audit purchases and sales across the semester.' }
+                    ] }
+                ] },
+                { title: 'Key Flows', blocks: [
+                    { type: 'text', p: ['Core flows: create a sell listing, browse/buy or negotiate, and keep the deal in-sync with live chat.'] },
+                    { type: 'split',
+                      figure: { src: A + 'swiped/sell.png', cap: 'Create a listing with dining hall, availability window, price, and notes.' },
+                      card: { h: 'Flow details', list: ['Sellers set hall, window, price, and notes; listings can be edited or cancelled anytime.', 'Buyers can purchase at ask or start a negotiation inside the per-listing chat.', 'Supabase Realtime updates listing status and chat instantly without refreshes.'] } }
+                ] },
+                { title: 'AI Nutrition Planner', blocks: [
+                    { type: 'cards', items: [
+                        { h: 'What it does', p: 'Students ask about dining hall foods, nutrition details, or meal ideas; responses come back instantly in-app and update in the chat thread.' },
+                        { h: 'How it works', p: 'OpenAI API generates answers scoped to scraped menu data; Supabase Realtime inserts broadcast new chat messages so the answer appears instantly for the asker.' },
+                        { h: 'Guardrails', p: 'Prompt engineering forces nutrition-only responses, blocking homework or unrelated topics to keep the tool on-mission.' }
+                    ] }
+                ] },
+                { title: 'Product Screens', blocks: [
+                    { type: 'figures', items: [
+                        { src: A + 'swiped/signup.png', cap: 'Supabase Auth sign-up with school email keeps accounts tied to students.' },
+                        { src: A + 'swiped/chat.png', cap: 'Per-listing chat keeps negotiations and confirmations traceable.' },
+                        { src: A + 'swiped/buy.png', cap: 'Buy flow shows cafeteria, timing, and pricing before you commit.' },
+                        { src: A + 'swiped/dashboard.png', cap: 'Dashboard shows active listings, recent activity, and balances.' },
+                        { src: A + 'swiped/convo.png', cap: 'Chat threads keep negotiation history and confirmations in one place.' }
+                    ] }
+                ] },
+                { title: 'Dark Mode Snapshots', blocks: [
+                    { type: 'figures', cols: 3, items: [
+                        { src: A + 'swiped/dark_dash.png', cap: 'Dark dashboard keeps hierarchy with bold chips for status.' },
+                        { src: A + 'swiped/dark_buy.png', cap: 'Buy flow in dark mode retains clear primary/secondary actions.' },
+                        { src: A + 'swiped/dark_convo.png', cap: 'Chat in dark mode stays readable with accent highlights.' }
+                    ] }
+                ] },
+                { title: 'Build details', blocks: [
+                    { type: 'cards', items: [
+                        { h: 'Tech stack', p: 'Next.js 15 + TypeScript with tRPC, Tailwind + shadcn/ui, Recharts; Supabase Auth/Postgres/Realtime with Drizzle ORM for schema + queries.' },
+                        { h: 'Data pipeline', p: 'Cheerio/TSX script scrapes the dining hall site (npm run scrape-cds-menu) to keep menus current for listings and NutriAI context.' },
+                        { h: 'Realtime + AI safety', p: 'Supabase Realtime channels broadcast new listings, negotiations, and AI messages instantly; OpenAI prompts are scoped to nutrition to block unrelated questions.' },
+                        { h: 'Env & tooling', p: '.env.local with OPENAI_KEY, DATABASE_URL, NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY; lint/build scripts keep the repo production-ready.' },
+                        { h: 'Nutrition guardrails', p: 'NutriAI prompt engineering keeps responses nutrition-only, using scraped menu data to avoid off-topic answers.' },
+                        { h: 'Traceable negotiations', p: 'One-to-one chat per listing replaces ad-hoc DMs so pricing, timing, and decisions stay in a single thread.' }
+                    ] }
+                ] },
+                { title: 'Live Web App', blocks: [
+                    { type: 'text', p: ['Explore the responsive web build of Swiped below or open it in a new tab.'] },
+                    { type: 'embed', label: 'https://swipedunc.vercel.app', src: 'https://swipedunc.vercel.app/', ratio: '16/10' }
+                ] }
+            ]
+        },
+        'DinkLink': {
+            file: 'DINKLINK.FIG',
+            icon: '🏓',
+            eyebrow: 'UI/UX · Product Design',
+            title: 'DinkLink: Pickleball Matchmaking',
+            lede: 'Building a mobile product that makes it easy for local players to find partners, organize matches, and keep up with their progress without getting lost in menus.',
+            cover: A + 'portfolio/dinklink.png',
+            meta: [['Team', 'Logan Oscher, Grant, Anqi'], ['Tools', 'Figma, FigJam, UserTesting'], ['Course', 'MEJO 433, Final Project']],
+            actions: [
+                { label: '🎨 VIEW ON BEHANCE', href: 'https://www.behance.net/gallery/226078383/DinkLink-Final-Group-Project-%28Spring-25%29', color: 'bg-purple-200 hover:bg-purple-300' }
+            ],
+            page: '../../dinklink-case-study.html',
+            sections: [
+                { title: 'Overview', blocks: [
+                    { type: 'text', p: ['DinkLink connects recreational and competitive pickleball players through a simple profile, matchmaking, and messaging experience. The goal was to reduce friction for pick-up matches while highlighting the stats and context players need to feel confident when reaching out.'] },
+                    { type: 'cards', items: [
+                        { h: 'Problem', p: 'Local players struggled to discover partners who match their skill, schedule, and preferred courts.' },
+                        { h: 'Outcome', p: 'A streamlined flow that surfaces nearby players, courts, and recent results in one glanceable feed.' },
+                        { h: 'Impact', p: 'Clearer onboarding, stronger profile signals, and faster conversations increased successful match requests in testing.' }
+                    ] }
+                ] },
+                { title: 'Discovery & Research', blocks: [
+                    { type: 'text', p: ['I interviewed five recreational players and mapped their current tools: text chains, Facebook groups, and ad-hoc spreadsheets to track scores. The common friction points were confidence in a partner’s skill, knowing which courts were free, and coordinating logistics without endless back-and-forth.'] },
+                    { type: 'list', items: ['Players needed a quick read on skill level, preferred times, and recent matches.', 'Court availability and distance were key deciding factors when accepting an invite.', 'Messaging needed to stay lightweight, with match details attached to avoid confusion.'] }
+                ] },
+                { title: 'Design Approach', blocks: [
+                    { type: 'text', p: ['I built the interface in Figma with a focus on clarity: minimal chrome, strong typography, and modular cards that keep stats, partners, and court info aligned. I kept the visual language calm and confident so newcomers feel welcome while advanced players still get the details they expect.'] },
+                    { type: 'cards', items: [
+                        { h: 'Profile clarity', p: 'Progression badges, win/loss summaries, and common availability quickly communicate fit.' },
+                        { h: 'Matchmaking', p: 'Filters for distance, skill tier, and preferred format reduce the time to find a partner.' },
+                        { h: 'Messaging', p: 'Contextual threads attach location, time, and gear notes so players stay on the same page.' }
+                    ] }
+                ] },
+                { title: 'Solution Highlights', blocks: [
+                    { type: 'text', p: ['The final flow centers around a home dashboard that balances discovery with action. Players can move from browsing to inviting in under three taps while keeping court logistics transparent.'] },
+                    { type: 'cards', items: [
+                        { h: 'Home feed', p: 'Nearby partners, suggested courts, and recent matches appear in a single vertically scrollable stream.' },
+                        { h: 'Match request', p: 'Quick-select time blocks and skill tiers auto-populate invites to cut down on coordination messages.' },
+                        { h: 'Stats & history', p: 'Lightweight charts surface momentum without overwhelming casual players.' }
+                    ] },
+                    { type: 'text', p: ['Building around reusable cards meant the system stayed consistent across the dashboard, player profiles, and court pages, making handoff easy and keeping the learning curve low.'] }
+                ] },
+                { title: 'Outcomes & Next Steps', blocks: [
+                    { type: 'text', p: ['Testers were able to create a profile and send their first invite in under three minutes. For a next iteration, I plan to pilot a lightweight availability calendar and integrate local club schedules.'] }
+                ] }
+            ]
+        },
+        'eBay': {
+            file: 'EBAY_REDESIGN.FIG',
+            icon: '🛍️',
+            eyebrow: 'UI/UX · Redesign',
+            title: 'eBay Interface Redesign',
+            lede: 'Responsive UI redesign of eBay’s product pages and bidding interactions focused on clarity, hierarchy, and ease of use.',
+            cover: A + 'portfolio/ebayredesign.png',
+            meta: [['Scope', 'Product page, error screen, navigation components']],
+            actions: [
+                { label: '🎨 VIEW ON BEHANCE', href: 'https://www.behance.net/gallery/239575167/Ebay-Feature-Redesign-Project', color: 'bg-purple-200 hover:bg-purple-300' }
+            ],
+            sections: [
+                { title: 'Overview', blocks: [
+                    { type: 'text', p: ['I reimagined the eBay browsing and product-detail experience with a modern layout and simplified user flow. This project focused on reducing visual clutter, strengthening the hierarchy of information, and improving the bidding and product selection process.', 'I redesigned the product page, error screen, and navigation components to make the platform feel more intuitive and consistent across devices. The final system presents a cleaner shopping experience with clear call-to-actions and a more user-friendly structure.'] }
+                ] },
+                { title: 'Redesign Screens', blocks: [
+                    { type: 'figures', cols: 1, items: [{ src: A + 'portfolio/ebayredesign.png', cap: 'A modernized redesign of a select few of eBay’s interfaces with simplified layouts and a cleaner responsive user experience.' }] },
+                    { type: 'caption', text: 'The full set of screens lives on Behance.' }
+                ] }
+            ]
+        },
+        'UNCHockey': {
+            file: 'UNC_HOCKEY.GFX',
+            icon: '🏒',
+            eyebrow: 'Digital Media & Graphic Design',
+            title: 'UNC Hockey Graphic Collection',
+            lede: 'Social media graphic collection for UNC Hockey featuring game promotions, countdowns, and team-focused visual branding.',
+            cover: A + 'portfolio/Hockey.png',
+            meta: [['Platform', 'Instagram & social']],
+            actions: [
+                { label: '🎨 VIEW ON BEHANCE', href: 'https://www.behance.net/gallery/239582165/UNC-Hockey-Graphic-Designs', color: 'bg-purple-200 hover:bg-purple-300' }
+            ],
+            sections: [
+                { title: 'Overview', blocks: [
+                    { type: 'text', p: ['I created a series of promotional graphics for UNC Hockey that highlight major games, countdowns, and announcements. My goal was to capture the energy of UNC athletics while keeping the visuals bold and recognizable for fans.', 'Each piece uses consistent typography, color treatments, and layout patterns to reinforce the team identity. The graphics were built for Instagram and other social platforms and were designed to stand out in fast-scrolling feeds.'] }
+                ] },
+                { title: 'Graphics', blocks: [
+                    { type: 'figures', cols: 1, items: [{ src: A + 'portfolio/Hockey.png', cap: 'A series of promotional social graphics with bold visuals, consistent branding, and high-energy layouts.' }] },
+                    { type: 'caption', text: 'The full collection lives on Behance.' }
+                ] }
+            ]
+        }
+    };
+
+    // Filter Logic
+    function setFilter(category, buttonEl) {
+        playPixelBeep(420, 'square', 0.05);
+
+        document.querySelectorAll('.sub-filter').forEach(btn => {
+            btn.classList.remove('bg-pink-200');
+            btn.classList.add('bg-white');
+        });
+        if (buttonEl) {
+            buttonEl.classList.remove('bg-white');
+            buttonEl.classList.add('bg-pink-200');
+        }
+
+        const cards = document.querySelectorAll('.project-item');
+        cards.forEach(card => {
+            if (category === 'all') {
+                card.style.display = 'flex';
+            } else if (card.getAttribute('data-category') === category) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    function handleFilterSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.project-item');
+        cards.forEach(card => {
+            const title = (card.getAttribute('data-title') || '').toLowerCase();
+            const stack = (card.getAttribute('data-stack') || '').toLowerCase();
+            if (!q || title.includes(q) || stack.includes(q)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Case Study Viewer: renders a case study as stacked retro windows
+    const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const assetUrl = (s) => s.replace(/ /g, '%20');
+    const BAR_COLORS = ['from-pink-200 to-purple-200', 'from-sky-200 to-indigo-200', 'from-amber-200 to-pink-200', 'from-emerald-200 to-sky-200', 'from-purple-200 to-rose-200'];
+    const CARD_COLORS = ['bg-pink-100', 'bg-sky-100', 'bg-amber-100', 'bg-emerald-100', 'bg-purple-100', 'bg-rose-100'];
+    const GRID_COLS = { 1: '', 2: 'md:grid-cols-2', 3: 'md:grid-cols-3' };
+
+    function csList(items) {
+        return `<ul class="space-y-1.5">${items.map(li => `<li class="flex gap-2"><span class="text-pink-600 flex-shrink-0">▸</span><span>${esc(li)}</span></li>`).join('')}</ul>`;
+    }
+
+    function csCard(card, i) {
+        const paras = [].concat(card.p || []).map(p => `<p>${esc(p)}</p>`).join('');
+        return `<div class="retro-card bg-white rounded overflow-hidden flex flex-col">
+            <div class="${CARD_COLORS[i % CARD_COLORS.length]} border-b-2 border-slate-800 px-3 py-1.5 font-code text-xs font-bold text-slate-900">${esc(card.h)}</div>
+            <div class="p-3 font-vt text-lg text-slate-700 leading-snug space-y-2">${paras}${card.list ? csList(card.list) : ''}</div>
+        </div>`;
+    }
+
+    function csFigure(fig) {
+        return `<figure class="bg-white border-2 border-slate-800 shadow-[3px_3px_0px_#1e293b] overflow-hidden">
+            <img src="${esc(assetUrl(fig.src))}" alt="${esc(fig.cap)}" loading="lazy" class="w-full h-auto block">
+            <figcaption class="border-t-2 border-slate-800 bg-slate-50 px-3 py-2 font-code text-[11px] text-slate-600">${esc(fig.cap)}</figcaption>
+        </figure>`;
+    }
+
+    function csEmbed(e) {
+        return `<div class="border-2 border-slate-800 shadow-[3px_3px_0px_#1e293b] bg-white overflow-hidden">
+            <div class="bg-slate-800 text-white px-3 py-1 flex items-center justify-between gap-3 font-code text-[11px]">
+                <span class="truncate">▶ ${esc(e.label)}</span>
+                <a href="${esc(e.src)}" target="_blank" rel="noreferrer" class="flex-shrink-0 underline hover:text-pink-300">OPEN ↗</a>
+            </div>
+            <iframe src="${esc(e.src)}" title="${esc(e.label)}" loading="lazy" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" class="w-full block bg-slate-100" style="aspect-ratio:${e.ratio || '4/3'}"></iframe>
+        </div>${e.cap ? `<p class="font-code text-[11px] text-slate-500 mt-2">${esc(e.cap)}</p>` : ''}`;
+    }
+
+    function csBlock(b) {
+        switch (b.type) {
+            case 'text':
+                return `<div class="font-vt text-xl text-slate-700 leading-snug space-y-3">${b.p.map(p => `<p>${esc(p)}</p>`).join('')}</div>`;
+            case 'cards': {
+                const cols = b.cols || Math.min(b.items.length, 3);
+                return `<div class="grid grid-cols-1 ${GRID_COLS[cols]} gap-4">${b.items.map(csCard).join('')}</div>`;
+            }
+            case 'list':
+                return `<div class="bg-slate-50 border-2 border-slate-800 shadow-[inset_2px_2px_0px_#cbd5e1] p-3 font-vt text-lg text-slate-700">${csList(b.items)}</div>`;
+            case 'figures': {
+                const cols = b.cols || 2;
+                return `<div class="grid grid-cols-1 ${GRID_COLS[cols]} gap-4 ${b.narrow ? 'max-w-md mx-auto' : ''} items-start">${b.items.map(csFigure).join('')}</div>`;
+            }
+            case 'split':
+                return `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">${csCard(b.card, 0)}${csFigure(b.figure)}</div>`;
+            case 'quotes':
+                return `<div class="bg-amber-200 border-2 border-slate-800 shadow-[4px_4px_0px_#1e293b]">
+                    <div class="bg-amber-100 border-b-2 border-slate-800 px-3 py-1 font-pixel text-[9px] font-bold">💬 ${esc(b.h)}</div>
+                    <div class="p-3 space-y-2 font-vt text-xl text-slate-800">${b.items.map(q => `<p>“${esc(q)}”</p>`).join('')}</div>
+                </div>`;
+            case 'embed':
+                return `<div>${csEmbed(b)}</div>`;
+            case 'embeds':
+                return `<div class="grid grid-cols-1 md:grid-cols-2 gap-4">${b.items.map(e => `<div>${csEmbed({ ...e, ratio: '4/3' })}</div>`).join('')}</div>`;
+            case 'caption':
+                return `<p class="font-code text-xs text-slate-500">${esc(b.text)}</p>`;
+            case 'sources':
+                return `<ol class="list-decimal pl-5 space-y-2 font-code text-[11px] text-slate-600 break-words">${b.items.map(s => `<li>${esc(s)}</li>`).join('')}</ol>`;
+            default:
+                return '';
+        }
+    }
+
+    function renderCaseStudy(cs) {
+        const meta = cs.meta.map(([k, v]) => `<div class="flex justify-between gap-4"><span class="text-slate-500 flex-shrink-0">${esc(k.toUpperCase())}:</span><span class="font-bold text-slate-800 text-right">${esc(v)}</span></div>`).join('');
+        const actions = cs.actions.map(a => `<a class="retro-button ${a.color} px-4 py-2 font-pixel text-xs font-bold text-slate-900 flex items-center gap-2" href="${esc(a.href)}" target="_blank" rel="noreferrer">${esc(a.label)}</a>`).join('');
+        const hero = `<section class="retro-window">
+            <div class="bg-gradient-to-r from-amber-200 via-pink-200 to-indigo-200 border-b-2 border-slate-800 px-4 py-2 font-pixel text-[11px] font-bold text-slate-900 flex items-center gap-2">
+                <span>${cs.icon}</span><span>00 // README.TXT</span>
+            </div>
+            <div class="p-5 bg-white grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
+                <div class="lg:col-span-3 space-y-3">
+                    <span class="inline-block bg-amber-100 border border-slate-800 font-pixel text-[9px] px-2 py-0.5 text-amber-900 font-bold">${esc(cs.eyebrow.toUpperCase())}</span>
+                    <h2 class="font-vt text-3xl sm:text-4xl text-pink-600 font-bold leading-none tracking-wide">${esc(cs.title)}</h2>
+                    <p class="font-vt text-xl sm:text-2xl text-slate-700 leading-snug">${esc(cs.lede)}</p>
+                    <div class="p-3 bg-yellow-50 border-2 border-slate-800 font-code text-xs space-y-1">${meta}</div>
+                    ${actions ? `<div class="pt-1 flex flex-wrap gap-2.5">${actions}</div>` : ''}
+                </div>
+                <div class="lg:col-span-2">${csFigure({ src: cs.cover, cap: cs.title })}</div>
+            </div>
+        </section>`;
+        const sections = cs.sections.map((s, i) => {
+            const n = String(i + 1).padStart(2, '0');
+            return `<section class="retro-window">
+                <div class="bg-gradient-to-r ${BAR_COLORS[i % BAR_COLORS.length]} border-b-2 border-slate-800 px-4 py-2 flex justify-between items-center">
+                    <div class="font-pixel text-[11px] font-bold text-slate-900">${n} // ${esc(s.title)}</div>
+                    <div class="flex gap-1">
+                        <span class="w-4 h-4 bg-white border border-slate-800 text-[10px] font-bold flex items-center justify-center">_</span>
+                        <span class="w-4 h-4 bg-white border border-slate-800 text-[10px] font-bold flex items-center justify-center">□</span>
+                    </div>
+                </div>
+                <div class="p-4 sm:p-5 bg-white space-y-4">${s.blocks.map(csBlock).join('')}</div>
+            </section>`;
+        }).join('');
+        return hero + sections;
+    }
+
+    // Modal Handlers
+    function openProjectModal(key) {
+        playPixelBeep(587, 'triangle', 0.08);
+        const cs = caseStudies[key];
+        if (!cs) return;
+
+        document.getElementById('modal-icon').textContent = cs.icon;
+        document.getElementById('modal-header-title').textContent = `C:\\PORTFOLIO\\${cs.file} // CASE_STUDY`;
+        document.getElementById('modal-status').textContent = `${cs.sections.length + 1} windows · ${cs.eyebrow}`;
+        const pageLink = document.getElementById('modal-page-link');
+        if (cs.page) {
+            pageLink.href = cs.page;
+            pageLink.classList.remove('hidden');
+        } else {
+            pageLink.classList.add('hidden');
+        }
+
+        const body = document.getElementById('modal-body');
+        body.innerHTML = renderCaseStudy(cs);
+        body.scrollTop = 0;
+
+        const modal = document.getElementById('project-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+        const modal = document.getElementById('project-modal');
+        if (modal.classList.contains('hidden')) return;
+        playPixelBeep(330, 'square', 0.05);
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        // Clearing the body stops embedded video and live-app iframes
+        document.getElementById('modal-body').innerHTML = '';
+        document.body.style.overflow = '';
+    }
+
+    // Quick Trigger Modal (Contact)
+    function triggerContactModal() {
+        playPixelBeep(520, 'sine', 0.1);
+        document.getElementById('quick-modal-title').innerHTML = '<span>✉️</span><span>TRANSMIT_DISPATCH.EXE // LOGAN_OSCHER</span>';
+        document.getElementById('quick-modal-body').innerHTML = `
+            <div class="space-y-3 font-vt text-2xl">
+                <p class="text-slate-700 leading-snug">Have an idea, project, or want to say hello? Send a note directly to <span class="text-pink-600 font-bold">loganosc@unc.edu</span>:</p>
+                <form action="mailto:loganosc@unc.edu" method="GET" class="space-y-3 font-vt text-xl">
+                    <div>
+                        <label class="block font-code text-xs font-bold mb-1">TRANSMITTER HANDLE / NAME:</label>
+                        <input type="text" name="name" required placeholder="e.g. Alex" class="w-full border-2 border-slate-800 px-2 py-1 focus:outline-none focus:bg-pink-50 font-vt text-2xl"/>
+                    </div>
+                    <div>
+                        <label class="block font-code text-xs font-bold mb-1">SUBJECT:</label>
+                        <input type="text" name="subject" required value="Hello Logan! [Portfolio Dispatch]" class="w-full border-2 border-slate-800 px-2 py-1 focus:outline-none focus:bg-pink-50 font-vt text-2xl"/>
+                    </div>
+                    <div>
+                        <label class="block font-code text-xs font-bold mb-1">MESSAGE PAYLOAD:</label>
+                        <textarea name="body" required rows="3" placeholder="Enter transmission..." class="w-full border-2 border-slate-800 px-2 py-1 focus:outline-none focus:bg-pink-50 resize-none font-vt text-2xl"></textarea>
+                    </div>
+                    <button type="submit" class="retro-button w-full bg-purple-300 py-2.5 font-pixel text-xs font-bold hover:bg-purple-400">
+                        ✉️ TRANSMIT VIA EMAIL (loganosc@unc.edu)
+                    </button>
+                </form>
+            </div>
+        `;
+        const modal = document.getElementById('quick-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeQuickModal() {
+        const modal = document.getElementById('quick-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    // Scroll helper
+    function scrollToGallery() {
+        playPixelBeep(340, 'square', 0.06);
+        const gallery = document.getElementById('gallery-pane');
+        if (gallery) {
+            gallery.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // About Modal
+    function openAboutModal() {
+        playPixelBeep(392, 'square', 0.06);
+        const modal = document.getElementById('about-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeAboutModal() {
+        const modal = document.getElementById('about-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    // Humanity Verification Handler
+    function confirmHuman(isHuman) {
+        playPixelBeep(isHuman ? 523 : 220, 'square', 0.1);
+        const resp = document.getElementById('humanResponse');
+        if (resp) {
+            if (isHuman) {
+                resp.textContent = ">>> Carbon-based life validated. Welcome!";
+                resp.className = "font-code text-xs font-bold text-emerald-700 min-h-[1.25rem] text-center";
+            } else {
+                resp.textContent = ">>> Synthetic agent detected. Commencing beep-boop.";
+                resp.className = "font-code text-xs font-bold text-purple-700 min-h-[1.25rem] text-center";
+            }
+        }
+    }
+
+    // Close Modals on ESC or outside click
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeProjectModal();
+            closeQuickModal();
+            closeAboutModal();
+        }
+    });
+
+    document.getElementById('project-modal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'project-modal') closeProjectModal();
+    });
+    
+    document.getElementById('about-modal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'about-modal') closeAboutModal();
+    });
+
+    document.getElementById('quick-modal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'quick-modal') closeQuickModal();
+    });
+</script>
+
+
+
+
+
+
+
+
+</body></html>

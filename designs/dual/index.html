@@ -1,0 +1,1657 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<title>System 7.5 Finder // Logan Oscher Portfolio Workspace</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&amp;family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet" class="">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eeecfa;
+      border: 1px solid #1a1b24;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f4c464;
+      border: 1px solid #1a1b24;
+      box-shadow: inset 1px 1px 0px #ffffff;
+    }
+
+    /* Classic Mac System 7 horizontal pinstriped header */
+    .mac-pinstripes {
+      background: repeating-linear-gradient(
+        to bottom,
+        #2a2b36,
+        #2a2b36 1px,
+        #e3e1ee 1px,
+        #e3e1ee 3px
+      );
+    }
+
+    .retro-btn {
+      box-shadow: 2px 2px 0px #1a1b24;
+      transition: transform 0.05s, box-shadow 0.05s;
+    }
+    .retro-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px #1a1b24;
+    }
+    .retro-well {
+      box-shadow: inset 1px 1px 0px #807665, inset -1px -1px 0px #ffffff;
+    }
+
+    /* Embedded case study content (markup from portfolio-main) */
+    .cs { font-family: "JetBrains Mono", monospace; font-size: 12.5px; line-height: 1.65; color: #1a1b24; user-select: text; overflow-wrap: anywhere; }
+    .cs * { min-width: 0; max-width: 100%; }
+    .cs > section { padding: 1.25rem 0; border-top: 2px dashed #d2c5b1; }
+    .cs > section:first-child { padding-top: 0; border-top: 0; }
+    .cs p { margin: 0 0 .6rem; color: #4e4637; }
+    .cs h1.case-study-title { font-size: 22px; line-height: 1.25; font-weight: 800; margin: .5rem 0 .6rem; color: #1a1b24; }
+    .cs h2 { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 .9rem; padding: 2px 8px; background: #dee1ff; color: #001159; border: 2px solid #1a1b24; box-shadow: 2px 2px 0 #1a1b24; }
+    .cs > section:nth-of-type(3n+1) h2 { background: #ffd8e7; color: #3a0525; }
+    .cs > section:nth-of-type(3n+2) h2 { background: #ffdea4; color: #261900; }
+    .cs h3 { font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: #4156ba; margin: 0 0 .4rem; }
+    .cs a:not(.btn) { color: #4156ba; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+    .cs ul { margin: 0 0 .6rem; }
+    .cs .case-list, .cs .source-list, .cs .case-card ul { list-style: square; padding-left: 1.2rem; }
+    .cs .case-list li, .cs .source-list li { margin-bottom: .3rem; color: #4e4637; }
+    .cs .source-list li { font-size: 11px; word-break: break-word; }
+    .cs .case-study-hero__grid { display: grid; gap: 1.25rem; align-items: center; }
+    @media (min-width: 768px) { .cs .case-study-hero__grid { grid-template-columns: 1.1fr 1fr; } }
+    .cs .case-study-eyebrow { display: inline-block; font-size: 10px; font-weight: 800; text-transform: uppercase; padding: 1px 6px; margin: 0; background: #ffd8e7; color: #3a0525; border: 1px solid #1a1b24; }
+    .cs .case-study-lede { font-size: 13px; color: #1a1b24; }
+    .cs .case-study-meta { list-style: none; padding: .5rem .75rem; margin: .75rem 0; background: #f4f2ff; border: 1px solid #1a1b24; box-shadow: inset 1px 1px 0 #807665, inset -1px -1px 0 #fff; font-size: 11px; }
+    .cs .case-study-meta li { padding: 2px 0; font-weight: 600; }
+    .cs .case-study-meta li::before { content: "▸ "; color: #7b5900; }
+    .cs figure { margin: 0; }
+    .cs img { display: block; width: 100%; height: auto; border: 2px solid #1a1b24; background: #e8e7f4; }
+    .cs .case-study-hero figure img { box-shadow: 4px 4px 0 #1a1b24; }
+    .cs figcaption, .cs .media-caption { font-size: 10.5px; color: #807665; margin-top: .4rem; }
+    .cs .case-grid { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: .6rem; }
+    .cs .case-card, .cs .muted-panel { background: #fff; border: 2px solid #1a1b24; box-shadow: 3px 3px 0 #1a1b24; padding: .75rem .85rem; }
+    .cs .case-card p:last-child { margin-bottom: 0; }
+    .cs .muted-panel, .cs .case-section--muted .case-card { background: #f4f2ff; }
+    .cs .muted-panel { margin-top: 1rem; }
+    .cs .user-testing-layout, .cs .prototype-layout { display: grid; gap: .9rem; }
+    .cs .user-testing-left { display: grid; gap: .9rem; }
+    @media (min-width: 768px) { .cs .user-testing-layout, .cs .prototype-layout { grid-template-columns: 1fr 1fr; } }
+    .cs .prototype-full { margin-top: 1rem; }
+    .cs .case-figure, .cs .case-media, .cs .figma-embed, .cs .pdf-embed { margin: .8rem 0; }
+    .cs .case-figure--narrow { max-width: 560px; }
+    .cs iframe, .cs object { display: block; width: 100%; border: 2px solid #1a1b24; background: #e8e7f4; }
+    .cs .figma-embed { height: 480px; }
+    .cs .figma-embed--compact { height: 360px; }
+    .cs .figma-embed iframe, .cs .pdf-embed object, .cs .pdf-embed iframe { height: 100%; }
+    .cs .pdf-embed { height: 560px; }
+    .cs .pdf-embed--landscape { height: 380px; }
+    .cs .responsive-video iframe { aspect-ratio: 16 / 9; height: auto; }
+    .cs .case-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: .75rem; }
+    .cs .btn { display: inline-block; padding: 4px 12px; font-size: 11px; font-weight: 800; color: #6f5000; background: #f4c464; border: 2px solid #1a1b24; box-shadow: 2px 2px 0 #1a1b24; text-decoration: none; transition: transform .05s, box-shadow .05s; }
+    .cs .btn:active { transform: translate(2px, 2px); box-shadow: none; }
+</style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary": "#8b496a",
+            "background": "#fbf8ff",
+            "on-tertiary-fixed-variant": "#6f3251",
+            "surface-bright": "#fbf8ff",
+            "tertiary-fixed": "#ffd8e7",
+            "on-tertiary-fixed": "#3a0525",
+            "on-primary-fixed-variant": "#5d4200",
+            "surface-dim": "#dad9e6",
+            "surface-variant": "#e3e1ee",
+            "on-primary-container": "#0a1f44",
+            "on-surface-variant": "#4e4637",
+            "secondary-fixed": "#dee1ff",
+            "on-secondary-fixed": "#001159",
+            "on-secondary-fixed-variant": "#263ca1",
+            "surface-tint": "#7b5900",
+            "tertiary-fixed-dim": "#ffafd3",
+            "surface-container-high": "#e8e7f4",
+            "primary-container": "#c2f0ff",
+            "primary": "#184E79",
+            "on-secondary": "#ffffff",
+            "on-background": "#1a1b24",
+            "surface-container-low": "#f4f2ff",
+            "primary-fixed-dim": "#efbf60",
+            "surface-container": "#eeecfa",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#804060",
+            "secondary-container": "#8397ff",
+            "tertiary-container": "#ffb6d6",
+            "outline-variant": "#d2c5b1",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#4156ba",
+            "error": "#ba1a1a",
+            "primary-fixed": "#ffdea4",
+            "surface-container-highest": "#e3e1ee",
+            "on-secondary-container": "#0c288f",
+            "outline": "#807665",
+            "inverse-surface": "#2f303a",
+            "surface": "#fbf8ff",
+            "on-surface": "#1a1b24",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#efbf60",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#b9c3ff",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#f1effd",
+            "on-primary-fixed": "#261900"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "margin-desktop": "2.5rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2.5rem"
+          },
+          fontFamily: {
+            "headline-xl": ["Bricolage Grotesque"],
+            "headline-xl-mobile": ["Bricolage Grotesque"],
+            "body-md": ["JetBrains Mono"],
+            "headline-lg-mobile": ["Bricolage Grotesque"],
+            "headline-lg": ["Bricolage Grotesque"],
+            "body-sm": ["JetBrains Mono"],
+            "body-lg": ["JetBrains Mono"],
+            "headline-md": ["Bricolage Grotesque"],
+            "label-md": ["JetBrains Mono"],
+            "label-sm": ["JetBrains Mono"]
+          },
+          fontSize: {
+            "headline-xl": ["48px", { lineHeight: "56px", fontWeight: "800" }],
+            "headline-xl-mobile": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+            "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+            "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+            "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "label-md": ["13px", { lineHeight: "16px", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", fontWeight: "600" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#f7f5ff] font-body-md text-body-md text-on-surface min-h-screen overflow-x-hidden bg-[radial-gradient(#b9c3ff_1.5px,transparent_1.5px)] [background-size:18px_18px] pb-16 font-mono">
+<!-- ============================================================== -->
+<!-- 1. TOP SYSTEM7 / PASTELOS MENU BAR                             -->
+<!-- ============================================================== -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-high border-b-2 border-on-surface shadow-[0_2px_0px_#1a1b24]">
+<div class="h-8 px-3 sm:px-5 flex items-center justify-between font-label-sm text-label-sm select-none">
+<!-- Left Menu Options -->
+<div class="flex items-center gap-2 sm:gap-4">
+<div class="flex items-center gap-1.5 font-black text-on-surface cursor-pointer pr-1 border-r border-outline-variant" onclick="playRetroBeep(520, 'square'); showToast('System 7.5.3 [Y2K Pastel Edition] Online');">
+<span class="material-symbols-outlined text-[19px] text-primary">desktop_windows</span>
+<span class="tracking-tight font-mono font-bold text-[14px]">System7.os</span>
+<span class="text-[9px] px-1 bg-tertiary-container text-on-tertiary-container border border-on-surface rounded font-mono font-bold">LOGAN_26</span>
+</div>
+<nav class="flex items-center gap-1 sm:gap-2 text-[12px] font-bold">
+<div class="relative group">
+<button class="px-1.5 py-0.5 hover:bg-surface-variant rounded flex items-center gap-0.5">File</button>
+<div class="hidden group-hover:block absolute left-0 top-full bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] py-1 min-w-[140px] z-50">
+<button class="w-full text-left px-3 py-1 hover:bg-secondary-fixed text-[11px]" onclick="openModal('aboutModal')">About Me</button>
+<button class="w-full text-left px-3 py-1 hover:bg-secondary-fixed text-[11px]" onclick="openModal('resumeModal')">Open Resume ⌘O</button>
+<button class="w-full text-left px-3 py-1 hover:bg-secondary-fixed text-[11px]" onclick="filterCategory('all')">Show All Files</button>
+<div class="border-t border-outline-variant my-1"></div>
+<button class="w-full text-left px-3 py-1 hover:bg-error-container text-error text-[11px]" onclick="location.reload()">Reboot OS</button>
+</div>
+</div>
+<div class="relative group hidden sm:block">
+<button class="px-1.5 py-0.5 hover:bg-surface-variant rounded">Edit</button>
+<div class="hidden group-hover:block absolute left-0 top-full bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] py-1 min-w-[130px] z-50">
+<button class="w-full text-left px-3 py-1 hover:bg-secondary-fixed text-[11px]" onclick="copyEmail();">Copy Email</button>
+<button class="w-full text-left px-3 py-1 hover:bg-secondary-fixed text-[11px]" onclick="sortGallery('name')">Select All ⌘A</button>
+</div>
+</div>
+<div class="relative group hidden sm:block">
+<button class="px-1.5 py-0.5 hover:bg-surface-variant rounded">View</button>
+<div class="hidden group-hover:block absolute left-0 top-full bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] py-1 min-w-[140px] z-50">
+<button class="w-full text-left px-3 py-1 hover:bg-secondary-fixed text-[11px]" onclick="setViewMode('cards')">✓ by Large Icon</button>
+<button class="w-full text-left px-3 py-1 hover:bg-secondary-fixed text-[11px]" onclick="sortGallery('size')">Sort by Size</button>
+<button class="w-full text-left px-3 py-1 hover:bg-secondary-fixed text-[11px]" onclick="sortGallery('name')">Sort by Name</button>
+</div>
+</div>
+</nav>
+</div>
+<!-- Right System Indicators -->
+<div class="flex items-center gap-2 sm:gap-3">
+<div class="hidden md:flex items-center gap-1.5 px-2 py-0.5 bg-surface-container-lowest border border-outline shadow-[inset_1px_1px_0px_#807665]">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="text-[10px] text-on-surface-variant font-mono font-bold">RAM: 64MB OK</span>
+</div>
+<button class="flex items-center gap-1 px-1.5 py-0.5 bg-primary-container border border-on-surface retro-btn text-[10px] font-bold" id="soundToggleBtn" onclick="toggleAudioFx()" title="Audio Synthesizer FX">
+<span class="material-symbols-outlined text-[13px]">volume_up</span>
+<span class="hidden sm:inline">SFX: ON</span>
+</button>
+<div class="flex items-center gap-1 pl-1 border-l border-outline-variant font-mono text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px] text-secondary">schedule</span>
+<span id="sysClock" class="">12:36 PM</span>
+</div>
+<img alt="Logan Oscher" class="w-6 h-6 rounded-full border border-on-surface object-cover shadow-[1px_1px_0px_#1a1b24]" src="assets/avatar.png">
+</div>
+</div>
+</header>
+<!-- ============================================================== -->
+<!-- 2. DESKTOP MAIN CONTAINER                                      -->
+<!-- ============================================================== -->
+<main class="pt-11 px-3 sm:px-6 max-w-7xl mx-auto flex flex-col gap-4">
+<!-- AURA DECORATIVE BLOBS (Non-intrusive ambient background) -->
+<div class="pointer-events-none fixed -top-10 right-8 w-80 h-80 rounded-full bg-gradient-to-br from-tertiary-container/30 to-secondary-fixed/30 blur-3xl -z-10"></div>
+<div class="pointer-events-none fixed bottom-10 left-8 w-72 h-72 rounded-full bg-gradient-to-tr from-primary-fixed/40 to-tertiary-fixed/30 blur-2xl -z-10"></div>
+<!-- BREADCRUMB & TOOLBAR -->
+<div class="flex flex-wrap items-center justify-between gap-2.5 pt-1">
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1 border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24]"><span class="material-symbols-outlined text-[16px] text-primary">folder_open</span>
+<span class="font-mono text-[11px] font-bold text-on-surface">MacHD ▸ LoganOscher ▸ <span class="text-secondary font-black">Interactive_Works (6 items)</span></span></div>
+<div class="flex items-center gap-2"><button class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-bold border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] retro-btn flex items-center justify-center gap-1 hover:bg-secondary-fixed-dim" onclick="transmitContact()"><span class="material-symbols-outlined text-[14px] text-secondary">mail</span><span class="">Contact</span></button><a class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-bold border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] retro-btn flex items-center justify-center gap-1 hover:bg-tertiary-fixed-dim" href="https://www.behance.net/loganoscher" rel="noreferrer" target="_blank"><span class="material-symbols-outlined text-[14px]">open_in_new</span><span class="">Behance</span></a></div>
+</div>
+<!-- ============================================================== -->
+<!-- 3. MAIN WINDOW: DUAL-PANE FINDER WINDOW                        -->
+<!-- ============================================================== -->
+<section class="bg-surface-container-lowest border-2 border-on-surface shadow-[5px_5px_0px_#1a1b24] overflow-hidden" id="bioInspector">
+<!-- Inspector Titlebar with System 7 Pinstripes -->
+<header class="h-7 bg-primary-fixed px-3 border-b-2 border-on-surface flex items-center justify-between select-none relative"><div class="flex items-center gap-1.5 z-10"><span class="material-symbols-outlined text-[15px] text-on-primary-fixed-variant">article</span><span class="font-mono text-[12px] font-bold text-on-primary-fixed-variant tracking-wider">BIO_INSPECTOR.TXT // LOGAN_OSCHER</span></div></header>
+<!-- Inspector Inner Content -->
+<div class="p-3 sm:p-4 bg-surface-container-low/50 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+<!-- Creator Avatar & Bio Statement -->
+<div class="md:col-span-8 flex flex-col sm:flex-row items-start sm:items-center gap-3.5"><div class="w-12 h-12 shrink-0 bg-primary-fixed border-2 border-on-surface shadow-[2px_2px_0px_#1a1b24] flex items-center justify-center relative">
+<img alt="Logan Oscher" class="w-full h-full object-cover" src="assets/avatar.png">
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-secondary rounded-full border border-on-surface"></span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-mono text-[17px] text-on-surface font-bold">Logan Oscher</h2>
+<span class="px-2 py-0.5 bg-primary-container border border-on-surface text-on-primary-container text-[10px] font-mono font-bold">Designer &amp; Developer</span>
+<span class="font-mono text-[10px] text-outline">// UNC Chapel Hill (COMP &amp; MEJO)</span>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-1 leading-relaxed">
+<span class="text-tertiary font-bold">★ HELLO!:</span> I'm Logan, a UNC Computer Science + Media AD/PR Major interested in web design, graphic design, & software engineering.
+
+  </p>
+</div></div>
+<!-- Action Buttons & Transmission Monitor -->
+<div class="md:col-span-4 flex flex-col items-end justify-center gap-2 border-t md:border-t-0 md:border-l border-outline-variant pt-2 md:pt-0 md:pl-4"><div class="flex items-center gap-2 w-full justify-end flex-wrap sm:flex-nowrap"><button class="flex-1 sm:flex-initial px-2.5 py-1.5 bg-surface-container-lowest text-on-surface font-label-sm text-[11px] font-bold border-2 border-on-surface shadow-[2px_2px_0px_#1a1b24] retro-btn flex items-center justify-center gap-1 hover:bg-surface-container-high" onclick="openModal('aboutModal')"><span class="material-symbols-outlined text-[14px]">person</span><span class="">About.txt</span></button><button class="flex-1 sm:flex-initial px-2.5 py-1.5 bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-[11px] font-bold border-2 border-on-surface shadow-[2px_2px_0px_#1a1b24] retro-btn flex items-center justify-center gap-1 hover:bg-primary-container" onclick="openModal('resumeModal')"><span class="material-symbols-outlined text-[14px]">save</span><span class="">Resume.pdf</span></button></div></div>
+</div>
+</section><div class="mt-4 mb-8 bg-surface-container-lowest border-2 border-on-surface shadow-[6px_6px_0px_#1a1b24] flex flex-col w-full overflow-hidden">
+<!-- CLASSIC MAC SYSTEM 7 TITLEBAR WITH PINSTRIPES -->
+<header class="h-8 bg-surface-variant border-b-2 border-on-surface flex items-center justify-between px-2 select-none relative">
+<!-- Mac Close Box -->
+<button class="w-4 h-4 bg-surface-container-lowest border border-on-surface flex items-center justify-center retro-btn hover:bg-error-container shrink-0 z-10" onclick="showToast('Finder is root system shell: cannot close.'); playRetroBeep(280, 'sawtooth');" title="Close Window">
+<span class="w-1.5 h-1.5 bg-on-surface"></span>
+</button>
+<!-- Center Title with authentic pinstripes banner -->
+<div class="absolute inset-0 flex items-center justify-center px-8 pointer-events-none">
+<div class="w-full h-3 mac-pinstripes opacity-40"></div>
+<div class="absolute bg-surface-variant px-3 border-x border-on-surface flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">folder_special</span>
+<span class="font-mono text-[12px] font-bold tracking-wider text-on-surface uppercase">MacHD :: LoganOscher :: Interactive_Works</span>
+</div>
+</div>
+<!-- Mac Zoom Box -->
+<div class="flex items-center gap-1 z-10">
+<button class="w-4 h-4 bg-surface-container-lowest border border-on-surface flex items-center justify-center retro-btn shrink-0" onclick="showToast('Window scaled to maximum desktop bounds.'); playRetroBeep(520, 'sine');" title="Zoom Box">
+<span class="w-2 h-2 border border-on-surface"></span>
+</button>
+</div>
+</header>
+<!-- WINDOW ACTION TOOLBAR -->
+<div class="px-3 py-1.5 bg-surface-container border-b border-outline-variant flex flex-wrap items-center justify-between gap-2 text-label-sm font-label-sm">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[10px] text-on-surface-variant">VIEW MODE:</span>
+<button class="px-2 py-0.5 bg-primary-container text-on-primary-container border border-on-surface font-bold text-[10px] retro-btn" id="btnViewGrid" onclick="setViewMode('cards')">Large Grid</button>
+<button class="px-2 py-0.5 bg-surface-container-lowest border border-on-surface font-bold text-[10px] retro-btn" id="btnViewList" onclick="setViewMode('compact')">Compact List</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono text-[10px] text-on-surface-variant">FILTER BY TAG:</span>
+<select class="bg-surface-container-lowest border border-on-surface text-[10px] font-mono px-2 py-0.5 outline-none font-bold cursor-pointer" id="tagFilterSelect" onchange="filterCategory(this.value)"><option value="all">Show All (6 Projects)</option>
+<option value="product">Product &amp; UX</option>
+<option value="brand">Media &amp; Graphics</option></select>
+<button class="px-2 py-0.5 bg-surface-container-lowest border border-on-surface retro-btn text-[10px] font-bold" onclick="sortGallery('name')">Sort Name</button>
+</div>
+</div>
+<!-- DUAL-PANE LAYOUT -->
+<div class="grid grid-cols-12 min-h-[520px]">
+<!-- ============================================================== -->
+<!-- LEFT PANE: NAV TREE + STATUS                                  -->
+<!-- ============================================================== -->
+<aside class="col-span-12 lg:col-span-3 border-b-2 lg:border-b-0 lg:border-r-2 border-on-surface bg-surface-container-low p-3 flex flex-col justify-between gap-4">
+<div class="space-y-4">
+<!-- Folder Tree Structure -->
+<div>
+<div class="flex items-center justify-between text-[11px] font-mono font-bold text-on-surface-variant pb-1.5 border-b border-outline-variant">
+<span class="">VOLUMES &amp; TREES</span>
+<span class="material-symbols-outlined text-[13px]">hard_drive</span>
+</div>
+<nav class="mt-2 space-y-1 font-label-sm text-[12px]"><button class="w-full flex items-center justify-between px-2 py-1.5 bg-surface-container-lowest border border-on-surface shadow-[1px_1px_0px_#1a1b24] font-bold text-primary group" onclick="filterCategory('all')">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">folder_open</span>
+<span class="">01_Projects.dir</span>
+</span>
+<span class="px-1.5 py-0.2 bg-primary-container text-[10px] border border-on-surface">6</span>
+</button>
+<button class="w-full flex items-center justify-between px-2 py-1 hover:bg-surface-container-highest border border-transparent hover:border-on-surface font-semibold text-on-surface group transition-all" onclick="filterCategory('product')">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">devices</span>
+<span class="">Product &amp; UX</span>
+</span>
+<span class="text-[10px] text-outline font-mono">4</span>
+</button>
+<button class="w-full flex items-center justify-between px-2 py-1 hover:bg-surface-container-highest border border-transparent hover:border-on-surface font-semibold text-on-surface group transition-all" onclick="filterCategory('brand')">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">palette</span>
+<span class="">Media &amp; Graphics</span>
+</span>
+<span class="text-[10px] text-outline font-mono">2</span>
+</button>
+<button class="w-full flex items-center justify-between px-2 py-1 hover:bg-surface-container-highest border border-transparent hover:border-on-surface font-semibold text-on-surface group transition-all" onclick="openModal('aboutModal')">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface">person</span>
+<span class="">About_Me.txt</span>
+</span>
+<span class="text-[9px] bg-primary-fixed text-on-primary-fixed-variant px-1 border border-on-surface font-mono font-bold">TXT</span>
+</button>
+<button class="w-full flex items-center justify-between px-2 py-1 hover:bg-surface-container-highest border border-transparent hover:border-on-surface font-semibold text-on-surface group transition-all" onclick="openModal('resumeModal')">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface">save</span>
+<span class="">Resume.floppy</span>
+</span>
+<span class="text-[9px] bg-secondary-fixed text-on-secondary-fixed px-1 border border-on-surface font-mono font-bold">PDF</span>
+</button>
+<button class="w-full flex items-center justify-between px-2 py-1 hover:bg-surface-container-highest border border-transparent hover:border-on-surface font-semibold text-on-surface group transition-all" onclick="openModal('skillsModal')">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface">psychology</span>
+<span class="">Skills_Matrix.dll</span>
+</span>
+<span class="text-[10px] text-outline font-mono">v26</span>
+</button></nav>
+</div>
+</div>
+<!-- System Quick Info Box -->
+<div class="bg-surface-container border border-on-surface p-2 text-[10px] font-mono space-y-1"><div class="flex justify-between text-outline">
+<span class="">STUDENT:</span>
+<span class="font-bold text-tertiary">LOGAN OSCHER</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">SCHOOL:</span>
+<span class="font-bold text-secondary">UNC CHAPEL HILL</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">PROGRAM:</span>
+<span class="font-bold text-on-surface">COMP &amp; MEJO</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">GRADUATION:</span>
+<span class="font-bold text-on-surface">MAY 2027</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">LOCATED:</span>
+<span class="font-bold text-primary">NEW YORK</span>
+</div>
+<div class="pt-1 border-t border-dashed border-outline-variant flex justify-between items-center text-[9px]">
+<span class="text-tertiary font-bold">READY TO DEPLOY</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+</div></div>
+</aside>
+<!-- ============================================================== -->
+<!-- RIGHT PANE: RICH PROJECT GALLERY CANVAS                        -->
+<!-- ============================================================== -->
+<section class="col-span-12 lg:col-span-9 p-3 sm:p-4 bg-surface-bright flex flex-col justify-between overflow-y-auto max-h-[700px]">
+<!-- PROJECT CARDS GRID -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5" id="projectsGrid"><!-- PROJECT 1: Swiped: Meal Swaps --><article class="project-item group bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] hover:shadow-[5px_5px_0px_#1a1b24] hover:-translate-y-0.5 transition-all flex flex-col justify-between cursor-pointer" data-category="product" data-name="Swiped: Meal Swaps" data-size="14.2" onclick="openProjectModal(0)"><div><div class="h-6 bg-tertiary-fixed px-2 border-b border-on-surface flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 border border-on-surface bg-surface-container-lowest"></span><span class="font-mono text-[10px] font-bold text-on-tertiary-fixed truncate max-w-[150px]">01_Swiped.app</span></div><span class="font-mono text-[9px] text-on-tertiary-fixed font-bold">14.2 MB</span></div><div class="p-2.5"><div class="w-full h-32 bg-surface-container-high border border-on-surface mb-2 relative overflow-hidden flex items-center justify-center"><img alt="Swiped mobile app mockups" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" src="../../assets/swiped/alt_cover.png"><span class="absolute bottom-1 right-1 px-1.5 py-0.2 bg-secondary-fixed text-on-secondary-fixed text-[9px] font-mono border border-on-surface font-bold">NEXT.JS 15</span></div><h3 class="font-mono text-[15px] text-on-surface tracking-tight leading-tight font-bold mb-1">Swiped: Meal Swaps</h3><p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed line-clamp-2">Full-stack Next.js marketplace where UNC students buy and sell dining swipes with Supabase auth, per-listing chat, and an AI nutrition planner.</p></div></div><div class="px-2.5 pb-2 pt-1.5 flex items-center justify-between border-t border-dashed border-outline-variant mt-1 bg-surface-container-low/30"><span class="font-mono text-[9px] text-primary font-bold">#Next.js #Supabase #OpenAI</span><button class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed hover:bg-tertiary-container font-label-sm text-[10px] font-bold border border-on-surface retro-btn" onclick="event.stopPropagation(); openProjectModal(0)">LAUNCH ↗</button></div></article><!-- PROJECT 2: DinkLink: Pickleball App --><article class="project-item group bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] hover:shadow-[5px_5px_0px_#1a1b24] hover:-translate-y-0.5 transition-all flex flex-col justify-between cursor-pointer" data-category="product" data-name="DinkLink: Pickleball App" data-size="18.5" onclick="openProjectModal(1)"><div><div class="h-6 bg-primary-fixed px-2 border-b border-on-surface flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 border border-on-surface bg-surface-container-lowest"></span><span class="font-mono text-[10px] font-bold text-on-primary-fixed truncate max-w-[150px]">02_DinkLink.fig</span></div><span class="font-mono text-[9px] text-on-primary-fixed font-bold">18.5 MB</span></div><div class="p-2.5"><div class="w-full h-32 bg-surface-container-high border border-on-surface mb-2 relative overflow-hidden flex items-center justify-center"><img alt="DinkLink pickleball app mockups" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" src="../../assets/portfolio/dinklink.png"><span class="absolute bottom-1 right-1 px-1.5 py-0.2 bg-tertiary-fixed text-on-tertiary-fixed text-[9px] font-mono border border-on-surface font-bold">MOBILE UI/UX</span></div><h3 class="font-mono text-[15px] text-on-surface tracking-tight leading-tight font-bold mb-1">DinkLink: Pickleball App</h3><p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed line-clamp-2">UI/UX design for a pickleball matchmaking app featuring profiles, stats, messaging, and location-based court discovery.</p></div></div><div class="px-2.5 pb-2 pt-1.5 flex items-center justify-between border-t border-dashed border-outline-variant mt-1 bg-surface-container-low/30"><span class="font-mono text-[9px] text-tertiary font-bold">#Figma #FigJam #UserTesting</span><button class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed hover:bg-primary-container font-label-sm text-[10px] font-bold border border-on-surface retro-btn" onclick="event.stopPropagation(); openProjectModal(1)">LAUNCH ↗</button></div></article><!-- PROJECT 3: eBay Interface Redesign --><article class="project-item group bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] hover:shadow-[5px_5px_0px_#1a1b24] hover:-translate-y-0.5 transition-all flex flex-col justify-between cursor-pointer" data-category="product" data-name="eBay Interface Redesign" data-size="11.0" onclick="openProjectModal(2)"><div><div class="h-6 bg-secondary-fixed px-2 border-b border-on-surface flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 border border-on-surface bg-surface-container-lowest"></span><span class="font-mono text-[10px] font-bold text-on-secondary-fixed truncate max-w-[150px]">03_eBay_Redesign.sys</span></div><span class="font-mono text-[9px] text-on-secondary-fixed font-bold">11.0 MB</span></div><div class="p-2.5"><div class="w-full h-32 bg-surface-container-high border border-on-surface mb-2 relative overflow-hidden flex items-center justify-center"><img alt="eBay redesign screens" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" src="../../assets/portfolio/ebayredesign.png"><span class="absolute bottom-1 right-1 px-1.5 py-0.2 bg-primary-fixed text-on-primary-fixed-variant text-[9px] font-mono border border-on-surface font-bold">REDESIGN</span></div><h3 class="font-mono text-[15px] text-on-surface tracking-tight leading-tight font-bold mb-1">eBay Interface Redesign</h3><p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed line-clamp-2">Responsive UI redesign of eBay’s product pages and bidding interactions focused on clarity, hierarchy, and ease of use.</p></div></div><div class="px-2.5 pb-2 pt-1.5 flex items-center justify-between border-t border-dashed border-outline-variant mt-1 bg-surface-container-low/30"><span class="font-mono text-[9px] text-primary font-bold">#Figma #UI #Redesign</span><button class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed hover:bg-secondary-fixed-dim font-label-sm text-[10px] font-bold border border-on-surface retro-btn" onclick="event.stopPropagation(); openProjectModal(2)">LAUNCH ↗</button></div></article><!-- PROJECT 4: UNC Hockey Graphic Collection --><article class="project-item group bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] hover:shadow-[5px_5px_0px_#1a1b24] hover:-translate-y-0.5 transition-all flex flex-col justify-between cursor-pointer" data-category="brand" data-name="UNC Hockey Graphic Collection" data-size="24.0" onclick="openProjectModal(3)"><div><div class="h-6 bg-secondary-fixed px-2 border-b border-on-surface flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 border border-on-surface bg-surface-container-lowest"></span><span class="font-mono text-[10px] font-bold text-on-secondary-fixed truncate max-w-[150px]">04_UNCHockey.gfx</span></div><span class="font-mono text-[9px] text-on-secondary-fixed font-bold">24.0 MB</span></div><div class="p-2.5"><div class="w-full h-32 bg-surface-container-high border border-on-surface mb-2 relative overflow-hidden flex items-center justify-center"><img alt="UNC Hockey social graphics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" src="../../assets/portfolio/Hockey.png"><span class="absolute bottom-1 right-1 px-1.5 py-0.2 bg-tertiary-fixed text-on-tertiary-fixed text-[9px] font-mono border border-on-surface font-bold">SPORTS GFX</span></div><h3 class="font-mono text-[15px] text-on-surface tracking-tight leading-tight font-bold mb-1">UNC Hockey Graphic Collection</h3><p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed line-clamp-2">Social media graphic collection for UNC Hockey featuring game promotions, countdowns, and team-focused visual branding.</p></div></div><div class="px-2.5 pb-2 pt-1.5 flex items-center justify-between border-t border-dashed border-outline-variant mt-1 bg-surface-container-low/30"><span class="font-mono text-[9px] text-secondary font-bold">#GraphicDesign #Social</span><button class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed hover:bg-secondary-fixed-dim font-label-sm text-[10px] font-bold border border-on-surface retro-btn" onclick="event.stopPropagation(); openProjectModal(3)">LAUNCH ↗</button></div></article><!-- PROJECT 5: Vanguard Redesign --><article class="project-item group bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] hover:shadow-[5px_5px_0px_#1a1b24] hover:-translate-y-0.5 transition-all flex flex-col justify-between cursor-pointer" data-category="product" data-name="Vanguard Redesign" data-size="15.2" onclick="openProjectModal(4)"><div><div class="h-6 bg-primary-fixed px-2 border-b border-on-surface flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 border border-on-surface bg-surface-container-lowest"></span><span class="font-mono text-[10px] font-bold text-on-primary-fixed truncate max-w-[150px]">05_Vanguard_UX.sys</span></div><span class="font-mono text-[9px] text-on-primary-fixed font-bold">15.2 MB</span></div><div class="p-2.5"><div class="w-full h-32 bg-surface-container-high border border-on-surface mb-2 relative overflow-hidden flex items-center justify-center"><img alt="Vanguard Year-in-Review redesign screens" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" src="../../assets/portfolio/vanguard.png"><span class="absolute bottom-1 right-1 px-1.5 py-0.2 bg-secondary-fixed text-on-secondary-fixed text-[9px] font-mono border border-on-surface font-bold">FINTECH UX</span></div><h3 class="font-mono text-[15px] text-on-surface tracking-tight leading-tight font-bold mb-1">Vanguard Redesign</h3><p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed line-clamp-2">Responsive redesign focused on clarity, confidence, and trust for Vanguard investors ages 50+.</p></div></div><div class="px-2.5 pb-2 pt-1.5 flex items-center justify-between border-t border-dashed border-outline-variant mt-1 bg-surface-container-low/30"><span class="font-mono text-[9px] text-tertiary font-bold">#Figma #UserTesting</span><button class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed hover:bg-primary-container font-label-sm text-[10px] font-bold border border-on-surface retro-btn" onclick="event.stopPropagation(); openProjectModal(4)">LAUNCH ↗</button></div></article><!-- PROJECT 6: Processing Fees Story --><article class="project-item group bg-surface-container-lowest border-2 border-on-surface shadow-[3px_3px_0px_#1a1b24] hover:shadow-[5px_5px_0px_#1a1b24] hover:-translate-y-0.5 transition-all flex flex-col justify-between cursor-pointer" data-category="brand" data-name="Processing Fees Story" data-size="9.8" onclick="openProjectModal(5)"><div><div class="h-6 bg-tertiary-fixed px-2 border-b border-on-surface flex items-center justify-between"><div class="flex items-center gap-1.5"><span class="w-2 h-2 border border-on-surface bg-surface-container-lowest"></span><span class="font-mono text-[10px] font-bold text-on-tertiary-fixed truncate max-w-[150px]">06_Processing_Fees.doc</span></div><span class="font-mono text-[9px] text-on-tertiary-fixed font-bold">9.8 MB</span></div><div class="p-2.5"><div class="w-full h-32 bg-surface-container-high border border-on-surface mb-2 relative overflow-hidden flex items-center justify-center"><img alt="The hidden cost of digital payments on small businesses" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" src="../../assets/portfolio/digitalpayments.png"><span class="absolute bottom-1 right-1 px-1.5 py-0.2 bg-primary-fixed text-on-primary-fixed-variant text-[9px] font-mono border border-on-surface font-bold">DIGITAL STORY</span></div><h3 class="font-mono text-[15px] text-on-surface tracking-tight leading-tight font-bold mb-1">Processing Fees Story</h3><p class="font-body-sm text-[11px] text-on-surface-variant leading-relaxed line-clamp-2">WordPress feature package combining reporting, video, and infographic design to explain rising card-processing fees.</p></div></div><div class="px-2.5 pb-2 pt-1.5 flex items-center justify-between border-t border-dashed border-outline-variant mt-1 bg-surface-container-low/30"><span class="font-mono text-[9px] text-primary font-bold">#WordPress #Illustrator #Premiere</span><button class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed hover:bg-tertiary-container font-label-sm text-[10px] font-bold border border-on-surface retro-btn" onclick="event.stopPropagation(); openProjectModal(5)">LAUNCH ↗</button></div></article></div>
+<!-- FINDER FOOTER STATUS -->
+<div class="mt-4 pt-2.5 border-t border-outline-variant flex flex-wrap items-center justify-between text-[11px] font-mono text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 font-bold text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span id="itemCountDisplay" class="">6 items selected</span>
+</span>
+<span class="">|</span>
+<span class="">Total Size: 92.7 MB in disk</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">STATUS: OK // NO ERRORS</span>
+<span class="w-1.5 h-1.5 bg-primary"></span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- 4. FLOATING / DOCKED MEDIA INSPECTOR: "BIO_INSPECTOR.TXT"       -->
+<!-- ============================================================== -->
+
+</main>
+<!-- ============================================================== -->
+<!-- 5. FIXED RETRO DESKTOP STATUS DOCK                             -->
+<!-- ============================================================== -->
+<footer class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-high border-t-2 border-on-surface shadow-[0_-2px_0px_#1a1b24] select-none"><div class="h-12 px-4 flex items-center justify-between"><div class="flex items-center gap-2"><div class="flex items-center gap-1.5 overflow-x-auto"><button class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed-variant border border-on-surface shadow-[1px_1px_0px_#1a1b24] text-[10px] font-bold font-mono" onclick="filterCategory('all')">📁 All (6)</button><span class="font-mono text-[10px] text-on-surface hidden md:inline font-bold">Logan Oscher · UNC Chapel Hill</span><span class="text-outline text-[10px] hidden md:inline">|</span><a class="px-2 py-0.5 bg-surface-container-lowest hover:bg-secondary-fixed border border-outline text-[10px] font-bold font-mono text-on-surface-variant" href="https://www.behance.net/loganoscher" rel="noreferrer" target="_blank">Behance</a><a class="px-2 py-0.5 bg-surface-container-lowest hover:bg-secondary-fixed border border-outline text-[10px] font-bold font-mono text-on-surface-variant" href="https://www.linkedin.com/in/logan-oscher/" rel="noreferrer" target="_blank">LinkedIn</a><button class="px-2 py-0.5 bg-surface-container-lowest hover:bg-tertiary-fixed border border-outline text-[10px] font-bold font-mono text-on-surface-variant" onclick="copyEmail();">loganosc@unc.edu</button></div></div><div class="flex items-center gap-2 font-mono text-[10px] text-on-surface-variant"><span class="hidden sm:inline">VIRTUAL DISK: SYSTEM 7.5.3</span><span class="px-1.5 py-0.2 bg-secondary-fixed text-on-secondary-fixed border border-on-surface font-bold">ONLINE</span><span class="w-2 h-2 rounded-full bg-primary animate-ping"></span></div></div></footer>
+<!-- ============================================================== -->
+<!-- 6. MODALS & SPECIFICATION SHEETS                               -->
+<!-- ============================================================== -->
+<!-- PROJECT DETAIL SPEC MODAL -->
+<dialog class="bg-transparent backdrop:bg-black/60 p-0 m-auto focus:outline-none z-50 max-w-none max-h-none" id="projectDetailModal">
+<div class="w-[96vw] max-w-5xl h-[90vh] bg-surface-container-lowest border-2 border-on-surface shadow-[8px_8px_0px_#1a1b24] overflow-hidden flex flex-col">
+<header class="h-8 shrink-0 bg-secondary-container px-3 border-b-2 border-on-surface flex items-center justify-between select-none">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-[15px] text-on-secondary-container">terminal</span>
+<span class="font-mono text-[12px] font-bold text-on-secondary-container truncate" id="modalProjectTitle">01_Swiped.app</span>
+<span class="hidden sm:inline font-mono text-[9px] px-1 bg-surface-container-lowest text-on-surface border border-on-surface font-bold" id="modalProjectBadge">NEXT.JS 15</span>
+</div>
+<button class="w-5 h-5 bg-error-container border border-on-surface flex items-center justify-center text-[12px] font-bold text-on-error-container retro-btn" onclick="closeModal('projectDetailModal')" title="Close">×</button>
+</header>
+<div class="flex-1 overflow-y-auto overflow-x-hidden bg-surface-bright" id="modalScroll">
+<article class="cs p-4 sm:p-6" id="modalCaseStudy"></article>
+</div>
+<footer class="shrink-0 px-3 py-2 bg-surface-container border-t-2 border-on-surface flex items-center justify-between gap-2">
+<span class="font-mono text-[10px] text-on-surface-variant truncate" id="modalProjectType"></span>
+<div class="flex items-center gap-2 shrink-0">
+<a class="px-3 py-1 bg-primary-container text-on-primary-container font-label-sm text-[11px] font-bold border-2 border-on-surface shadow-[2px_2px_0px_#1a1b24] retro-btn" id="modalProjectLink" href="#" target="_blank" rel="noreferrer" onclick="playRetroBeep(440, 'sine');">Open Case Study ↗</a>
+<button class="px-3 py-1 bg-surface-container-high border-2 border-on-surface font-label-sm text-[11px] font-bold retro-btn" onclick="closeModal('projectDetailModal')">Dismiss</button>
+</div>
+</footer>
+</div>
+</dialog>
+<!-- ABOUT ME MODAL -->
+<dialog class="bg-transparent backdrop:bg-black/60 p-0 m-auto focus:outline-none z-50" id="aboutModal">
+<div class="w-[94vw] max-w-2xl bg-surface-container-lowest border-2 border-on-surface shadow-[8px_8px_0px_#1a1b24]">
+<header class="h-8 bg-primary-fixed px-3 border-b-2 border-on-surface flex items-center justify-between select-none">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-on-primary-fixed-variant">person</span>
+<span class="font-mono text-[12px] font-bold text-on-primary-fixed-variant">ABOUT_ME.TXT</span>
+</div>
+<button class="w-5 h-5 bg-error-container border border-on-surface flex items-center justify-center text-[12px] font-bold text-on-error-container retro-btn" onclick="closeModal('aboutModal')" title="Close">×</button>
+</header>
+<div class="p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-5 gap-4 max-h-[80vh] overflow-y-auto">
+<figure class="sm:col-span-2">
+<img alt="Logan Oscher" class="w-full aspect-[4/5] object-cover border-2 border-on-surface shadow-[4px_4px_0px_#1a1b24] bg-surface-container-high" loading="lazy" src="assets/about.png">
+<figcaption class="font-mono text-[10px] text-outline mt-2">IMG_LOGAN.PNG // Chapel Hill, NC</figcaption>
+</figure>
+<div class="sm:col-span-3 flex flex-col gap-3">
+<div>
+<span class="inline-block font-mono text-[10px] font-bold px-1.5 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed border border-on-surface">COMP SCI + MEDIA &amp; JOURNALISM</span>
+<h3 class="font-mono text-[18px] text-on-surface font-bold mt-2">Hi, I'm Logan.</h3>
+</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-relaxed select-text">I've always been drawn to the intersection of design, technology, and user experience. As a third-year undergraduate student at UNC Chapel Hill pursuing a double major in Computer Science and Media &amp; Journalism, I am focused on UI/UX design, web design, and interactive media.</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant leading-relaxed select-text">My passion for UI/UX, graphic design, and web design drives me to create content that is both visually appealing and user-centric. From 3D printing and laser cutting to building user-friendly web interfaces, I am constantly seeking ways to enhance the way people interact with technology.</p>
+<div class="p-2.5 bg-surface-container-low border border-on-surface font-mono text-[11px] space-y-1 retro-well">
+<div class="flex justify-between gap-3"><span class="text-outline">SCHOOL:</span><span class="font-bold text-right">UNC Chapel Hill</span></div>
+<div class="flex justify-between gap-3"><span class="text-outline">FOCUS:</span><span class="font-bold text-secondary text-right">UI/UX · Web · Graphic Design</span></div>
+<div class="flex justify-between gap-3"><span class="text-outline">ALSO INTO:</span><span class="font-bold text-primary text-right">3D printing · Laser cutting</span></div>
+</div>
+<div class="flex flex-wrap justify-end gap-2 pt-1">
+<button class="px-3 py-1.5 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-bold border-2 border-on-surface shadow-[2px_2px_0px_#1a1b24] retro-btn" onclick="transmitContact()">Say hello ✉</button>
+<button class="px-3 py-1.5 bg-surface-container-high border-2 border-on-surface font-label-sm text-[11px] font-bold retro-btn" onclick="closeModal('aboutModal')">Close</button>
+</div>
+</div>
+</div>
+</div>
+</dialog>
+<!-- RESUME FLOPPY MODAL -->
+<dialog class="bg-transparent backdrop:bg-black/60 p-0 m-auto focus:outline-none z-50" id="resumeModal">
+<div class="w-[94vw] max-w-lg bg-surface-container-lowest border-2 border-on-surface shadow-[8px_8px_0px_#1a1b24]">
+<header class="h-8 bg-secondary-fixed px-3 border-b-2 border-on-surface flex items-center justify-between select-none">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-on-secondary-fixed">save</span>
+<span class="font-mono text-[12px] font-bold text-on-secondary-fixed">Resume_Logan_Oscher.PDF [A:\ Floppy 1.44MB]</span>
+</div>
+<button class="w-5 h-5 bg-error-container border border-on-surface flex items-center justify-center text-[12px] font-bold text-on-error-container retro-btn" onclick="closeModal('resumeModal')">×</button>
+</header>
+<div class="p-4 sm:p-6 space-y-4"><div class="border-b-2 border-dashed border-outline-variant pb-2">
+<h3 class="font-mono text-[16px] text-on-surface font-bold">Logan Oscher // Experience Matrix</h3>
+<p class="font-mono text-[11px] text-outline">UNC Chapel Hill — Computer Science &amp; Media and Journalism (AD/PR)</p>
+</div>
+<div class="space-y-2.5 font-body-sm text-[11px]">
+<div class="p-3 bg-surface-container border border-on-surface">
+<div class="flex justify-between font-bold text-on-surface font-label-sm">
+<span class="">Full-Stack &amp; Product Design</span>
+<span class="text-secondary font-mono">UNC PROJECTS</span>
+</div>
+<p class="text-on-surface-variant mt-1">Built Swiped (Next.js, Supabase, OpenAI) for COMP 426; designed DinkLink, Vanguard Year-in-Review, and eBay redesigns in Figma.</p>
+</div>
+<div class="p-3 bg-surface-container border border-on-surface">
+<div class="flex justify-between font-bold text-on-surface font-label-sm">
+<span class="">Graphic Design</span>
+<span class="text-secondary font-mono">UNC ICE HOCKEY</span>
+</div>
+<p class="text-on-surface-variant mt-1">Promotional social graphics for game days, countdowns, and announcements.</p>
+</div>
+</div>
+<div class="flex justify-end gap-2 pt-2">
+<button class="px-3.5 py-1.5 bg-primary-container text-on-primary-container font-label-sm text-[11px] font-bold border-2 border-on-surface shadow-[2px_2px_0px_#1a1b24] retro-btn" onclick="showToast('Downloading Logan_Oscher_Resume.pdf...'); playRetroBeep(620, 'sawtooth'); closeModal('resumeModal');">
+    Download PDF (1.44MB)
+  </button>
+<button class="px-3 py-1.5 bg-surface-container-high border-2 border-on-surface font-label-sm text-[11px] font-bold retro-btn" onclick="closeModal('resumeModal')">
+    Close
+  </button>
+</div></div>
+</div>
+</dialog>
+<!-- SKILLS MATRIX MODAL -->
+<dialog class="bg-transparent backdrop:bg-black/60 p-0 m-auto focus:outline-none z-50" id="skillsModal">
+<div class="w-[94vw] max-w-md bg-surface-container-lowest border-2 border-on-surface shadow-[8px_8px_0px_#1a1b24]">
+<header class="h-8 bg-tertiary-container px-3 border-b-2 border-on-surface flex items-center justify-between select-none">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-on-tertiary-container">psychology</span>
+<span class="font-mono text-[12px] font-bold text-on-tertiary-container">SKILLS_MATRIX.DLL</span>
+</div>
+<button class="w-5 h-5 bg-error-container border border-on-surface flex items-center justify-center text-[12px] font-bold text-on-error-container retro-btn" onclick="closeModal('skillsModal')">×</button>
+</header>
+<div class="p-4 space-y-3 font-mono text-[11px]">
+<div>
+<div class="flex justify-between font-bold mb-1">
+<span class="text-on-surface">✦ Figma &amp; UX Research</span>
+<span class="text-secondary font-bold">UI/UX</span>
+</div>
+<div class="w-full h-3 bg-surface-container border border-on-surface p-0.5 flex gap-0.5">
+<div class="w-3/4 h-full bg-secondary"></div>
+<div class="w-1/5 h-full bg-secondary-fixed"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-bold mb-1">
+<span class="text-on-surface">✦ Next.js / React / TypeScript</span>
+<span class="text-primary font-bold">FRONTEND</span>
+</div>
+<div class="w-full h-3 bg-surface-container border border-on-surface p-0.5 flex gap-0.5">
+<div class="w-2/3 h-full bg-primary"></div>
+<div class="w-1/5 h-full bg-primary-container"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-bold mb-1">
+<span class="text-on-surface">✦ Supabase / Drizzle / tRPC</span>
+<span class="text-secondary font-bold">BACKEND</span>
+</div>
+<div class="w-full h-3 bg-surface-container border border-on-surface p-0.5 flex gap-0.5">
+<div class="w-3/4 h-full bg-secondary"></div>
+<div class="w-1/6 h-full bg-secondary"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-bold mb-1">
+<span class="text-on-surface">✦ Illustrator / Premiere / WordPress</span>
+<span class="text-tertiary font-bold">MEDIA</span>
+</div>
+<div class="w-full h-3 bg-surface-container border border-on-surface p-0.5 flex gap-0.5">
+<div class="w-2/3 h-full bg-tertiary"></div>
+<div class="w-1/6 h-full bg-tertiary-container"></div>
+</div>
+</div>
+<div class="pt-3 border-t border-dashed border-outline-variant flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed text-[9px] font-bold border border-on-surface">USERTESTING</span>
+<span class="px-1.5 py-0.5 bg-secondary-fixed text-on-secondary-fixed text-[9px] font-bold border border-on-surface">OPENAI API</span>
+<span class="px-1.5 py-0.5 bg-primary-fixed text-on-primary-fixed-variant text-[9px] font-bold border border-on-surface">TAILWIND</span>
+<span class="px-1.5 py-0.5 bg-surface-container text-on-surface text-[9px] font-bold border border-on-surface">3D PRINTING</span>
+</div>
+<div class="flex justify-end pt-2">
+<button class="px-3 py-1 bg-surface-container-high border-2 border-on-surface font-label-sm text-[11px] font-bold retro-btn" onclick="closeModal('skillsModal')">
+          Close Matrix
+        </button>
+</div>
+</div>
+</div>
+</dialog>
+<!-- CASE_STUDIES:START (generated from portfolio-main) -->
+<template id="cs-swiped">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">Full Stack Development · Product Design</p>
+            <h1 class="case-study-title">Swiped: Meal Swaps Made Easy</h1>
+            <p class="case-study-lede">
+              A full-stack Next.js app that lets classmates buy and sell UNC dining swipes with live chat, NutriAI assistance, and a dashboard for listings and history—built for COMP 426.
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Team: Logan Oscher, Ryder, Lauren, Clay</li>
+              <li>Course: COMP 426 final project</li>
+              <li>Tools: Next.js, React, Supabase, Drizzle, Tailwind, OpenAI API</li>
+            </ul>
+
+            
+          </div>
+
+          <figure>
+            <img src="../../assets/swiped/alt_cover.png" alt="Swiped cover graphic with mobile screens">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>App Snapshot</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Problem</h3>
+            <p>Students with dining plans ended every week with unused swipes while classmates without plans struggled to afford campus meals.</p>
+          </div>
+          <div class="case-card">
+            <h3>Goal</h3>
+            <p>Make exchanging swipes feel safe, fast, and fair with authenticated accounts, clear listings, and live chat.</p>
+          </div>
+          <div class="case-card">
+            <h3>Outcome</h3>
+            <p>Full-stack web app with Supabase-authenticated accounts, live marketplace to sell/buy swipes, real-time chat per listing, and an AI nutrition planner backed by Supabase Realtime.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner intro-section">
+        <h2>Why we built it</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Opportunity</h3>
+            <p>Existing “group chat trading” was messy and slow. We saw a chance to replace ad-hoc posts with a structured marketplace where listings, pricing, and chat stay in one place.</p>
+          </div>
+          <div class="case-card">
+            <h3>Approach</h3>
+            <p>Full-stack sprint: Next.js + TypeScript with Tailwind/shadcn UI, Supabase for auth/DB/Realtime, Drizzle + tRPC for type-safe data, and a scraper-fed OpenAI nutrition assistant.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>What we built</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Account Management</h3>
+            <p>Supabase Auth sign-up/login, profiles with display name, username, avatar, theme preference, and logout from Settings.</p>
+          </div>
+          <div class="case-card">
+            <h3>Marketplace & Chat</h3>
+            <p>Create and manage sell listings; buyers can purchase at asking price or negotiate via one-to-one chat powered by Supabase Realtime with unread counts.</p>
+          </div>
+          <div class="case-card">
+            <h3>NutriAI Assistant</h3>
+            <p>OpenAI-backed chat answers nutrition questions about UNC dining halls using scraped menu data; prompt guards keep replies nutrition-only.</p>
+          </div>
+          <div class="case-card">
+            <h3>Dashboard & History</h3>
+            <p>Weekly activity, balances, and transaction tables (Recharts + tables) to audit purchases and sales across the semester.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Key Flows</h2>
+        <p>Core flows: create a sell listing, browse/buy or negotiate, and keep the deal in-sync with live chat.</p>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/swiped/sell.png" alt="Flow for posting a meal swipe">
+            <figcaption>Create a listing with dining hall, availability window, price, and notes.</figcaption>
+          </figure>
+          <div class="case-card">
+            <h3>Flow details</h3>
+            <ul class="case-list">
+              <li>Sellers set hall, window, price, and notes; listings can be edited or cancelled anytime.</li>
+              <li>Buyers can purchase at ask or start a negotiation inside the per-listing chat.</li>
+              <li>Supabase Realtime updates listing status and chat instantly without refreshes.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>AI Nutrition Planner</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>What it does</h3>
+            <p>Students ask about dining hall foods, nutrition details, or meal ideas; responses come back instantly in-app and update in the chat thread.</p>
+          </div>
+          <div class="case-card">
+            <h3>How it works</h3>
+            <p>OpenAI API generates answers scoped to scraped menu data; Supabase Realtime inserts broadcast new chat messages so the answer appears instantly for the asker.</p>
+          </div>
+          <div class="case-card">
+            <h3>Guardrails</h3>
+            <p>Prompt engineering forces nutrition-only responses, blocking homework or unrelated topics to keep the tool on-mission.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Product Screens</h2>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/swiped/signup.png" alt="Swiped signup screen">
+            <figcaption>Supabase Auth sign-up with school email keeps accounts tied to students.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/chat.png" alt="Swiped chat handoff screen">
+            <figcaption>Per-listing chat keeps negotiations and confirmations traceable.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/buy.png" alt="Swiped buy swipe screen">
+            <figcaption>Buy flow shows cafeteria, timing, and pricing before you commit.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/dashboard.png" alt="Swiped dashboard screen">
+            <figcaption>Dashboard shows active listings, recent activity, and balances.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/convo.png" alt="Swiped confirmation and chat screen">
+            <figcaption>Chat threads keep negotiation history and confirmations in one place.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted">
+        <h2>Dark Mode Snapshots</h2>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/swiped/dark_dash.png" alt="Swiped dark mode dashboard">
+            <figcaption>Dark dashboard keeps hierarchy with bold chips for status.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/dark_buy.png" alt="Swiped dark mode buy flow">
+            <figcaption>Buy flow in dark mode retains clear primary/secondary actions.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/dark_convo.png" alt="Swiped dark mode conversation view">
+            <figcaption>Chat in dark mode stays readable with accent highlights.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted">
+        <h2>Build details</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Tech stack</h3>
+            <p>Next.js 15 + TypeScript with tRPC, Tailwind + shadcn/ui, Recharts; Supabase Auth/Postgres/Realtime with Drizzle ORM for schema + queries.</p>
+          </div>
+          <div class="case-card">
+            <h3>Data pipeline</h3>
+            <p>Cheerio/TSX script scrapes the dining hall site (npm run scrape-cds-menu) to keep menus current for listings and NutriAI context.</p>
+          </div>
+          <div class="case-card">
+            <h3>Realtime + AI safety</h3>
+            <p>Supabase Realtime channels broadcast new listings, negotiations, and AI messages instantly; OpenAI prompts are scoped to nutrition to block unrelated questions.</p>
+          </div>
+          <div class="case-card">
+            <h3>Env & tooling</h3>
+            <p>.env.local with OPENAI_KEY, DATABASE_URL, NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY; lint/build scripts keep the repo production-ready.</p>
+          </div>
+           <div class="case-card">
+            <h3>Nutrition guardrails</h3>
+            <p>NutriAI prompt engineering keeps responses nutrition-only, using scraped menu data to avoid off-topic answers.</p>
+          </div>
+          <div class="case-card">
+            <h3>Traceable negotiations</h3>
+            <p>One-to-one chat per listing replaces ad-hoc DMs so pricing, timing, and decisions stay in a single thread.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Live Web App</h2>
+        <p>Explore the responsive web build of Swiped below or open it in a new tab.</p>
+        <div class="figma-embed" style="height:640px">
+          <iframe title="Swiped live web app" src="https://swipedunc.vercel.app/" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="case-actions case-actions--spaced">
+          <a class="btn" href="https://swipedunc.vercel.app/" target="_blank" rel="noopener">Open live site</a>
+        </div>
+      </section>
+</template>
+<template id="cs-dinklink">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">UI/UX · Product Design</p>
+            <h1 class="case-study-title">DinkLink: Pickleball Matchmaking</h1>
+            <p class="case-study-lede">
+              Building a mobile product that makes it easy for local players to find partners,
+              organize matches, and keep up with their progress without getting lost in menus.
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Team: Logan Oscher, Grant, Anqi</li>
+              <li>Tools: Figma, FigJam, UserTesting</li>
+              <li>Course: Mejo 433, Final Project</li>
+            </ul>
+
+            <div class="case-actions">
+              <a class="btn" href="https://www.behance.net/gallery/226078383/DinkLink-Final-Group-Project-%28Spring-25%29" target="_blank" rel="noreferrer">View full project</a>
+              <a href="#">Back to portfolio</a>
+            </div>
+          </div>
+
+          <figure>
+            <img src="../../assets/portfolio/dinklink.png" alt="DinkLink mobile screens">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Overview</h2>
+        <p>
+          DinkLink connects recreational and competitive pickleball players through a simple profile,
+          matchmaking, and messaging experience. The goal was to reduce friction for pick-up matches
+          while highlighting the stats and context players need to feel confident when reaching out.
+        </p>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Problem</h3>
+            <p>Local players struggled to discover partners who match their skill, schedule, and preferred courts.</p>
+          </div>
+          <div class="case-card">
+            <h3>Outcome</h3>
+            <p>A streamlined flow that surfaces nearby players, courts, and recent results in one glanceable feed.</p>
+          </div>
+          <div class="case-card">
+            <h3>Impact</h3>
+            <p>Clearer onboarding, stronger profile signals, and faster conversations increased successful match requests in testing.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Discovery & Research</h2>
+        <p>
+          I interviewed five recreational players and mapped their current tools: text chains, Facebook groups,
+          and ad-hoc spreadsheets to track scores. The common friction points were confidence in a partner’s skill,
+          knowing which courts were free, and coordinating logistics without endless back-and-forth.
+        </p>
+        <ul class="case-list">
+          <li>Players needed a quick read on skill level, preferred times, and recent matches.</li>
+          <li>Court availability and distance were key deciding factors when accepting an invite.</li>
+          <li>Messaging needed to stay lightweight, with match details attached to avoid confusion.</li>
+        </ul>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Design Approach</h2>
+        <p>
+          I built the interface in Figma with a focus on clarity: minimal chrome, strong typography, and
+          modular cards that keep stats, partners, and court info aligned. I kept the visual language calm and
+          confident so newcomers feel welcome while advanced players still get the details they expect.
+        </p>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Profile clarity</h3>
+            <p>Progression badges, win/loss summaries, and common availability quickly communicate fit.</p>
+          </div>
+          <div class="case-card">
+            <h3>Matchmaking</h3>
+            <p>Filters for distance, skill tier, and preferred format reduce the time to find a partner.</p>
+          </div>
+          <div class="case-card">
+            <h3>Messaging</h3>
+            <p>Contextual threads attach location, time, and gear notes so players stay on the same page.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Solution Highlights</h2>
+        <p>
+          The final flow centers around a home dashboard that balances discovery with action. Players can move from
+          browsing to inviting in under three taps while keeping court logistics transparent.
+        </p>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Home feed</h3>
+            <p>Nearby partners, suggested courts, and recent matches appear in a single vertically scrollable stream.</p>
+          </div>
+          <div class="case-card">
+            <h3>Match request</h3>
+            <p>Quick-select time blocks and skill tiers auto-populate invites to cut down on coordination messages.</p>
+          </div>
+          <div class="case-card">
+            <h3>Stats & history</h3>
+            <p>Lightweight charts surface momentum without overwhelming casual players.</p>
+          </div>
+        </div>
+        <div class="case-callout">
+          Building around reusable cards meant the system stayed consistent across the dashboard, player profiles, and court pages,
+          making handoff easy and keeping the learning curve low.
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Outcomes & Next Steps</h2>
+        <p>
+          Testers were able to create a profile and send their first invite in under three minutes. For a next iteration,
+          I plan to pilot a lightweight availability calendar and integrate local club schedules.
+        </p>
+        <div class="case-actions">
+          <a class="btn" href="https://www.behance.net/gallery/226078383/DinkLink-Final-Group-Project-%28Spring-25%29" target="_blank" rel="noreferrer">Explore Behance case study</a>
+          <a href="mailto:loganosc@unc.edu">Get in touch</a>
+        </div>
+      </section>
+</template>
+<template id="cs-ebay">
+<section class="case-study-hero">
+  <div class="case-study-hero__grid">
+    <div>
+      <p class="case-study-eyebrow">UI/UX · Redesign</p>
+      <h1 class="case-study-title">eBay Interface Redesign</h1>
+      <p class="case-study-lede">I reimagined the eBay browsing and product-detail experience with a modern layout and simplified user flow. This project focused on reducing visual clutter, strengthening the hierarchy of information, and improving the bidding and product selection process. I redesigned the product page, error screen, and navigation components to make the platform feel more intuitive and consistent across devices. The final system presents a cleaner shopping experience with clear call-to-actions and a more user-friendly structure.</p>
+      <ul class="case-study-meta"><li>Scope: product page, error screen, navigation</li><li>Tools: Figma</li></ul>
+      <div class="case-actions"><a class="btn" href="https://www.behance.net/gallery/239575167/Ebay-Feature-Redesign-Project" target="_blank" rel="noopener">View full project on Behance</a></div>
+    </div>
+    <figure><img src="../../assets/portfolio/ebayredesign.png" alt="eBay redesign screens"></figure>
+  </div>
+</section>
+</template>
+<template id="cs-hockey">
+<section class="case-study-hero">
+  <div class="case-study-hero__grid">
+    <div>
+      <p class="case-study-eyebrow">Digital Media &amp; Graphic Design</p>
+      <h1 class="case-study-title">UNC Hockey Graphic Collection</h1>
+      <p class="case-study-lede">I created a series of promotional graphics for UNC Hockey that highlight major games, countdowns, and announcements. My goal was to capture the energy of UNC athletics while keeping the visuals bold and recognizable for fans. Each piece uses consistent typography, color treatments, and layout patterns to reinforce the team identity. The graphics were built for Instagram and other social platforms and were designed to stand out in fast-scrolling feeds.</p>
+      <ul class="case-study-meta"><li>Client: UNC Hockey</li><li>Format: Instagram &amp; social graphics</li></ul>
+      <div class="case-actions"><a class="btn" href="https://www.behance.net/gallery/239582165/UNC-Hockey-Graphic-Designs" target="_blank" rel="noopener">View full project on Behance</a></div>
+    </div>
+    <figure><img src="../../assets/portfolio/Hockey.png" alt="UNC Hockey social graphics"></figure>
+  </div>
+</section>
+</template>
+<template id="cs-vanguard">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">UI/UX · Redesign</p>
+            <h1 class="case-study-title">Vanguard Year-in-Review Redesign</h1>
+            <p class="case-study-lede">
+              Making Vanguard’s Year-in-Review clearer for investors ages 50+, with stronger guidance, trustworthy visuals, and next steps that feel obvious.
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Course: Mejo 581, Final Project</li>
+              <li>Tools: Figma, UserTesting</li>
+            </ul>
+
+            
+          </div>
+
+          <figure>
+            <img src="../../assets/portfolio/vanguard.png" alt="Vanguard Year-in-Review redesign screens">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Project Snapshot</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Role & Scope</h3>
+            <p>UX researcher and product/visual designer redesigning Vanguard’s Year-in-Review for investors 50+.</p>
+          </div>
+          <div class="case-card">
+            <h3>Timeline & Tools</h3>
+            <p>Semester project using Figma, user testing, card sort/flows, persona work, and PDF deliverables.</p>
+          </div>
+          <div class="case-card">
+            <h3>Deliverables</h3>
+            <p>Personas, structure/flows, usability findings deck, UI kit, 10+ wireframes, 20+ hi-fi panels, interactive prototypes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner intro-section">
+        <h2>Overview</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>The problem</h3>
+            <p>Investors 50+ struggled to find key financial insights. Metrics lacked context, visuals felt decorative instead of informative, and fee information was hard to uncover—eroding clarity and trust.</p>
+          </div>
+          <div class="case-card">
+            <h3>The goal</h3>
+            <p>Enhance clarity, trust, and usability for digitally active investors 50+. The work was driven by research, moderated tests, surveys, and accessibility priorities.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Audience</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>User profile</h3>
+            <p>Digitally active investors ages 50–70 who value straightforward wording, trust signals, and simplified navigation that tells a clear financial story.</p>
+            <p>They want reassurance that every step is purposeful, with language that reduces anxiety and highlights why actions matter.</p>
+          </div>
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/UX Persona.png" alt="Primary user profile for Vanguard redesign">
+            <figcaption>Primary profile: digitally active investors ages 50–70.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Research & Discovery</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Listening & personas</h3>
+            <p>50–70 age group interviews and empathy work to surface needs for clarity, trust signals, and predictable next steps.</p>
+          </div>
+          <div class="case-card">
+            <h3>Usability testing</h3>
+            <p>Think-aloud sessions and surveys with 50+ investors on the existing Year-in-Review revealed navigation confusion, jargon friction, and weak next-step guidance.</p>
+          </div>
+          <div class="case-card">
+            <h3>Insights → design</h3>
+            <p>Guided anchors, plain language, contextual tooltips, and checklist clarity mapped directly to observed pain points.</p>
+          </div>
+        </div>
+        <p class="media-caption">See embedded testing deck for full findings and methods.</p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>User Testing Findings</h2>
+        <div class="user-testing-layout">
+          <div class="user-testing-left">
+            <div class="case-card case-card--compact">
+              <h3>Study setup</h3>
+              <p>50+ participants evaluated the Year-in-Review prototype via think-aloud sessions, tasks, and pre/post surveys to measure comprehension, trust, and next-step clarity.</p>
+            </div>
+            <div class="case-card">
+              <h3>What worked</h3>
+              <ul class="case-list">
+                <li>Clear language raised confidence and trust.</li>
+                <li>Progress indicators and checkmarks motivated completion.</li>
+                <li>Anchored steps and inline explanations reduced context switching.</li>
+              </ul>
+            </div>
+            <div class="case-card">
+              <h3>Minor problems</h3>
+              <ul class="case-list">
+                <li>Abstract visuals felt unhelpful or unprofessional.</li>
+                <li>Users struggled to locate “Year in Review” and fee information.</li>
+                <li>Complex terminology still tripped up some participants.</li>
+              </ul>
+            </div>
+            <div class="case-card">
+              <h3>Major problems</h3>
+              <ul class="case-list">
+                <li>Unclear where to go after finishing the Year-in-Review; checklist links felt abrupt.</li>
+                <li>Uncertain destinations made people hesitant to click and unsure how to return.</li>
+                <li>Advanced users wanted deeper breakdowns; beginners needed clearer metric explanations.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-card">
+            <h3>Testing report (PDF)</h3>
+            <div class="pdf-placeholder">
+              <p>Usability findings presentation embedded below.</p>
+              <div class="pdf-embed pdf-embed--landscape">
+                <object data="../../assets/vanguard/Mejo 581 Pres.pdf" type="application/pdf">
+                  <iframe src="../../assets/vanguard/Mejo 581 Pres.pdf" title="Usability testing findings presentation"></iframe>
+                </object>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="muted-panel">
+          <h3>User voice</h3>
+          <ul class="case-list">
+            <li>“If I look at this checklist, I’m getting a little bit confused.”</li>
+            <li>“This kind of feels overwhelming, so I don’t know how those links work, or what is there on those pages?”</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Redesign Highlights</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Guided structure</h3>
+            <ul class="case-list">
+              <li>Added visual anchors and numbered steps at the top.</li>
+              <li>Removed playful illustrations and refocused the hierarchy on readability.</li>
+              <li>Clear action labels: Edit Retirement, Review Contributions, Review Accounts, Goal Optimizer.</li>
+            </ul>
+          </div>
+          <div class="case-card">
+            <h3>Context & clarity</h3>
+            <ul class="case-list">
+              <li>Contextual explanations, modals, and tooltips unpacked complex terms.</li>
+              <li>Narrative text explained why each section mattered.</li>
+              <li>Graphs tied directly to the insights they support.</li>
+            </ul>
+          </div>
+          <div class="case-card">
+            <h3>Tone for 50+ users</h3>
+            <ul class="case-list">
+              <li>Reassuring language reduced anxiety.</li>
+              <li>Definitions via info icons and dropdown modals.</li>
+              <li>Predictable next-step flow removed end-of-journey confusion.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Structure & Flows</h2>
+        <p>Mapped the revised Year-in-Review structure and key flows to clarify entry points, task progression, and how users branch into deeper tasks without losing context.</p>
+        <figure class="case-figure">
+          <img src="../../assets/vanguard/Structure_Flows.png" alt="Structure and flows diagram for the Year-in-Review experience">
+          <figcaption>Updated structure and flows aligning the mac experience with the guided checkpoints.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Wireframes</h2>
+        <p>Initial sketches and grayscale frames to validate structure before adding visual polish and interactions.</p>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/cards.png" alt="Sketches and card sort for Year-in-Review redesign">
+            <figcaption>Sketches and card sorting to organize tasks and content.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/progress.png" alt="Progress snapshot for Year-in-Review redesign">
+            <figcaption>Progress tracking snapshots feeding mid-fi layout decisions.</figcaption>
+          </figure>
+        </div>
+        <div class="figma-embed figma-embed--compact" style="margin-top:1.6rem">
+          <iframe title="Mid-fidelity wireframes" src="https://embed.figma.com/design/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?node-id=80303-49933&embed-host=share" allowfullscreen></iframe>
+        </div>
+        <p class="media-caption">10+ grayscale/mid-fi screens vetted for hierarchy, flow, and terminology before hi-fi styling.</p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Style Guide / UI Kit</h2>
+        <p>Color palette, typography, and components aligned to Vanguard to keep the experience consistent end to end.</p>
+        <figure class="case-figure case-figure--narrow">
+          <img src="../../assets/vanguard/style.png" alt="Style guide for the Vanguard Year-in-Review redesign">
+          <figcaption>Palette, type, and UI components used across the redesign.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Process Sketches</h2>
+        <p>Early explorations captured as quick sketches and task progression snapshots before moving into mid- and hi-fi work.</p>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/cards.png" alt="Process sketch cards for Year-in-Review redesign">
+            <figcaption>Card sorting and early layout thinking.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/progress.png" alt="Process progress snapshot for Year-in-Review redesign">
+            <figcaption>Progress tracking snapshots informing the flow.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Challenges & Trade-offs</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Simplicity vs. depth</h3>
+            <p>Balanced clarity for beginners with deeper breakdowns for advanced users by layering defaults, tooltips, and optional detail drawers.</p>
+          </div>
+          <div class="case-card">
+            <h3>Terminology vs. brevity</h3>
+            <p>Kept language short but added inline definitions and info icons so jargon never blocks progress.</p>
+          </div>
+          <div class="case-card">
+            <h3>Guidance vs. clutter</h3>
+            <p>Used numbered anchors and progress cues without overcrowding the UI, prioritizing readability over decorative visuals.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted">
+        <h2>The Pitch</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <p>Lead with a signature flow: numbered anchors and plain-language action labels (Edit Retirement, Review Contributions, Review Accounts, Goal Optimizer) that create a predictable path for 50+ users.</p>
+          </div>
+          <div class="case-card">
+            <p>Replaces playful visuals with a readability-first hierarchy, tying graphs directly to insights and pairing each step with a short “why this matters” narrative.</p>
+          </div>
+          <div class="case-card">
+            <p>Builds confidence through contextual tooltips, info icons, and reassuring copy that keep complex terms and next steps clear—reducing end-of-journey confusion and anxiety.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2 id="pdf">Redesign PDF & Wireframe</h2>
+        <p>View the full case study and wireframes below, or open them directly in a new tab.</p>
+        <div class="pdf-embed">
+          <object data="../../assets/vanguard/Final Pitch.pdf" type="application/pdf">
+            <iframe src="../../assets/vanguard/Final Pitch.pdf" title="Vanguard Year-in-Review case study PDF"></iframe>
+          </object>
+        </div>
+        <div class="case-actions">
+          <a target="_blank" rel="noopener" class="btn" href="../../assets/vanguard/Final Pitch.pdf" download>Download PDF</a>
+          <a href="../../assets/vanguard/Final Pitch.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        </div>
+        <div class="prototype-layout" style="margin-top:2.4rem">
+          <div class="prototype-embed">
+            <h3>Low-Fidelity Wireframes</h3>
+            <div class="figma-embed figma-embed--compact">
+              <iframe title="Prototype mac 2" src="https://embed.figma.com/proto/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?page-id=80354%3A7514&node-id=80354-7515&viewport=159%2C-934%2C0.16&scaling=scale-down&content-scaling=fixed&starting-point-node-id=80354%3A7515&embed-host=share" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="prototype-embed">
+            <h3>High-Fidelity Wireframes</h3>
+            <div class="figma-embed figma-embed--compact">
+              <iframe title="Prototype mac 1" src="https://embed.figma.com/proto/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?page-id=80303%3A49933&node-id=80334-8475&viewport=274%2C-1560%2C0.25&scaling=scale-down&content-scaling=fixed&starting-point-node-id=80334%3A8475&embed-host=share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="prototype-full">
+          <div class="prototype-embed">
+            <h3>Full-fidelity wireframes (wide)</h3>
+            <div class="figma-embed">
+              <iframe title="Wireframe Figma" src="https://embed.figma.com/design/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?node-id=80303-49933&embed-host=share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <p class="media-caption">20+ hi-fi panels across the mac flow; Figma links set to “Anyone with the link can view.”</p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Reflection</h2>
+        <p>
+          This redesign pairs straightforward language with a guided structure to lower friction for a regulated, high-stakes flow. Next iterations would A/B test the numbered path, refine checklist clarity, and expand analytics around where investors pause after reading their performance story.
+        </p>
+      </section>
+</template>
+<template id="cs-fees">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">Digital Package · Research & Design</p>
+            <h1 class="case-study-title">Digital Processing Fees & The Small Business Squeeze</h1>
+            <p class="case-study-lede">
+              lede filler text
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Role: Researcher, Writer, & Designer</li>
+              <li>Class: Mejo 121</li>
+              <li>Tools: WordPress, Adobe Illustrator, Premiere Pro</li>
+            </ul>
+
+            
+          </div>
+
+          <figure>
+            <img src="../../assets/portfolio/digitalpayments.png" alt="Banner">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner intro-section">
+        <h2>Introduction</h2>
+        <p>
+          George Peacock, a Chapel Hill entrepreneur, launched NeoPay in 2024 to solve a problem crushing small businesses across America: credit card processing fees that can devour up to 3.5 percent of every transaction. While large retailers negotiate rates as low as 1 percent, independent shops face fees two to three times higher. These fees  have only quietly grown more complex and expensive over the past two decades. Peacock's solution cuts these costs by 50 to 80 percent while rewarding customers with cash and prizes, proving that the current system doesn't have to be the only option.        </p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Video Overview</h2>
+        <p>
+          This story examines economic inequality in payment infrastructure and how the digital convenience reshaping the way Americans spend money is quietly changing how small businesses must survive. Each tap or swipe is accompanied by a fee, and for many small businesses, those little charges add up to be a serious financial burden. What seems like an efficient transaction to consumers often translates into a painful cut in revenue to the business, especially when margins are already very slim.         </p>
+        <div class="case-media case-media--video">
+          <div class="responsive-video">
+            <iframe title="vimeo-player" src="https://player.vimeo.com/video/1132669784?h=8be8ff546c" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>          </div>
+          <p class="media-caption">A two-minute walkthrough of how a few cents per transaction scales into thousands over a year.</p>
+        </div>
+        <p>
+          <br>Each digital transaction passes through multiple intermediaries: issuing banks, card networks like Visa and Mastercard, and payment processors. Each step has fees for authorization, fraud protection, risk management, and infrastructure maintenance. These interchange fees began modestly decades ago but have grown increasingly complex as the payment network expanded. The structure varies by card type, processor, and business size, creating an uneven landscape where identical transactions cost different merchants vastly different amounts. Over a year, a small business processing $500,000 in card payments at 3 percent loses $15,000 to fees: money that could fund employee raises, inventory expansion, or simply help the business survive.        </p>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted case-section--infographic">
+        <div class="case-section__header">
+          <h2>Infographic</h2>
+          <p> A full-width infographic visualizes how a 2.9% + $0.30 fee structure impacts businesses at different
+                average ticket sizes.  </p>
+        </div>
+
+        <div class="case-infographic__grid">
+          <figure class="case-figure case-figure--wide">
+            <img src="../../assets/portfolio/newgraphic.png" alt="Infographic summarizing fee structures and their impact on small businesses">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Disparity</h2>
+        <p> Large corporations negotiate much lower processing fees because their transaction volume gives them leverage. Small businesses rarely enjoy such benefits. Many receive the highest rates in the system with little to no bargaining power to challenge them. Where a big retailer may pay 1 to 1.5 percent per transaction, an independent shop pays 2.5 to 3.5 percent for that same exchange. Premium rewards cards, the ones consumers love for cash back and travel points, are often the most expensive for small merchants to accept. We get rewarded while the business absorbs the cost.</p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Conclusion</h2>
+        <p>
+          Digital convenience is now an expectation, not an option. The fees that seem invisible to consumers tapping their cards represent real money that small business owners must absorb, often forcing impossible choices between competitive pricing and financial sustainability. This isn't just inefficient; it's a structural barrier that makes small business survival harder in an already challenging retail environment. George's work with NeoPay shows how one person can push back, help their community, and hopefully end the hidden
+          pressures behind every transaction.
+        </p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Reflection</h2>
+        <p>
+          Working on this project helped me understand how complex digital payment systems are and how difficult they can be for small businesses to navigate. As a team member of Neopay, working alongside George Peacock and learning about his journey to build NeoPay has shown me what it really means to be a helping hand in our community. I went into the assignment knowing that these fees existed on a basic level, but I did not realize how many layers and institutions were involved or how much the fee structure favors large companies over small ones. Translating that information into a clear narrative took time because the topic is very technical and often confusing. The more I learned, the more appreciation I grew for George and his startup. I am excited to see how it is able to successfully impact merchants in our community and hopefully others eventually as well!
+        </p>
+      </section>
+
+      <section id="sources" class="case-section page-section-inner">
+        <h2>Sources</h2>
+        <ul class="source-list">
+          <li>Board of Governors of the Federal Reserve System. (2025, March 12). Federal Reserve Payments Study (FRPS). Federal Reserve Board. Retrieved November 17, 2025, from https://www.federalreserve.gov/paymentsystems/fr-payments-study.htm</li>
+          <li>Crawford, H. (2025, January 24). Credit Card Processing Fees: A 2025 Guide for Businesses. NerdWallet. Retrieved November 17, 2025, from https://www.nerdwallet.com/business/software/learn/credit-card-processing-fees</li>
+          <li>Johnson, H. D. (2025, July 14). Average Cost Of Credit Card Processing Fees. Bankrate. Retrieved November 17, 2025, from https://www.bankrate.com/credit-cards/business/merchants-guide-to-credit-card-processing-fees/</li>
+          <li>Yuan, J., & McIntyre, K. (2025, May 6). We Must End the Hidden Growth Tax on U.S. Small Businesses. Entrepreneur. Retrieved November 17, 2025, from https://www.entrepreneur.com/money-finance/we-must-end-the-hidden-growth-tax-on-us-small-businesses/489523</li>
+        </ul>
+      </section>
+</template>
+<!-- CASE_STUDIES:END -->
+<!-- TOAST NOTIFICATION POPUP -->
+<div class="fixed top-12 right-6 z-50 transform transition-all duration-300 pointer-events-none bg-primary-container border-2 border-on-surface shadow-[4px_4px_0px_#1a1b24] px-3.5 py-2 flex items-center gap-2 max-w-sm translate-y-[-100px] opacity-0" id="retroToast">
+<span class="material-symbols-outlined text-[18px] text-on-primary-container">info</span>
+<span class="font-label-sm text-[11px] font-bold text-on-primary-container" id="retroToastText">Welcome to System7.os</span>
+</div>
+<!-- ============================================================== -->
+<!-- 7. EMBEDDED ENGINE JAVASCRIPT (AUDIO, FINDER FILTER & MODALS)   -->
+<!-- ============================================================== -->
+<script>
+  let sfxEnabled = true;
+
+  const projectCatalog = [
+  {
+    "key": "swiped",
+    "title": "01_Swiped.app",
+    "heading": "Swiped: Meal-Swipe Exchange",
+    "img": "../../assets/swiped/alt_cover.png",
+    "desc": "A full-stack Next.js app that lets classmates buy and sell UNC dining swipes with live chat, NutriAI assistance, and a dashboard for listings and history. Built for COMP 426.",
+    "stack": "Next.js, React, Supabase, Drizzle, Tailwind, OpenAI API",
+    "arch": "COMP 426 final project · Team: Logan, Ryder, Lauren, Clay",
+    "badge": "NEXT.JS 15",
+    "type": "Full Stack Development · Product Design",
+    "link": "../../swiped-case-study.html",
+    "linkLabel": "Open Case Study"
+  },
+  {
+    "key": "dinklink",
+    "title": "02_DinkLink.fig",
+    "heading": "DinkLink: Pickleball Matchmaking",
+    "img": "../../assets/portfolio/dinklink.png",
+    "desc": "A mobile app that helps local pickleball players find partners, track performance, and manage match logistics. Designed end-to-end in Figma with player profiles, real-time stats, location features, and a match dashboard.",
+    "stack": "Figma, FigJam, UserTesting",
+    "arch": "MEJO 433 final project · Team: Logan, Grant, Anqi",
+    "badge": "MOBILE UI/UX",
+    "type": "UI/UX · Product Design",
+    "link": "../../dinklink-case-study.html",
+    "linkLabel": "Open Case Study"
+  },
+  {
+    "key": "ebay",
+    "title": "03_eBay_Redesign.sys",
+    "heading": "eBay Interface Redesign",
+    "img": "../../assets/portfolio/ebayredesign.png",
+    "desc": "A reimagined eBay browsing and product-detail experience with a modern layout and simplified flow. Redesigned the product page, error screen, and navigation components to reduce clutter, strengthen hierarchy, and improve bidding and product selection.",
+    "stack": "Figma",
+    "arch": "UI/UX redesign project",
+    "badge": "REDESIGN",
+    "type": "UI/UX · Redesign",
+    "link": "https://www.behance.net/gallery/239575167/Ebay-Feature-Redesign-Project",
+    "linkLabel": "View on Behance"
+  },
+  {
+    "key": "hockey",
+    "title": "04_UNCHockey.gfx",
+    "heading": "UNC Hockey Graphic Collection",
+    "img": "../../assets/portfolio/Hockey.png",
+    "desc": "Promotional graphics for UNC Hockey highlighting major games, countdowns, and announcements. Consistent typography, color treatments, and layout patterns reinforce the team identity and stand out in fast-scrolling social feeds.",
+    "stack": "Graphic design for Instagram & social",
+    "arch": "UNC Hockey",
+    "badge": "SPORTS GFX",
+    "type": "Digital Media & Graphic Design",
+    "link": "https://www.behance.net/gallery/239582165/UNC-Hockey-Graphic-Designs",
+    "linkLabel": "View on Behance"
+  },
+  {
+    "key": "vanguard",
+    "title": "05_Vanguard_UX.sys",
+    "heading": "Vanguard Year-in-Review Redesign",
+    "img": "../../assets/portfolio/vanguard.png",
+    "desc": "Making Vanguard’s Year-in-Review clearer for investors ages 50+, with stronger guidance, trustworthy visuals, and next steps that feel obvious. Deliverables include personas, flows, usability findings, a UI kit, wireframes, and interactive prototypes.",
+    "stack": "Figma, UserTesting",
+    "arch": "MEJO 581 final project",
+    "badge": "FINTECH UX",
+    "type": "UI/UX · Redesign",
+    "link": "../../vanguard-case-study.html",
+    "linkLabel": "Open Case Study"
+  },
+  {
+    "key": "fees",
+    "title": "06_Processing_Fees.doc",
+    "heading": "Processing Fees & the Small Business Squeeze",
+    "img": "../../assets/portfolio/digitalpayments.png",
+    "desc": "A long-form digital story that pairs interviews, data visualization, and a video explainer to show how transaction fees chip away at independent retailers’ margins, following NeoPay founder George Peacock.",
+    "stack": "WordPress, Adobe Illustrator, Premiere Pro",
+    "arch": "MEJO 121 · Researcher, Writer & Designer",
+    "badge": "DIGITAL STORY",
+    "type": "Digital Package · Research & Design",
+    "link": "../../digital-processing-fees-case-study.html",
+    "linkLabel": "Open Case Study"
+  }
+];
+
+  // Synthesizer Chime / Beep
+  function playRetroBeep(freq = 440, type = "sine") {
+    if (!sfxEnabled) return;
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.4, ctx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.05, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.09);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.09);
+    } catch(e) {}
+  }
+
+  function toggleAudioFx() {
+    sfxEnabled = !sfxEnabled;
+    const btn = document.getElementById('soundToggleBtn');
+    if (sfxEnabled) {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[13px]">volume_up</span><span class="hidden sm:inline">SFX: ON</span>';
+      btn.className = "flex items-center gap-1 px-1.5 py-0.5 bg-primary-container border border-on-surface retro-btn text-[10px] font-bold";
+      showToast('Sound effects enabled');
+      playRetroBeep(500, 'sine');
+    } else {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[13px]">volume_off</span><span class="hidden sm:inline">SFX: OFF</span>';
+      btn.className = "flex items-center gap-1 px-1.5 py-0.5 bg-surface-container-high border border-on-surface text-[10px] font-bold text-outline";
+      showToast('Sound effects muted');
+    }
+  }
+
+  // Project Detail Modal Launch: renders the full case study from its <template>
+  function openProjectModal(index) {
+    const item = projectCatalog[index];
+    if (!item) return;
+    document.getElementById('modalProjectTitle').textContent = item.title;
+    document.getElementById('modalProjectBadge').textContent = item.badge;
+    document.getElementById('modalProjectType').textContent = item.type;
+    const link = document.getElementById('modalProjectLink');
+    link.href = item.link;
+    link.textContent = item.linkLabel + ' ↗';
+
+    const body = document.getElementById('modalCaseStudy');
+    const tpl = document.getElementById('cs-' + item.key);
+    body.replaceChildren(tpl ? tpl.content.cloneNode(true) : document.createTextNode(item.desc));
+    document.getElementById('modalScroll').scrollTop = 0;
+
+    openModal('projectDetailModal');
+    playRetroBeep(580, 'sine');
+  }
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal && !modal.open) modal.showModal();
+    playRetroBeep(480, 'triangle');
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal && modal.open) modal.close();
+    playRetroBeep(320, 'sine');
+  }
+
+  // Toast Notification Helper
+  let toastTimer;
+  function showToast(text) {
+    const toast = document.getElementById('retroToast');
+    const label = document.getElementById('retroToastText');
+    if (!toast || !label) return;
+    label.textContent = text;
+    toast.classList.remove('translate-y-[-100px]', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.add('translate-y-[-100px]', 'opacity-0');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 2800);
+  }
+
+  // Filter Categories
+  function filterCategory(cat) {
+    const items = document.querySelectorAll('.project-item');
+    let visibleCount = 0;
+    items.forEach(el => {
+      if (cat === 'all' || el.getAttribute('data-category') === cat) {
+        el.style.display = 'flex';
+        visibleCount++;
+      } else {
+        el.style.display = 'none';
+      }
+    });
+
+    const select = document.getElementById('tagFilterSelect');
+    if (select && select.value !== cat && cat !== 'all') {
+      select.value = cat;
+    } else if (select && cat === 'all') {
+      select.value = 'all';
+    }
+
+    document.getElementById('itemCountDisplay').textContent = `${visibleCount} item${visibleCount === 1 ? '' : 's'} displayed`;
+    showToast(`Displaying category: ${cat.toUpperCase()} (${visibleCount} objects)`);
+    playRetroBeep(420, 'square');
+  }
+
+  // Sort Gallery
+  function sortGallery(prop) {
+    const container = document.getElementById('projectsGrid');
+    const items = Array.from(document.querySelectorAll('.project-item'));
+    if (prop === 'name') {
+      items.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+    } else if (prop === 'size') {
+      items.sort((a, b) => parseFloat(b.dataset.size) - parseFloat(a.dataset.size));
+    }
+    items.forEach(item => container.appendChild(item));
+    showToast(`Items re-sorted by ${prop.toUpperCase()}`);
+    playRetroBeep(490, 'sine');
+  }
+
+  // View Mode: Cards vs Compact List
+  function setViewMode(mode) {
+    const grid = document.getElementById('projectsGrid');
+    const btnGrid = document.getElementById('btnViewGrid');
+    const btnList = document.getElementById('btnViewList');
+    if (mode === 'compact') {
+      grid.className = "grid grid-cols-1 md:grid-cols-2 gap-2";
+      btnList.className = "px-2 py-0.5 bg-primary-container text-on-primary-container border border-on-surface font-bold text-[10px] retro-btn";
+      btnGrid.className = "px-2 py-0.5 bg-surface-container-lowest border border-on-surface font-bold text-[10px] retro-btn";
+      showToast('Switched to Compact List view');
+    } else {
+      grid.className = "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5";
+      btnGrid.className = "px-2 py-0.5 bg-primary-container text-on-primary-container border border-on-surface font-bold text-[10px] retro-btn";
+      btnList.className = "px-2 py-0.5 bg-surface-container-lowest border border-on-surface font-bold text-[10px] retro-btn";
+      showToast('Switched to Large Grid view');
+    }
+    playRetroBeep(440, 'triangle');
+  }
+
+  // Feeling Lucky Pick
+  function triggerFeelingLucky() {
+    const randomIndex = Math.floor(Math.random() * projectCatalog.length);
+    const lucky = projectCatalog[randomIndex];
+    showToast(`★ Lucky Select: Launching ${lucky.heading}!`);
+    openProjectModal(randomIndex);
+  }
+
+  function copyEmail() {
+    try { navigator.clipboard.writeText('loganosc@unc.edu'); } catch (e) {}
+    showToast('Copied loganosc@unc.edu');
+    playRetroBeep(440);
+  }
+
+  // Contact: open a new email
+  function transmitContact() {
+    playRetroBeep(640, 'sine');
+    showToast('✓ Opening mail to loganosc@unc.edu');
+    window.location.href = 'mailto:loganosc@unc.edu';
+  }
+
+  // System Clock
+  function updateClock() {
+    const el = document.getElementById('sysClock');
+    if (!el) return;
+    const now = new Date();
+    let hrs = now.getHours();
+    const ampm = hrs >= 12 ? 'PM' : 'AM';
+    hrs = hrs % 12 || 12;
+    const mins = String(now.getMinutes()).padStart(2, '0');
+    el.textContent = `${hrs}:${mins} ${ampm}`;
+  }
+
+  // Initialization
+  window.addEventListener('DOMContentLoaded', () => {
+    // Drop case study content on close (Esc or button) so embedded video/iframes stop
+    const detail = document.getElementById('projectDetailModal');
+    detail.addEventListener('close', () => document.getElementById('modalCaseStudy').replaceChildren());
+    // Click on the backdrop closes the case study
+    detail.addEventListener('click', (e) => { if (e.target === detail) closeModal('projectDetailModal'); });
+    updateClock();
+    setInterval(updateClock, 30000);
+  });
+</script>
+
+
+
+
+
+
+</body></html>
