@@ -1,43 +1,23 @@
-# Logan Oscher · Portfolio
+# Portfolio design explorations
 
-Source for my personal portfolio at **[loganoscher.com](https://loganoscher.com)**. I'm a UNC Computer Science + Media (AD/PR) student interested in web design, graphic design, and software engineering.
+Alternate designs for the portfolio, kept separate from the live site repo (loganosc/portfolio → loganoscher.com).
 
-## What's inside
-
-The site is a single landing page plus long-form case studies:
-
-| Page | Project |
+| Folder | Design |
 |---|---|
-| `vanguard-case-study.html` | Vanguard redesign |
-| `swiped-case-study.html` | Swiped, a UNC meal-swipe exchange |
-| `digital-processing-fees-case-study.html` | Processing fees & the small business squeeze |
-| `dinklink-case-study.html` | DinkLink, a pickleball matchmaking app |
+| `/` (repo root) | Snapshot of the current live site |
+| [`designs/dual/`](designs/dual/) | "Dual": Retro OS file-browser layout |
+| [`designs/pastel-os/`](designs/pastel-os/) | "Pastel OS": Retro OS workspace layout |
 
-The landing page (`index.html`) also features an eBay interface redesign and a UNC Hockey graphic collection.
+Both designs pull images and case-study pages from the root `assets/` folder, so open them from inside this repo (e.g. `open designs/pastel-os/index.html`).
 
-## Stack
+## Dual
 
-Plain HTML, CSS, and JavaScript with no build step. Icons come from Font Awesome.
+A System 7-style Finder window. A bio inspector panel sits above a project browser with a sidebar of volumes (Product & UX, Media & Graphics, About, Resume), large-grid/compact-list view modes, and tag filtering.
 
-```
-index.html              landing page
-*-case-study.html       case study pages
-css/styles.css          all styles
-js/main.js              interactions (project modal, navigation)
-assets/                 images, icons, favicon
-```
+![Dual design](designs/dual/screenshot.png)
 
-## Running locally
+## Pastel OS
 
-Open `index.html` in a browser, or serve the folder so relative paths behave like production:
+A pastel workspace window with a large intro headline, a "verify humanity" widget, and a searchable project directory with tag filters and color-coded "Launch Specs" cards.
 
-```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
-```
-
-## Deployment
-
-Every push to `main` deploys the site to Hostinger over FTP via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). The workflow needs two repository secrets: `FTP_USERNAME` and `FTP_PASSWORD`.
-
-The deploy uses `dangerous-clean-slate: true`, so `public_html/` on the server is wiped and replaced with this repo's contents on each push. Anything uploaded to the server by hand will be removed.
+![Pastel OS design](designs/pastel-os/screenshot.png)
