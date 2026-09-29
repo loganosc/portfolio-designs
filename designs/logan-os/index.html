@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logan Oscher · Portfolio</title>
+<meta name="description" content="Logan Oscher: UNC Computer Science + Media AD/PR student designing and building web interfaces.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/favicon_io/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Silkscreen:wght@400;700&amp;family=VT323&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // Decide before first paint whether the intro plays, so the site never flashes unscaled.
+  (function () {
+    var played = false;
+    try { played = sessionStorage.getItem('logan-os:intro') === '1'; } catch (e) {}
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Phones skip the intro: scaling the whole site is too heavy to animate smoothly there.
+    var phone = /iPhone|iPod/.test(navigator.userAgent) ||
+      window.matchMedia('(pointer: coarse) and (max-width: 767px)').matches;
+    if (phone) document.documentElement.classList.add('no-intro');
+    if (!played && !reduce && !phone) document.documentElement.classList.add('is-intro');
+  })();
+</script>
+</head>
+<body>
+<div class="stage" id="stage">
+<a href="#work" class="skip">Skip to projects</a>
+
+<!-- ================= THE SITE ================= -->
+<div class="desk" id="desk">
+
+  <!-- Menu bar -->
+  <header class="menubar">
+    <div class="menubar__left">
+      <a href="#top" class="navlink menubar__logo">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M2 2h12v9H2zM6 12h4v1h2v1H4v-1h2z"/><path fill="#F4A3C8" d="M3 3h10v7H3z"/><path fill="#12131C" d="M6 5h1v2H6zM9 5h1v2H9zM6 8h4v1H6z"/></svg>
+        Logan.os</a>
+      <button type="button" class="menubar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav aria-label="Primary" class="menubar__nav" id="primary-nav">
+        <a href="#work" class="navlink">Work</a>
+        <a href="#about" class="navlink">About</a>
+        <a href="../../assets/Logan_Oscher_Resume.pdf" target="_blank" rel="noopener" class="navlink">Resume</a>
+        <a href="mailto:loganosc@unc.edu" class="navlink">Contact</a>
+      </nav>
+    </div>
+    <span class="menubar__status"><span class="led" aria-hidden="true"></span>Chapel Hill, NC</span>
+  </header>
+
+  <!-- Scrolling desktop -->
+  <div class="scroll" id="scroll">
+    <div id="top" class="desktop">
+
+      <main class="main">
+
+        <!-- Hero: bio window + info dialog -->
+        <section class="hero" aria-label="Introduction">
+
+          <div class="window window--bio">
+            <div class="titlebar titlebar--yellow">
+              <span class="titlebar__ctl" aria-hidden="true"></span>
+              <span class="titlebar__title"><span>bio.txt</span></span>
+              <span class="titlebar__ctl titlebar__ctl--max" aria-hidden="true"><span></span></span>
+            </div>
+            <div class="bio">
+              <div class="bio__prompt" aria-hidden="true">C:\LOGAN&gt;PORTFOLIO <span class="cursor"></span></div>
+              <h1 class="bio__title">Designing Interfaces<br><span>& Building Experiences</span></h1>
+              <p class="bio__lede">I'm Logan, a UNC Computer Science + Media AD/PR major interested in web design, graphic design, and software engineering. I build interfaces that are visually appealing and user-centric.</p>
+              <div class="bio__actions">
+                <a href="#work" class="btn btn--dark">View my work
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+                <a href="mailto:loganosc@unc.edu" class="btn btn--yellow">Say hello</a>
+              </div>
+            </div>
+          </div>
+
+          <section id="about" class="window window--info" aria-label="About Logan">
+            <div class="titlebar titlebar--pink">
+              <span class="titlebar__ctl" aria-hidden="true"></span>
+              <span class="titlebar__title titlebar__title--sm"><span>Logan Info</span></span>
+              <span class="titlebar__ctl" aria-hidden="true"></span>
+            </div>
+            <div class="info">
+              <div class="info__id">
+                <img src="assets/headshot.webp" alt="Portrait of Logan Oscher" width="84" height="84" class="info__photo">
+                <div class="info__name">
+                  <h2>Logan Oscher</h2>
+                  <span class="badge">Designer &amp; Developer</span>
+                </div>
+              </div>
+              <div role="group" aria-label="Show info" class="info__tabs">
+                <button type="button" class="infotab" data-info="general" aria-pressed="true" aria-controls="info-general">General</button>
+                <button type="button" class="infotab" data-info="contact" aria-pressed="false" aria-controls="info-contact">Contact</button>
+              </div>
+              <dl id="info-general" class="well info__panel" aria-label="General info">
+                <dt>Where</dt><dd>UNC Chapel Hill</dd>
+                <dt>Majors</dt><dd>Computer Science + Media AD/PR</dd>
+                <dt>Into</dt><dd>Web design, graphic design &amp; software engineering</dd>
+              </dl>
+              <div id="info-contact" class="well info__panel info__links" aria-label="Contact links" hidden>
+                <a href="mailto:loganosc@unc.edu" class="btn linkbtn linkbtn--yellow"><span>loganosc@unc.edu</span><span aria-hidden="true">→</span></a>
+                <a href="https://www.linkedin.com/in/logan-oscher/" target="_blank" rel="noopener" class="btn linkbtn"><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
+                <a href="https://www.behance.net/loganoscher" target="_blank" rel="noopener" class="btn linkbtn"><span>Behance</span><span aria-hidden="true">↗</span></a>
+                <a href="../../assets/Logan_Oscher_Resume.pdf" target="_blank" rel="noopener" class="btn linkbtn"><span>Resume.pdf</span><span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- Works window -->
+        <section id="work" class="window" aria-label="Selected Work">
+          <div class="titlebar titlebar--blue">
+            <span class="titlebar__ctl" aria-hidden="true"></span>
+            <span class="titlebar__title"><span>C:\Logan\Interactive_Works — <span id="count-label">6 items</span></span></span>
+            <span class="sr-only" role="status" aria-live="polite" id="live-label"></span>
+            <span class="titlebar__ctl titlebar__ctl--max" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="works__head">
+            <h2>Selected work</h2>
+            <div role="group" aria-label="Filter projects" class="works__filters">
+              <button type="button" class="filter" data-filter="all" aria-pressed="true">All <span class="filter__n">(6)</span></button>
+              <button type="button" class="filter" data-filter="ux" aria-pressed="false">Product &amp; UX <span class="filter__n">(4)</span></button>
+              <button type="button" class="filter" data-filter="media" aria-pressed="false">Media &amp; Graphics <span class="filter__n">(2)</span></button>
+            </div>
+          </div>
+          <div class="works__grid" id="grid">
+
+            <article class="card" data-cat="ux" style="--bar: var(--pink)">
+              <div class="card__bar"><span>01_Swiped.app</span><span>Next.js</span></div>
+              <img src="assets/covers/swiped.webp" alt="Swiped cover: meal swipe marketplace" width="800" height="376" class="card__img" loading="lazy">
+              <div class="card__body">
+                <h3>Swiped: Meal Swaps</h3>
+                <p>Full-stack Next.js marketplace where UNC students buy and sell meal swipes.</p>
+                <div class="card__foot">
+                  <span class="card__tags">#Next.js #Supabase #OpenAI</span>
+                  <a href="../../swiped-case-study.html" class="btn openbtn" data-case="swiped" aria-label="Open Swiped: Meal Swaps">Open <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-cat="ux" style="--bar: var(--yellow)">
+              <div class="card__bar"><span>02_DinkLink.fig</span><span>Mobile UX</span></div>
+              <img src="assets/covers/dinklink.webp" alt="DinkLink cover: pickleball matchmaking" width="800" height="376" class="card__img" loading="lazy">
+              <div class="card__body">
+                <h3>DinkLink: Pickleball App</h3>
+                <p>UI/UX design for a pickleball matchmaking app featuring player profiles and stats.</p>
+                <div class="card__foot">
+                  <span class="card__tags">#Figma #FigJam #UserTesting</span>
+                  <a href="../../dinklink-case-study.html" class="btn openbtn" data-case="dinklink" aria-label="Open DinkLink: Pickleball App">Open <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-cat="ux" style="--bar: var(--periwinkle-light)">
+              <div class="card__bar"><span>03_eBay.sys</span><span>Redesign</span></div>
+              <img src="assets/covers/ebay.webp" alt="eBay redesign cover: product pages and bidding" width="800" height="376" class="card__img" loading="lazy">
+              <div class="card__body">
+                <h3>eBay Interface Redesign</h3>
+                <p>Responsive UI redesign of eBay’s product pages and bidding experience.</p>
+                <div class="card__foot">
+                  <span class="card__tags">#Figma #UI #Redesign</span>
+                  <a href="https://www.behance.net/gallery/239575167/Ebay-Feature-Redesign-Project" target="_blank" rel="noopener" class="btn openbtn" data-case="ebay" aria-label="Open eBay Interface Redesign">Open <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-cat="media" style="--bar: var(--pink)">
+              <div class="card__bar"><span>04_UNCHockey.gfx</span><span>Sports GFX</span></div>
+              <img src="assets/covers/hockey.webp" alt="UNC Hockey cover: game-day scoreboard graphic" width="800" height="376" class="card__img" loading="lazy">
+              <div class="card__body">
+                <h3>UNC Hockey Graphics</h3>
+                <p>Social media graphic collection for UNC Hockey featuring game-day promos.</p>
+                <div class="card__foot">
+                  <span class="card__tags">#Instagram #Social</span>
+                  <a href="https://www.behance.net/gallery/239582165/UNC-Hockey-Graphic-Designs" target="_blank" rel="noopener" class="btn openbtn" data-case="hockey" aria-label="Open UNC Hockey Graphics">Open <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-cat="ux" style="--bar: var(--yellow)">
+              <div class="card__bar"><span>05_Vanguard.sys</span><span>Fintech UX</span></div>
+              <img src="assets/covers/vanguard.webp" alt="Vanguard redesign cover: portfolio charts" width="800" height="376" class="card__img" loading="lazy">
+              <div class="card__body">
+                <h3>Vanguard Redesign</h3>
+                <p>Responsive redesign focused on clarity, confidence, and trust for everyday investors.</p>
+                <div class="card__foot">
+                  <span class="card__tags">#Figma #UserTesting</span>
+                  <a href="../../vanguard-case-study.html" class="btn openbtn" data-case="vanguard" aria-label="Open Vanguard Redesign">Open <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-cat="media" style="--bar: var(--periwinkle-light)">
+              <div class="card__bar"><span>06_Fees.doc</span><span>Story</span></div>
+              <img src="assets/covers/fees.webp" alt="The Hidden Cost of Digital Payments on Small Businesses" width="800" height="376" class="card__img" loading="lazy">
+              <div class="card__body">
+                <h3>Processing Fees Story</h3>
+                <p>WordPress feature package combining reporting, video, and infographics.</p>
+                <div class="card__foot">
+                  <span class="card__tags">#WordPress #Illustrator</span>
+                  <a href="../../digital-processing-fees-case-study.html" class="btn openbtn" data-case="fees" aria-label="Open Processing Fees Story">Open <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+      </main>
+
+      <!-- Desktop file icons -->
+      <nav aria-label="Desktop shortcuts" class="icons">
+        <a href="../../assets/Logan_Oscher_Resume.pdf" target="_blank" rel="noopener" class="icon">
+          <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M1 1h13l1 1v13H1z"/><path fill="#7B8FF7" d="M2 2h11v12H2z"/><path fill="#fff" d="M4 2h7v5H4z"/><path fill="#12131C" d="M9 3h1v3H9zM4 9h8v5H4z"/><path fill="#fff" d="M5 10h6v1H5zM5 12h6v1H5z"/></svg>
+          <span class="icon__label">Resume.floppy</span></a>
+        <a href="#about" class="icon">
+          <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M2 1h9l3 3v11H2z"/><path fill="#fff" d="M3 2h7v3h3v9H3z"/><path fill="#12131C" d="M5 7h6v1H5zM5 9h6v1H5zM5 11h4v1H5z"/></svg>
+          <span class="icon__label">About_Me.txt</span></a>
+        <a href="mailto:loganosc@unc.edu" class="icon">
+          <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M1 3h14v11H1z"/><path fill="#F4A3C8" d="M2 4h12v9H2z"/><path fill="#12131C" d="M2 4h2v1h1v1h1v1h1v1h2V7h1V6h1V5h1V4h2v1h-1v1h-1v1h-1v1h-1v1H6V8H5V7H4V6H3V5H2z"/></svg>
+          <span class="icon__label">Say_Hello.exe</span></a>
+        <a href="https://www.linkedin.com/in/logan-oscher/" target="_blank" rel="noopener" class="icon">
+          <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M1 3h5l1 1h8v10H1z"/><path fill="#F4C464" d="M2 5h12v8H2z"/><path fill="#FDE39B" d="M2 4h4v1H2z"/></svg>
+          <span class="icon__label">LinkedIn.lnk</span></a>
+        <a href="https://www.behance.net/loganoscher" target="_blank" rel="noopener" class="icon">
+          <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M1 3h5l1 1h8v10H1z"/><path fill="#F4A3C8" d="M2 5h12v8H2z"/><path fill="#ffd8e7" d="M2 4h4v1H2z"/></svg>
+          <span class="icon__label">Behance.lnk</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Taskbar -->
+  <footer class="taskbar">
+    <div class="taskbar__left">
+      <button type="button" class="btn restart" id="restart" aria-label="Replay intro">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M12 3v8M6.3 6.3a8 8 0 1 0 11.4 0"/></svg>Restart</button>
+      <a href="#top" class="taskbtn">bio.txt</a>
+      <a href="#about" class="taskbtn">Logan Info</a>
+      <a href="#work" class="taskbtn taskbtn--active">Interactive_Works</a>
+    </div>
+    <div class="taskbar__right">
+      <a href="mailto:loganosc@unc.edu" class="taskbar__email">loganosc@unc.edu</a>
+      <time class="clock" id="clock"></time>
+    </div>
+  </footer>
+</div>
+
+<!-- Shown when an email link is clicked, since mailto: does nothing without a mail app -->
+<div class="toast" id="toast" popover="manual" role="status" aria-live="polite"></div>
+
+<!-- ================= INTRO OVERLAY (plays once per session) ================= -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__room"></div>
+  <div class="intro__stand"></div>
+  <div class="intro__housing">
+    <div class="intro__chin">
+      <span class="intro__brand">LOGAN·OS</span>
+      <div class="intro__chin-right">
+        <span class="intro__slot"></span>
+        <span class="intro__led"></span>
+      </div>
+    </div>
+  </div>
+  <div class="intro__rim"></div>
+  <div class="intro__glass"></div>
+  <div class="intro__ripple"></div>
+  <svg class="intro__pointer" width="30" height="40" viewBox="0 0 12 16" shape-rendering="crispEdges"><path fill="#12131C" d="M0 0h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1H7v1h1v2h1v2H7v-2H6v-2H5v1H4v1H3v1H1v1H0z"/><path fill="#fff" d="M1 2h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1H6v1h1v2h1v1h-1v-1H6v-2H5v-1H4v1H3v1H2v1H1z"/></svg>
+</div>
+</div>
+
+
+<!-- ================= CASE STUDY VIEWER ================= -->
+<dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+  <div class="viewer__window">
+    <div class="titlebar viewer__bar">
+      <span class="titlebar__ctl" aria-hidden="true"></span>
+      <h2 class="titlebar__title" id="viewer-title"><span></span></h2>
+      <button type="button" class="viewer__x" data-close aria-label="Close case study">×</button>
+    </div>
+    <div class="viewer__scroll" id="viewer-scroll">
+      <article class="cs" id="viewer-body"></article>
+    </div>
+    <div class="viewer__status">
+      <span class="viewer__meta" id="viewer-meta"></span>
+      <div class="viewer__actions">
+        <a class="btn viewer__btn viewer__btn--yellow" id="viewer-page" href="#" target="_blank" rel="noopener"></a>
+        <button type="button" class="btn viewer__btn" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ================= IMAGE LIGHTBOX (opens over the viewer) ================= -->
+<dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+  <div class="lightbox__window">
+    <div class="titlebar lightbox__bar">
+      <span class="titlebar__ctl" aria-hidden="true"></span>
+      <h2 class="titlebar__title" id="lightbox-title"><span></span></h2>
+      <button type="button" class="viewer__x" data-close aria-label="Close image viewer">×</button>
+    </div>
+    <div class="lightbox__track" id="lightbox-track" tabindex="0" aria-label="Images, scroll or use the arrow keys"></div>
+    <div class="lightbox__nav">
+      <button type="button" class="btn viewer__btn" id="lightbox-prev" aria-label="Previous image"><span aria-hidden="true">◀</span>&nbsp;Prev</button>
+      <div class="lightbox__caption" aria-live="polite">
+        <span class="lightbox__count" id="lightbox-count"></span>
+        <span id="lightbox-caption"></span>
+      </div>
+      <button type="button" class="btn viewer__btn" id="lightbox-next" aria-label="Next image">Next&nbsp;<span aria-hidden="true">▶</span></button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Case study content. Swiped, DinkLink, Vanguard and Fees are generated from the root
+     *-case-study.html pages by scripts/sync_case_studies.py; eBay and Hockey are hand-written. -->
+<template id="cs-swiped">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">Full Stack Development · Product Design</p>
+            <h1 class="case-study-title">Swiped: Meal Swaps Made Easy</h1>
+            <p class="case-study-lede">
+              A full-stack Next.js app that lets classmates buy and sell UNC dining swipes with live chat, NutriAI assistance, and a dashboard for listings and history—built for COMP 426.
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Team: Logan Oscher, Ryder, Lauren, Clay</li>
+              <li>Course: COMP 426 final project</li>
+              <li>Tools: Next.js, React, Supabase, Drizzle, Tailwind, OpenAI API</li>
+            </ul>
+
+            
+          </div>
+
+          <figure>
+            <img src="assets/covers/swiped.webp" width="800" height="376" alt="Swiped cover graphic with mobile screens">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>App Snapshot</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Problem</h3>
+            <p>Students with dining plans ended every week with unused swipes while classmates without plans struggled to afford campus meals.</p>
+          </div>
+          <div class="case-card">
+            <h3>Goal</h3>
+            <p>Make exchanging swipes feel safe, fast, and fair with authenticated accounts, clear listings, and live chat.</p>
+          </div>
+          <div class="case-card">
+            <h3>Outcome</h3>
+            <p>Full-stack web app with Supabase-authenticated accounts, live marketplace to sell/buy swipes, real-time chat per listing, and an AI nutrition planner backed by Supabase Realtime.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner intro-section">
+        <h2>Why we built it</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Opportunity</h3>
+            <p>Existing “group chat trading” was messy and slow. We saw a chance to replace ad-hoc posts with a structured marketplace where listings, pricing, and chat stay in one place.</p>
+          </div>
+          <div class="case-card">
+            <h3>Approach</h3>
+            <p>Full-stack sprint: Next.js + TypeScript with Tailwind/shadcn UI, Supabase for auth/DB/Realtime, Drizzle + tRPC for type-safe data, and a scraper-fed OpenAI nutrition assistant.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Project Team</h2>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/swiped/swiped_group.jpg" alt="Swiped project team photo">
+            <figcaption>Team Swiped: Logan, Ryder, Lauren, and Clay.</figcaption>
+          </figure>
+          <div class="case-card">
+            <h3>Collaboration</h3>
+            <p>We split design, front-end, and backend tasks across weekly sprints, pairing on tricky flows like chat, listings, and the NutriAI assistant.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>What we built</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Account Management</h3>
+            <p>Supabase Auth sign-up/login, profiles with display name, username, avatar, theme preference, and logout from Settings.</p>
+          </div>
+          <div class="case-card">
+            <h3>Marketplace & Chat</h3>
+            <p>Create and manage sell listings; buyers can purchase at asking price or negotiate via one-to-one chat powered by Supabase Realtime with unread counts.</p>
+          </div>
+          <div class="case-card">
+            <h3>NutriAI Assistant</h3>
+            <p>OpenAI-backed chat answers nutrition questions about UNC dining halls using scraped menu data; prompt guards keep replies nutrition-only.</p>
+          </div>
+          <div class="case-card">
+            <h3>Dashboard & History</h3>
+            <p>Weekly activity, balances, and transaction tables (Recharts + tables) to audit purchases and sales across the semester.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Key Flows</h2>
+        <p>Core flows: create a sell listing, browse/buy or negotiate, and keep the deal in-sync with live chat.</p>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/swiped/sell.png" alt="Flow for posting a meal swipe">
+            <figcaption>Create a listing with dining hall, availability window, price, and notes.</figcaption>
+          </figure>
+          <div class="case-card">
+            <h3>Flow details</h3>
+            <ul class="case-list">
+              <li>Sellers set hall, window, price, and notes; listings can be edited or cancelled anytime.</li>
+              <li>Buyers can purchase at ask or start a negotiation inside the per-listing chat.</li>
+              <li>Supabase Realtime updates listing status and chat instantly without refreshes.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>AI Nutrition Planner</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>What it does</h3>
+            <p>Students ask about dining hall foods, nutrition details, or meal ideas; responses come back instantly in-app and update in the chat thread.</p>
+          </div>
+          <div class="case-card">
+            <h3>How it works</h3>
+            <p>OpenAI API generates answers scoped to scraped menu data; Supabase Realtime inserts broadcast new chat messages so the answer appears instantly for the asker.</p>
+          </div>
+          <div class="case-card">
+            <h3>Guardrails</h3>
+            <p>Prompt engineering forces nutrition-only responses, blocking homework or unrelated topics to keep the tool on-mission.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Product Screens</h2>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/swiped/signup.png" alt="Swiped signup screen">
+            <figcaption>Supabase Auth sign-up with school email keeps accounts tied to students.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/chat.png" alt="Swiped chat handoff screen">
+            <figcaption>Per-listing chat keeps negotiations and confirmations traceable.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/buy.png" alt="Swiped buy swipe screen">
+            <figcaption>Buy flow shows cafeteria, timing, and pricing before you commit.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/dashboard.png" alt="Swiped dashboard screen">
+            <figcaption>Dashboard shows active listings, recent activity, and balances.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/convo.png" alt="Swiped confirmation and chat screen">
+            <figcaption>Chat threads keep negotiation history and confirmations in one place.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted">
+        <h2>Dark Mode Snapshots</h2>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/swiped/dark_dash.png" alt="Swiped dark mode dashboard">
+            <figcaption>Dark dashboard keeps hierarchy with bold chips for status.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/dark_buy.png" alt="Swiped dark mode buy flow">
+            <figcaption>Buy flow in dark mode retains clear primary/secondary actions.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/swiped/dark_convo.png" alt="Swiped dark mode conversation view">
+            <figcaption>Chat in dark mode stays readable with accent highlights.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted">
+        <h2>Build details</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Tech stack</h3>
+            <p>Next.js 15 + TypeScript with tRPC, Tailwind + shadcn/ui, Recharts; Supabase Auth/Postgres/Realtime with Drizzle ORM for schema + queries.</p>
+          </div>
+          <div class="case-card">
+            <h3>Data pipeline</h3>
+            <p>Cheerio/TSX script scrapes the dining hall site (npm run scrape-cds-menu) to keep menus current for listings and NutriAI context.</p>
+          </div>
+          <div class="case-card">
+            <h3>Realtime + AI safety</h3>
+            <p>Supabase Realtime channels broadcast new listings, negotiations, and AI messages instantly; OpenAI prompts are scoped to nutrition to block unrelated questions.</p>
+          </div>
+          <div class="case-card">
+            <h3>Env & tooling</h3>
+            <p>.env.local with OPENAI_KEY, DATABASE_URL, NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY; lint/build scripts keep the repo production-ready.</p>
+          </div>
+           <div class="case-card">
+            <h3>Nutrition guardrails</h3>
+            <p>NutriAI prompt engineering keeps responses nutrition-only, using scraped menu data to avoid off-topic answers.</p>
+          </div>
+          <div class="case-card">
+            <h3>Traceable negotiations</h3>
+            <p>One-to-one chat per listing replaces ad-hoc DMs so pricing, timing, and decisions stay in a single thread.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Live Web App</h2>
+        <p>Explore the responsive web build of Swiped below or open it in a new tab.</p>
+        <div class="figma-embed" style="height:640px">
+          <iframe title="Swiped live web app" src="https://swipedunc.vercel.app/" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="case-actions case-actions--spaced">
+          <a class="btn" href="https://swipedunc.vercel.app/" target="_blank" rel="noopener">Open live site</a>
+        </div>
+      </section>
+</template>
+<template id="cs-dinklink">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">UI/UX · Product Design</p>
+            <h1 class="case-study-title">DinkLink: Pickleball Matchmaking</h1>
+            <p class="case-study-lede">
+              Building a mobile product that makes it easy for local players to find partners,
+              organize matches, and keep up with their progress without getting lost in menus.
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Team: Logan Oscher, Grant, Anqi</li>
+              <li>Tools: Figma, FigJam, UserTesting</li>
+              <li>Course: Mejo 433, Final Project</li>
+            </ul>
+
+            <div class="case-actions">
+              <a class="btn" href="https://www.behance.net/gallery/226078383/DinkLink-Final-Group-Project-%28Spring-25%29" target="_blank" rel="noreferrer">View full project</a>
+            </div>
+          </div>
+
+          <figure>
+            <img src="assets/covers/dinklink.webp" width="800" height="376" alt="DinkLink mobile screens">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Overview</h2>
+        <p>
+          DinkLink connects recreational and competitive pickleball players through a simple profile,
+          matchmaking, and messaging experience. The goal was to reduce friction for pick-up matches
+          while highlighting the stats and context players need to feel confident when reaching out.
+        </p>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Problem</h3>
+            <p>Local players struggled to discover partners who match their skill, schedule, and preferred courts.</p>
+          </div>
+          <div class="case-card">
+            <h3>Outcome</h3>
+            <p>A streamlined flow that surfaces nearby players, courts, and recent results in one glanceable feed.</p>
+          </div>
+          <div class="case-card">
+            <h3>Impact</h3>
+            <p>Clearer onboarding, stronger profile signals, and faster conversations increased successful match requests in testing.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Discovery & Research</h2>
+        <p>
+          I interviewed five recreational players and mapped their current tools: text chains, Facebook groups,
+          and ad-hoc spreadsheets to track scores. The common friction points were confidence in a partner’s skill,
+          knowing which courts were free, and coordinating logistics without endless back-and-forth.
+        </p>
+        <ul class="case-list">
+          <li>Players needed a quick read on skill level, preferred times, and recent matches.</li>
+          <li>Court availability and distance were key deciding factors when accepting an invite.</li>
+          <li>Messaging needed to stay lightweight, with match details attached to avoid confusion.</li>
+        </ul>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Design Approach</h2>
+        <p>
+          I built the interface in Figma with a focus on clarity: minimal chrome, strong typography, and
+          modular cards that keep stats, partners, and court info aligned. I kept the visual language calm and
+          confident so newcomers feel welcome while advanced players still get the details they expect.
+        </p>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Profile clarity</h3>
+            <p>Progression badges, win/loss summaries, and common availability quickly communicate fit.</p>
+          </div>
+          <div class="case-card">
+            <h3>Matchmaking</h3>
+            <p>Filters for distance, skill tier, and preferred format reduce the time to find a partner.</p>
+          </div>
+          <div class="case-card">
+            <h3>Messaging</h3>
+            <p>Contextual threads attach location, time, and gear notes so players stay on the same page.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Solution Highlights</h2>
+        <p>
+          The final flow centers around a home dashboard that balances discovery with action. Players can move from
+          browsing to inviting in under three taps while keeping court logistics transparent.
+        </p>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Home feed</h3>
+            <p>Nearby partners, suggested courts, and recent matches appear in a single vertically scrollable stream.</p>
+          </div>
+          <div class="case-card">
+            <h3>Match request</h3>
+            <p>Quick-select time blocks and skill tiers auto-populate invites to cut down on coordination messages.</p>
+          </div>
+          <div class="case-card">
+            <h3>Stats & history</h3>
+            <p>Lightweight charts surface momentum without overwhelming casual players.</p>
+          </div>
+        </div>
+        <div class="case-callout">
+          Building around reusable cards meant the system stayed consistent across the dashboard, player profiles, and court pages,
+          making handoff easy and keeping the learning curve low.
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Outcomes & Next Steps</h2>
+        <p>
+          Testers were able to create a profile and send their first invite in under three minutes. For a next iteration,
+          I plan to pilot a lightweight availability calendar and integrate local club schedules.
+        </p>
+        <div class="case-actions">
+          <a class="btn" href="https://www.behance.net/gallery/226078383/DinkLink-Final-Group-Project-%28Spring-25%29" target="_blank" rel="noreferrer">Explore Behance case study</a>
+          <a href="mailto:loganosc@unc.edu">Get in touch</a>
+        </div>
+      </section>
+</template>
+<template id="cs-vanguard">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">UI/UX · Redesign</p>
+            <h1 class="case-study-title">Vanguard Year-in-Review Redesign</h1>
+            <p class="case-study-lede">
+              Making Vanguard’s Year-in-Review clearer for investors ages 50+, with stronger guidance, trustworthy visuals, and next steps that feel obvious.
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Course: Mejo 581, Final Project</li>
+              <li>Tools: Figma, UserTesting</li>
+            </ul>
+
+            
+          </div>
+
+          <figure>
+            <img src="assets/covers/vanguard.webp" width="800" height="376" alt="Vanguard Year-in-Review redesign screens">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Project Snapshot</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Role & Scope</h3>
+            <p>UX researcher and product/visual designer redesigning Vanguard’s Year-in-Review for investors 50+.</p>
+          </div>
+          <div class="case-card">
+            <h3>Timeline & Tools</h3>
+            <p>Semester project using Figma, user testing, card sort/flows, persona work, and PDF deliverables.</p>
+          </div>
+          <div class="case-card">
+            <h3>Deliverables</h3>
+            <p>Personas, structure/flows, usability findings deck, UI kit, 10+ wireframes, 20+ hi-fi panels, interactive prototypes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner intro-section">
+        <h2>Overview</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>The problem</h3>
+            <p>Investors 50+ struggled to find key financial insights. Metrics lacked context, visuals felt decorative instead of informative, and fee information was hard to uncover—eroding clarity and trust.</p>
+          </div>
+          <div class="case-card">
+            <h3>The goal</h3>
+            <p>Enhance clarity, trust, and usability for digitally active investors 50+. The work was driven by research, moderated tests, surveys, and accessibility priorities.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Audience</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>User profile</h3>
+            <p>Digitally active investors ages 50–70 who value straightforward wording, trust signals, and simplified navigation that tells a clear financial story.</p>
+            <p>They want reassurance that every step is purposeful, with language that reduces anxiety and highlights why actions matter.</p>
+          </div>
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/UX Persona.png" alt="Primary user profile for Vanguard redesign">
+            <figcaption>Primary profile: digitally active investors ages 50–70.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Research & Discovery</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Listening & personas</h3>
+            <p>50–70 age group interviews and empathy work to surface needs for clarity, trust signals, and predictable next steps.</p>
+          </div>
+          <div class="case-card">
+            <h3>Usability testing</h3>
+            <p>Think-aloud sessions and surveys with 50+ investors on the existing Year-in-Review revealed navigation confusion, jargon friction, and weak next-step guidance.</p>
+          </div>
+          <div class="case-card">
+            <h3>Insights → design</h3>
+            <p>Guided anchors, plain language, contextual tooltips, and checklist clarity mapped directly to observed pain points.</p>
+          </div>
+        </div>
+        <p class="media-caption">See embedded testing deck for full findings and methods.</p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>User Testing Findings</h2>
+        <div class="user-testing-layout">
+          <div class="user-testing-left">
+            <div class="case-card case-card--compact">
+              <h3>Study setup</h3>
+              <p>50+ participants evaluated the Year-in-Review prototype via think-aloud sessions, tasks, and pre/post surveys to measure comprehension, trust, and next-step clarity.</p>
+            </div>
+            <div class="case-card">
+              <h3>What worked</h3>
+              <ul class="case-list">
+                <li>Clear language raised confidence and trust.</li>
+                <li>Progress indicators and checkmarks motivated completion.</li>
+                <li>Anchored steps and inline explanations reduced context switching.</li>
+              </ul>
+            </div>
+            <div class="case-card">
+              <h3>Minor problems</h3>
+              <ul class="case-list">
+                <li>Abstract visuals felt unhelpful or unprofessional.</li>
+                <li>Users struggled to locate “Year in Review” and fee information.</li>
+                <li>Complex terminology still tripped up some participants.</li>
+              </ul>
+            </div>
+            <div class="case-card">
+              <h3>Major problems</h3>
+              <ul class="case-list">
+                <li>Unclear where to go after finishing the Year-in-Review; checklist links felt abrupt.</li>
+                <li>Uncertain destinations made people hesitant to click and unsure how to return.</li>
+                <li>Advanced users wanted deeper breakdowns; beginners needed clearer metric explanations.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="case-card">
+            <h3>Testing report (PDF)</h3>
+            <div class="pdf-placeholder">
+              <p>Usability findings presentation embedded below.</p>
+              <div class="pdf-embed pdf-embed--landscape">
+                <object data="../../assets/vanguard/Mejo 581 Pres.pdf" type="application/pdf">
+                  <iframe src="../../assets/vanguard/Mejo 581 Pres.pdf" title="Usability testing findings presentation"></iframe>
+                </object>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="muted-panel">
+          <h3>User voice</h3>
+          <ul class="case-list">
+            <li>“If I look at this checklist, I’m getting a little bit confused.”</li>
+            <li>“This kind of feels overwhelming, so I don’t know how those links work, or what is there on those pages?”</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Redesign Highlights</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Guided structure</h3>
+            <ul class="case-list">
+              <li>Added visual anchors and numbered steps at the top.</li>
+              <li>Removed playful illustrations and refocused the hierarchy on readability.</li>
+              <li>Clear action labels: Edit Retirement, Review Contributions, Review Accounts, Goal Optimizer.</li>
+            </ul>
+          </div>
+          <div class="case-card">
+            <h3>Context & clarity</h3>
+            <ul class="case-list">
+              <li>Contextual explanations, modals, and tooltips unpacked complex terms.</li>
+              <li>Narrative text explained why each section mattered.</li>
+              <li>Graphs tied directly to the insights they support.</li>
+            </ul>
+          </div>
+          <div class="case-card">
+            <h3>Tone for 50+ users</h3>
+            <ul class="case-list">
+              <li>Reassuring language reduced anxiety.</li>
+              <li>Definitions via info icons and dropdown modals.</li>
+              <li>Predictable next-step flow removed end-of-journey confusion.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Structure & Flows</h2>
+        <p>Mapped the revised Year-in-Review structure and key flows to clarify entry points, task progression, and how users branch into deeper tasks without losing context.</p>
+        <figure class="case-figure">
+          <img src="../../assets/vanguard/Structure_Flows.png" alt="Structure and flows diagram for the Year-in-Review experience">
+          <figcaption>Updated structure and flows aligning the mac experience with the guided checkpoints.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Wireframes</h2>
+        <p>Initial sketches and grayscale frames to validate structure before adding visual polish and interactions.</p>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/cards.png" alt="Sketches and card sort for Year-in-Review redesign">
+            <figcaption>Sketches and card sorting to organize tasks and content.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/progress.png" alt="Progress snapshot for Year-in-Review redesign">
+            <figcaption>Progress tracking snapshots feeding mid-fi layout decisions.</figcaption>
+          </figure>
+        </div>
+        <div class="figma-embed figma-embed--compact" style="margin-top:1.6rem">
+          <iframe title="Mid-fidelity wireframes" src="https://embed.figma.com/design/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?node-id=80303-49933&embed-host=share" allowfullscreen></iframe>
+        </div>
+        <p class="media-caption">10+ grayscale/mid-fi screens vetted for hierarchy, flow, and terminology before hi-fi styling.</p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Style Guide / UI Kit</h2>
+        <p>Color palette, typography, and components aligned to Vanguard to keep the experience consistent end to end.</p>
+        <figure class="case-figure case-figure--narrow">
+          <img src="../../assets/vanguard/style.png" alt="Style guide for the Vanguard Year-in-Review redesign">
+          <figcaption>Palette, type, and UI components used across the redesign.</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Process Sketches</h2>
+        <p>Early explorations captured as quick sketches and task progression snapshots before moving into mid- and hi-fi work.</p>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/cards.png" alt="Process sketch cards for Year-in-Review redesign">
+            <figcaption>Card sorting and early layout thinking.</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="../../assets/vanguard/progress.png" alt="Process progress snapshot for Year-in-Review redesign">
+            <figcaption>Progress tracking snapshots informing the flow.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Challenges & Trade-offs</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Simplicity vs. depth</h3>
+            <p>Balanced clarity for beginners with deeper breakdowns for advanced users by layering defaults, tooltips, and optional detail drawers.</p>
+          </div>
+          <div class="case-card">
+            <h3>Terminology vs. brevity</h3>
+            <p>Kept language short but added inline definitions and info icons so jargon never blocks progress.</p>
+          </div>
+          <div class="case-card">
+            <h3>Guidance vs. clutter</h3>
+            <p>Used numbered anchors and progress cues without overcrowding the UI, prioritizing readability over decorative visuals.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted">
+        <h2>The Pitch</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <p>Lead with a signature flow: numbered anchors and plain-language action labels (Edit Retirement, Review Contributions, Review Accounts, Goal Optimizer) that create a predictable path for 50+ users.</p>
+          </div>
+          <div class="case-card">
+            <p>Replaces playful visuals with a readability-first hierarchy, tying graphs directly to insights and pairing each step with a short “why this matters” narrative.</p>
+          </div>
+          <div class="case-card">
+            <p>Builds confidence through contextual tooltips, info icons, and reassuring copy that keep complex terms and next steps clear—reducing end-of-journey confusion and anxiety.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2 id="pdf">Redesign PDF & Wireframe</h2>
+        <p>View the full case study and wireframes below, or open them directly in a new tab.</p>
+        <div class="pdf-embed">
+          <object data="../../assets/vanguard/Final Pitch.pdf" type="application/pdf">
+            <iframe src="../../assets/vanguard/Final Pitch.pdf" title="Vanguard Year-in-Review case study PDF"></iframe>
+          </object>
+        </div>
+        <div class="case-actions">
+          <a class="btn" href="../../assets/vanguard/Final Pitch.pdf" download>Download PDF</a>
+          <a href="../../assets/vanguard/Final Pitch.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        </div>
+        <div class="prototype-layout" style="margin-top:2.4rem">
+          <div class="prototype-embed">
+            <h3>Low-Fidelity Wireframes</h3>
+            <div class="figma-embed figma-embed--compact">
+              <iframe title="Prototype mac 2" src="https://embed.figma.com/proto/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?page-id=80354%3A7514&node-id=80354-7515&viewport=159%2C-934%2C0.16&scaling=scale-down&content-scaling=fixed&starting-point-node-id=80354%3A7515&embed-host=share" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="prototype-embed">
+            <h3>High-Fidelity Wireframes</h3>
+            <div class="figma-embed figma-embed--compact">
+              <iframe title="Prototype mac 1" src="https://embed.figma.com/proto/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?page-id=80303%3A49933&node-id=80334-8475&viewport=274%2C-1560%2C0.25&scaling=scale-down&content-scaling=fixed&starting-point-node-id=80334%3A8475&embed-host=share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="prototype-full">
+          <div class="prototype-embed">
+            <h3>Full-fidelity wireframes (wide)</h3>
+            <div class="figma-embed">
+              <iframe title="Wireframe Figma" src="https://embed.figma.com/design/E2gMuGxvhUoIRvwrHh6mgw/Final_Redesign?node-id=80303-49933&embed-host=share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+        <p class="media-caption">20+ hi-fi panels across the mac flow; Figma links set to “Anyone with the link can view.”</p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Reflection</h2>
+        <p>
+          This redesign pairs straightforward language with a guided structure to lower friction for a regulated, high-stakes flow. Next iterations would A/B test the numbered path, refine checklist clarity, and expand analytics around where investors pause after reading their performance story.
+        </p>
+      </section>
+</template>
+<template id="cs-fees">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">Digital Package · Research & Design</p>
+            <h1 class="case-study-title">Digital Processing Fees & The Small Business Squeeze</h1>
+            <p class="case-study-lede">
+              lede filler text
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Role: Researcher, Writer, & Designer</li>
+              <li>Class: Mejo 121</li>
+              <li>Tools: WordPress, Adobe Illustrator, Premiere Pro</li>
+            </ul>
+
+            
+          </div>
+
+          <figure>
+            <img src="assets/covers/fees.webp" width="800" height="376" alt="Banner">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner intro-section">
+        <h2>Introduction</h2>
+        <p>
+          George Peacock, a Chapel Hill entrepreneur, launched NeoPay in 2024 to solve a problem crushing small businesses across America: credit card processing fees that can devour up to 3.5 percent of every transaction. While large retailers negotiate rates as low as 1 percent, independent shops face fees two to three times higher. These fees  have only quietly grown more complex and expensive over the past two decades. Peacock's solution cuts these costs by 50 to 80 percent while rewarding customers with cash and prizes, proving that the current system doesn't have to be the only option.        </p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Video Overview</h2>
+        <p>
+          This story examines economic inequality in payment infrastructure and how the digital convenience reshaping the way Americans spend money is quietly changing how small businesses must survive. Each tap or swipe is accompanied by a fee, and for many small businesses, those little charges add up to be a serious financial burden. What seems like an efficient transaction to consumers often translates into a painful cut in revenue to the business, especially when margins are already very slim.         </p>
+        <div class="case-media case-media--video">
+          <div class="responsive-video">
+            <iframe title="vimeo-player" src="https://player.vimeo.com/video/1132669784?h=8be8ff546c" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>          </div>
+          <p class="media-caption">A two-minute walkthrough of how a few cents per transaction scales into thousands over a year.</p>
+        </div>
+        <p>
+          <br>Each digital transaction passes through multiple intermediaries: issuing banks, card networks like Visa and Mastercard, and payment processors. Each step has fees for authorization, fraud protection, risk management, and infrastructure maintenance. These interchange fees began modestly decades ago but have grown increasingly complex as the payment network expanded. The structure varies by card type, processor, and business size, creating an uneven landscape where identical transactions cost different merchants vastly different amounts. Over a year, a small business processing $500,000 in card payments at 3 percent loses $15,000 to fees: money that could fund employee raises, inventory expansion, or simply help the business survive.        </p>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted case-section--infographic">
+        <div class="case-section__header">
+          <h2>Infographic</h2>
+          <p> A full-width infographic visualizes how a 2.9% + $0.30 fee structure impacts businesses at different
+                average ticket sizes.  </p>
+        </div>
+
+        <div class="case-infographic__grid">
+          <figure class="case-figure case-figure--wide">
+            <img src="../../assets/portfolio/newgraphic.png" alt="Infographic summarizing fee structures and their impact on small businesses">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Disparity</h2>
+        <p> Large corporations negotiate much lower processing fees because their transaction volume gives them leverage. Small businesses rarely enjoy such benefits. Many receive the highest rates in the system with little to no bargaining power to challenge them. Where a big retailer may pay 1 to 1.5 percent per transaction, an independent shop pays 2.5 to 3.5 percent for that same exchange. Premium rewards cards, the ones consumers love for cash back and travel points, are often the most expensive for small merchants to accept. We get rewarded while the business absorbs the cost.</p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Conclusion</h2>
+        <p>
+          Digital convenience is now an expectation, not an option. The fees that seem invisible to consumers tapping their cards represent real money that small business owners must absorb, often forcing impossible choices between competitive pricing and financial sustainability. This isn't just inefficient; it's a structural barrier that makes small business survival harder in an already challenging retail environment. George's work with NeoPay shows how one person can push back, help their community, and hopefully end the hidden
+          pressures behind every transaction.
+        </p>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Reflection</h2>
+        <p>
+          Working on this project helped me understand how complex digital payment systems are and how difficult they can be for small businesses to navigate. As a team member of Neopay, working alongside George Peacock and learning about his journey to build NeoPay has shown me what it really means to be a helping hand in our community. I went into the assignment knowing that these fees existed on a basic level, but I did not realize how many layers and institutions were involved or how much the fee structure favors large companies over small ones. Translating that information into a clear narrative took time because the topic is very technical and often confusing. The more I learned, the more appreciation I grew for George and his startup. I am excited to see how it is able to successfully impact merchants in our community and hopefully others eventually as well!
+        </p>
+      </section>
+
+      <section id="sources" class="case-section page-section-inner">
+        <h2>Sources</h2>
+        <ul class="source-list">
+          <li>Board of Governors of the Federal Reserve System. (2025, March 12). Federal Reserve Payments Study (FRPS). Federal Reserve Board. Retrieved November 17, 2025, from https://www.federalreserve.gov/paymentsystems/fr-payments-study.htm</li>
+          <li>Crawford, H. (2025, January 24). Credit Card Processing Fees: A 2025 Guide for Businesses. NerdWallet. Retrieved November 17, 2025, from https://www.nerdwallet.com/business/software/learn/credit-card-processing-fees</li>
+          <li>Johnson, H. D. (2025, July 14). Average Cost Of Credit Card Processing Fees. Bankrate. Retrieved November 17, 2025, from https://www.bankrate.com/credit-cards/business/merchants-guide-to-credit-card-processing-fees/</li>
+          <li>Yuan, J., & McIntyre, K. (2025, May 6). We Must End the Hidden Growth Tax on U.S. Small Businesses. Entrepreneur. Retrieved November 17, 2025, from https://www.entrepreneur.com/money-finance/we-must-end-the-hidden-growth-tax-on-us-small-businesses/489523</li>
+        </ul>
+      </section>
+</template>
+<template id="cs-ebay">
+<section class="case-study-hero">
+  <div class="case-study-hero__grid">
+    <div>
+      <p class="case-study-eyebrow">UI/UX · Redesign</p>
+      <h1 class="case-study-title">eBay Interface Redesign</h1>
+      <p class="case-study-lede">I reimagined the eBay browsing and product-detail experience with a modern layout and simplified user flow. This project focused on reducing visual clutter, strengthening the hierarchy of information, and improving the bidding and product selection process. I redesigned the product page, error screen, and navigation components to make the platform feel more intuitive and consistent across devices. The final system presents a cleaner shopping experience with clear call-to-actions and a more user-friendly structure.</p>
+      <ul class="case-study-meta"><li>Scope: product page, error screen, navigation</li><li>Tools: Figma</li></ul>
+      <div class="case-actions"><a class="btn" href="https://www.behance.net/gallery/239575167/Ebay-Feature-Redesign-Project" target="_blank" rel="noopener">View full project on Behance</a></div>
+    </div>
+    <figure><img src="assets/covers/ebay.webp" width="800" height="376" alt="eBay redesign screens"></figure>
+  </div>
+</section>
+</template>
+<template id="cs-hockey">
+<section class="case-study-hero">
+  <div class="case-study-hero__grid">
+    <div>
+      <p class="case-study-eyebrow">Digital Media &amp; Graphic Design</p>
+      <h1 class="case-study-title">UNC Hockey Graphic Collection</h1>
+      <p class="case-study-lede">I created a series of promotional graphics for UNC Hockey that highlight major games, countdowns, and announcements. My goal was to capture the energy of UNC athletics while keeping the visuals bold and recognizable for fans. Each piece uses consistent typography, color treatments, and layout patterns to reinforce the team identity. The graphics were built for Instagram and other social platforms and were designed to stand out in fast-scrolling feeds.</p>
+      <ul class="case-study-meta"><li>Client: UNC Hockey</li><li>Format: Instagram &amp; social graphics</li></ul>
+      <div class="case-actions"><a class="btn" href="https://www.behance.net/gallery/239582165/UNC-Hockey-Graphic-Designs" target="_blank" rel="noopener">View full project on Behance</a></div>
+    </div>
+    <figure><img src="assets/covers/hockey.webp" width="800" height="376" alt="UNC Hockey social graphics"></figure>
+  </div>
+</section>
+</template>
+
+<script src="main.js"></script>
+</body>
+</html>

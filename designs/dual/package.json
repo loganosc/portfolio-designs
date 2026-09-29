@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tailwindcss -i tailwind.input.css -o styles.css --minify",
     "watch": "tailwindcss -i tailwind.input.css -o styles.css --watch",
-    "sync": "python3 sync_case_studies.py"
+    "sync": "python3 ../../scripts/sync_case_studies.py"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
