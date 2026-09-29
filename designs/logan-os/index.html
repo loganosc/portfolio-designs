@@ -20,7 +20,11 @@
     try { played = sessionStorage.getItem('logan-os:intro') === '1'; } catch (e) {}
     try { modern = localStorage.getItem('logan-os:theme') === 'modern'; } catch (e) {}
     if (modern) document.documentElement.classList.add('is-modern');
-    try { if (localStorage.getItem('logan-os:promo') === 'dismissed') document.documentElement.classList.add('promo-dismissed'); } catch (e) {}
+    // The mode-switch tip under Logan Info is dismissed separately in each mode ('logan-os:promo' is the older retro key).
+    try {
+      if (localStorage.getItem('logan-os:promo-retro') === 'dismissed' || localStorage.getItem('logan-os:promo') === 'dismissed') document.documentElement.classList.add('promo-dismissed-retro');
+      if (localStorage.getItem('logan-os:promo-modern') === 'dismissed') document.documentElement.classList.add('promo-dismissed-modern');
+    } catch (e) {}
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // Phones skip the intro: scaling the whole site is too heavy to animate smoothly there.
     var phone = /iPhone|iPod/.test(navigator.userAgent) ||
@@ -115,17 +119,18 @@
             </div>
           </section>
 
-          <!-- Retro-only tip that switches to modern mode; × dismisses it for good (remembered per browser). -->
-          <aside class="window promo" aria-label="Modernize tip">
+          <!-- Mode-switch tip: in retro it offers Modern mode, in modern it offers Retro. × dismisses it for good
+               in the current mode (remembered per browser). -->
+          <aside class="window promo" aria-label="Display style tip">
             <div class="titlebar promo__bar">
               <span class="titlebar__ctl" aria-hidden="true"></span>
               <span class="titlebar__title titlebar__title--sm"><span>Modernize.exe</span></span>
-              <button type="button" class="promo__x" id="promo-close" aria-label="Dismiss the Modernize tip">×</button>
+              <button type="button" class="promo__x" id="promo-close" aria-label="Dismiss this tip">×</button>
             </div>
             <div class="promo__body">
               <svg width="32" height="32" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M7 0h2v1H7zM7 1h2v1H7zM6 2h4v1H6zM6 3h4v1H6zM5 4h6v1H5zM4 5h8v1H4zM1 6h14v1H1zM0 7h16v1H0zM0 8h16v1H0zM1 9h14v1H1zM4 10h8v1H4zM5 11h6v1H5zM6 12h4v1H6zM6 13h4v1H6zM7 14h2v1H7zM7 15h2v1H7z"/><path fill="#F4A3C8" d="M7 2h2v1H7zM7 3h2v1H7zM6 4h4v1H6zM5 5h6v1H5zM4 6h8v1H4zM1 7h14v1H1zM1 8h14v1H1zM4 9h8v1H4zM5 10h6v1H5zM6 11h4v1H6zM7 12h2v1H7zM7 13h2v1H7z"/></svg>
-              <p>Not into retro? See this portfolio in a clean, modern layout.</p>
-              <button type="button" class="btn btn--pink promo__btn" id="promo-go">Modernize</button>
+              <p><span class="only-retro">Not into retro? See this portfolio in a clean, modern layout.</span><span class="only-modern">Miss the pixels? Switch back to the original retro desktop.</span></p>
+              <button type="button" class="btn btn--pink promo__btn" id="promo-go"><span class="only-retro">Modernize</span><span class="only-modern">Go retro</span></button>
             </div>
           </aside>
           </div>

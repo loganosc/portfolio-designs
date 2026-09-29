@@ -59,7 +59,6 @@
 /* ---------- Retro-only pieces ---------- */
 
 .is-modern .bio__prompt,
-.is-modern .promo,
 .is-modern .icons,
 .is-modern .restart,
 .is-modern .titlebar__ctl,
@@ -190,6 +189,26 @@
 .is-modern .linkbtn:hover { background: #f4f4f5; }
 .is-modern .linkbtn--yellow { background: var(--ink); border-color: var(--ink); color: #fff; }
 .is-modern .linkbtn--yellow:hover { background: #27272a; }
+
+/* Mode-switch tip ("Go retro"): a plain card; of its title bar only the × stays, in the top-right corner. */
+.is-modern .promo { position: relative; }
+.is-modern .promo > .titlebar {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: auto;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+.is-modern .promo > .titlebar > :not(.promo__x) { display: none; }
+.is-modern .promo__x { width: 28px; height: 28px; border-color: transparent; border-radius: 8px; font-size: 18px; color: var(--muted); }
+.is-modern .promo__x:hover { background: #f4f4f5; color: var(--ink); }
+.is-modern .promo__body { grid-template-columns: 1fr; padding: 20px; gap: 14px; }
+.is-modern .promo__body svg { display: none; } /* the pixel sparkle is retro-only */
+.is-modern .promo__body p { padding-right: 28px; font-size: 16px; line-height: 1.45; } /* clears the × */
+.is-modern .promo__btn { height: 40px; font-size: 15px; }
 
 /* ---------- Works ---------- */
 

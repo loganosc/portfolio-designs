@@ -356,7 +356,8 @@ dl.info__panel dt:nth-last-of-type(1), dl.info__panel dd:last-of-type { border-b
 .info__links { padding: 12px; display: flex; flex-direction: column; gap: 10px; }
 
 /* Modernize tip (retro only) */
-.promo-dismissed .promo { display: none; }
+.promo-dismissed-retro:not(.is-modern) .promo,
+.promo-dismissed-modern.is-modern .promo { display: none; }
 .promo__bar { --tb: var(--periwinkle-light); }
 .promo__x {
   width: 24px; height: 24px; flex-shrink: 0;

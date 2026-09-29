@@ -44,14 +44,17 @@
     try { localStorage.setItem('logan-os:theme', on ? 'modern' : 'retro'); } catch (e) {}
   });
 
-  // Modernize tip under Logan Info: its button flips the mode, × hides the tip for good.
-  document.getElementById('promo-go').addEventListener('click', function () {
+  // Mode-switch tip under Logan Info: its button flips the mode, × hides it for good in the current mode.
+  var promoGo = document.getElementById('promo-go');
+  promoGo.addEventListener('click', function () {
     themeToggle.click();
-    themeToggle.focus(); // the tip hides in modern mode
+    // The tip stays unless it was dismissed in the new mode; if it's gone, keep focus on the same switch.
+    if (!promoGo.offsetParent) themeToggle.focus();
   });
   document.getElementById('promo-close').addEventListener('click', function () {
-    root.classList.add('promo-dismissed');
-    try { localStorage.setItem('logan-os:promo', 'dismissed'); } catch (e) {}
+    var mode = root.classList.contains('is-modern') ? 'modern' : 'retro';
+    root.classList.add('promo-dismissed-' + mode);
+    try { localStorage.setItem('logan-os:promo-' + mode, 'dismissed'); } catch (e) {}
     themeToggle.focus(); // the tip is gone; the same switch lives in the taskbar
   });
 
