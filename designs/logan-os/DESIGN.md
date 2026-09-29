@@ -7,7 +7,7 @@ Plain HTML/CSS/JS, no build step: `index.html`, `styles.css`, `main.js`.
 ## Design system
 
 - **Fonts:** `VT323` for headlines and body copy; `Silkscreen` for UI chrome (menus, title bars, buttons, labels, icon names). JetBrains Mono is loaded as a backup in both font stacks. Pixel text is never under 12px.
-- **Colors:** tokens live on `:root` in `styles.css`. Ink `#12131C`, yellow `#F4C464`, light yellow `#FDE39B`, periwinkle `#7B8FF7`, light periwinkle `#C9D1FF` / `#dee1ff`, pink `#F4A3C8`, plum `#8b496a`, link blue `#263ca1`, desktop `#CCE3F8` with a `#A4C6E8` 24px grid, well `#F5F6FA`, surface `#fbf8ff`, room `#2f303a`.
+- **Colors:** tokens live on `:root` in `styles.css`. Ink `#12131C`, yellow `#FFDEA4`, light yellow `#FDE39B`, periwinkle `#7B8FF7`, light periwinkle `#C9D1FF` / `#dee1ff`, pink `#F4A3C8`, light pink `#FCE0ED` (About me button, inactive info tab), plum `#8b496a`, link blue `#263ca1`, desktop `#CCE3F8` with a `#A4C6E8` 24px grid, well `#F5F6FA`, surface `#fbf8ff`, room `#2f303a`.
 - **Shape:** 0 radius everywhere except the intro's monitor hardware.
 - **Depth:** 2px ink borders, hard unblurred shadows: windows 8px, cards 4px, buttons 3px. Buttons lift on hover (-1px, 4px shadow) and press to `translate(2px, 2px)` with a 1px shadow.
 - **Title bars:** 32px, pastel fill with 1px ink pinstripes every 4px, title centered on a solid pastel chip, square controls at both ends.
@@ -41,7 +41,7 @@ Each project's **Open** button shows its case study in a modal window (a `<dialo
 - **Image galleries:** every image in a `.case-grid` gets a yellow **+** badge and opens a large view (a second `<dialog>` over the viewer). Each gallery is one set, so Swiped's Product Screens open as 5 images you can swipe or scroll through, step through with **◀ Prev / Next ▶** or the ← → keys; a counter and the figure's caption sit in the bottom bar. Esc closes only the large view and focus returns to the image.
 - **Closing:** Esc, ×, Close, or a click on the backdrop. Focus returns to the Open button, and the content is cleared so embedded video and Figma prototypes stop.
 
-The content lives in `<template id="cs-…">` blocks at the bottom of `index.html`. Swiped, DinkLink, Vanguard and Fees are generated from the root `*-case-study.html` pages; after editing one of those pages, run `python3 scripts/sync_case_studies.py` from the repo root (it updates Dual too). eBay and UNC Hockey have no standalone page, so their templates are hand-written.
+The content lives in `<template id="cs-…">` blocks at the bottom of `index.html`. Swiped, DinkLink and Vanguard are generated from the root `*-case-study.html` pages; after editing one of those pages, run `python3 scripts/sync_case_studies.py` from the repo root (it updates Dual too). eBay, UNC Hockey and InsightUI have no standalone page, so their templates are hand-written.
 
 ## Content
 

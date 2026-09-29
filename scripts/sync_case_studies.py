@@ -19,10 +19,14 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 # Designs that embed case studies. Each lives two levels below the repo root,
 # which the relative-path rewrite below relies on. A design can swap each case
-# study's hero image for its own cover ("{key}" is the template key).
+# study's hero image for its own cover ("{key}" is the template key) and skip
+# case studies it doesn't show.
 TARGETS = {
-    ROOT / "designs" / "dual" / "index.html": None,
-    ROOT / "designs" / "logan-os" / "index.html": 'src="assets/covers/{key}.webp" width="800" height="376"',
+    ROOT / "designs" / "dual" / "index.html": {},
+    ROOT / "designs" / "logan-os" / "index.html": {
+        "cover": 'src="assets/covers/{key}.webp" width="800" height="376"',
+        "skip": {"fees"},
+    },
 }
 
 # template key -> source page (relative to the repo root)
@@ -53,10 +57,13 @@ def render(page_path):
     return body.rstrip() + "\n"
 
 
-def sync(index, rendered, cover):
+def sync(index, rendered, options):
     html = index.read_text()
     updated = html
+    cover = options.get("cover")
     for key, content in rendered.items():
+        if key in options.get("skip", ()):
+            continue
         if cover:
             content, found = HERO_IMG.subn(lambda m: m.group(1) + cover.format(key=key), content, count=1)
             if not found:
@@ -71,9 +78,9 @@ def sync(index, rendered, cover):
 def main():
     rendered = {key: render(page) for key, page in SOURCES.items()}
     stale = []
-    for index, cover in TARGETS.items():
+    for index, options in TARGETS.items():
         name = index.relative_to(ROOT)
-        html, updated = sync(index, rendered, cover)
+        html, updated = sync(index, rendered, options)
         if updated == html:
             print(f"{name}: up to date")
         elif "--check" in sys.argv:
@@ -81,7 +88,7 @@ def main():
             print(f"{name}: embedded case studies are out of date")
         else:
             index.write_text(updated)
-            print(f"{name}: updated {len(SOURCES)} case studies")
+            print(f"{name}: updated its embedded case studies")
 
     if stale:
         print("Run: python3 scripts/sync_case_studies.py")

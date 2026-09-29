@@ -69,9 +69,10 @@
               <h1 class="bio__title">Designing Interfaces<br><span>& Building Experiences</span></h1>
               <p class="bio__lede">I'm Logan, a UNC Computer Science + Media AD/PR major interested in web design, graphic design, and software engineering. I build interfaces that are visually appealing and user-centric.</p>
               <div class="bio__actions">
-                <a href="#work" class="btn btn--dark">View my work
+                <a href="#work" class="btn btn--yellow">View my work
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-                <a href="mailto:loganosc@unc.edu" class="btn btn--yellow">Say hello</a>
+                <button type="button" class="btn btn--pink" id="about-open" aria-haspopup="dialog">About me</button>
+                <a href="mailto:loganosc@unc.edu" class="btn btn--light">Say hello</a>
               </div>
             </div>
           </div>
@@ -118,11 +119,11 @@
             <span class="titlebar__ctl titlebar__ctl--max" aria-hidden="true"><span></span></span>
           </div>
           <div class="works__head">
-            <h2>Selected work</h2>
+            <h2>Selected Work</h2>
             <div role="group" aria-label="Filter projects" class="works__filters">
               <button type="button" class="filter" data-filter="all" aria-pressed="true">All <span class="filter__n">(6)</span></button>
-              <button type="button" class="filter" data-filter="ux" aria-pressed="false">Product &amp; UX <span class="filter__n">(4)</span></button>
-              <button type="button" class="filter" data-filter="media" aria-pressed="false">Media &amp; Graphics <span class="filter__n">(2)</span></button>
+              <button type="button" class="filter" data-filter="ux" aria-pressed="false">Product &amp; UX <span class="filter__n">(5)</span></button>
+              <button type="button" class="filter" data-filter="media" aria-pressed="false">Media &amp; Graphics <span class="filter__n">(1)</span></button>
             </div>
           </div>
           <div class="works__grid" id="grid">
@@ -192,15 +193,16 @@
               </div>
             </article>
 
-            <article class="card" data-cat="media" style="--bar: var(--periwinkle-light)">
-              <div class="card__bar"><span>06_Fees.doc</span><span>Story</span></div>
-              <img src="assets/covers/fees.webp" alt="The Hidden Cost of Digital Payments on Small Businesses" width="800" height="376" class="card__img" loading="lazy">
+
+            <article class="card" data-cat="ux" style="--bar: var(--pink)">
+              <div class="card__bar"><span>07_InsightUI.jsx</span><span>AI Tool</span></div>
+              <img src="assets/covers/insightui.webp" alt="InsightUI cover: critique inspector rating usability, accessibility, and hierarchy issues" class="card__img" loading="lazy" width="800" height="376">
               <div class="card__body">
-                <h3>Processing Fees Story</h3>
-                <p>WordPress feature package combining reporting, video, and infographics.</p>
+                <h3>InsightUI: AI UX Critique</h3>
+                <p>React tool that critiques an interface with a local LLM, sorting issues by category and severity.</p>
                 <div class="card__foot">
-                  <span class="card__tags">#WordPress #Illustrator</span>
-                  <a href="../../digital-processing-fees-case-study.html" class="btn openbtn" data-case="fees" aria-label="Open Processing Fees Story">Open <span aria-hidden="true">↗</span></a>
+                  <span class="card__tags">#React #Vite #Ollama</span>
+                  <a href="https://github.com/loganosc/insightui" target="_blank" rel="noopener" class="btn openbtn" data-case="insightui" aria-label="Open InsightUI: AI UX Critique">Open <span aria-hidden="true">↗</span></a>
                 </div>
               </div>
             </article>
@@ -221,7 +223,7 @@
           <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M1 3h14v11H1z"/><path fill="#F4A3C8" d="M2 4h12v9H2z"/><path fill="#12131C" d="M2 4h2v1h1v1h1v1h1v1h2V7h1V6h1V5h1V4h2v1h-1v1h-1v1h-1v1h-1v1H6V8H5V7H4V6H3V5H2z"/></svg>
           <span class="icon__label">Say_Hello.exe</span></a>
         <a href="https://www.linkedin.com/in/logan-oscher/" target="_blank" rel="noopener" class="icon">
-          <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M1 3h5l1 1h8v10H1z"/><path fill="#F4C464" d="M2 5h12v8H2z"/><path fill="#FDE39B" d="M2 4h4v1H2z"/></svg>
+          <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M1 3h5l1 1h8v10H1z"/><path fill="#FFDEA4" d="M2 5h12v8H2z"/><path fill="#FFF0D4" d="M2 4h4v1H2z"/></svg>
           <span class="icon__label">LinkedIn.lnk</span></a>
         <a href="https://www.behance.net/loganoscher" target="_blank" rel="noopener" class="icon">
           <svg width="48" height="48" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M1 3h5l1 1h8v10H1z"/><path fill="#F4A3C8" d="M2 5h12v8H2z"/><path fill="#ffd8e7" d="M2 4h4v1H2z"/></svg>
@@ -311,8 +313,8 @@
   </div>
 </dialog>
 
-<!-- Case study content. Swiped, DinkLink, Vanguard and Fees are generated from the root
-     *-case-study.html pages by scripts/sync_case_studies.py; eBay and Hockey are hand-written. -->
+<!-- Case study content. Swiped, DinkLink and Vanguard are generated from the root
+     *-case-study.html pages by scripts/sync_case_studies.py; eBay, Hockey, InsightUI and About are hand-written. -->
 <template id="cs-swiped">
 <section class="case-study-hero page-section-inner">
         <div class="case-study-hero__grid">
@@ -957,94 +959,6 @@
         </p>
       </section>
 </template>
-<template id="cs-fees">
-<section class="case-study-hero page-section-inner">
-        <div class="case-study-hero__grid">
-          <div>
-            <p class="case-study-eyebrow">Digital Package · Research & Design</p>
-            <h1 class="case-study-title">Digital Processing Fees & The Small Business Squeeze</h1>
-            <p class="case-study-lede">
-              lede filler text
-            </p>
-
-            <ul class="case-study-meta">
-              <li>Role: Researcher, Writer, & Designer</li>
-              <li>Class: Mejo 121</li>
-              <li>Tools: WordPress, Adobe Illustrator, Premiere Pro</li>
-            </ul>
-
-            
-          </div>
-
-          <figure>
-            <img src="assets/covers/fees.webp" width="800" height="376" alt="Banner">
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section page-section-inner intro-section">
-        <h2>Introduction</h2>
-        <p>
-          George Peacock, a Chapel Hill entrepreneur, launched NeoPay in 2024 to solve a problem crushing small businesses across America: credit card processing fees that can devour up to 3.5 percent of every transaction. While large retailers negotiate rates as low as 1 percent, independent shops face fees two to three times higher. These fees  have only quietly grown more complex and expensive over the past two decades. Peacock's solution cuts these costs by 50 to 80 percent while rewarding customers with cash and prizes, proving that the current system doesn't have to be the only option.        </p>
-      </section>
-
-      <section class="case-section page-section-inner">
-        <h2>Video Overview</h2>
-        <p>
-          This story examines economic inequality in payment infrastructure and how the digital convenience reshaping the way Americans spend money is quietly changing how small businesses must survive. Each tap or swipe is accompanied by a fee, and for many small businesses, those little charges add up to be a serious financial burden. What seems like an efficient transaction to consumers often translates into a painful cut in revenue to the business, especially when margins are already very slim.         </p>
-        <div class="case-media case-media--video">
-          <div class="responsive-video">
-            <iframe title="vimeo-player" src="https://player.vimeo.com/video/1132669784?h=8be8ff546c" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>          </div>
-          <p class="media-caption">A two-minute walkthrough of how a few cents per transaction scales into thousands over a year.</p>
-        </div>
-        <p>
-          <br>Each digital transaction passes through multiple intermediaries: issuing banks, card networks like Visa and Mastercard, and payment processors. Each step has fees for authorization, fraud protection, risk management, and infrastructure maintenance. These interchange fees began modestly decades ago but have grown increasingly complex as the payment network expanded. The structure varies by card type, processor, and business size, creating an uneven landscape where identical transactions cost different merchants vastly different amounts. Over a year, a small business processing $500,000 in card payments at 3 percent loses $15,000 to fees: money that could fund employee raises, inventory expansion, or simply help the business survive.        </p>
-      </section>
-
-      <section class="case-section page-section-inner case-section--muted case-section--infographic">
-        <div class="case-section__header">
-          <h2>Infographic</h2>
-          <p> A full-width infographic visualizes how a 2.9% + $0.30 fee structure impacts businesses at different
-                average ticket sizes.  </p>
-        </div>
-
-        <div class="case-infographic__grid">
-          <figure class="case-figure case-figure--wide">
-            <img src="../../assets/portfolio/newgraphic.png" alt="Infographic summarizing fee structures and their impact on small businesses">
-          </figure>
-        </div>
-      </section>
-
-      <section class="case-section page-section-inner">
-        <h2>Disparity</h2>
-        <p> Large corporations negotiate much lower processing fees because their transaction volume gives them leverage. Small businesses rarely enjoy such benefits. Many receive the highest rates in the system with little to no bargaining power to challenge them. Where a big retailer may pay 1 to 1.5 percent per transaction, an independent shop pays 2.5 to 3.5 percent for that same exchange. Premium rewards cards, the ones consumers love for cash back and travel points, are often the most expensive for small merchants to accept. We get rewarded while the business absorbs the cost.</p>
-      </section>
-
-      <section class="case-section page-section-inner">
-        <h2>Conclusion</h2>
-        <p>
-          Digital convenience is now an expectation, not an option. The fees that seem invisible to consumers tapping their cards represent real money that small business owners must absorb, often forcing impossible choices between competitive pricing and financial sustainability. This isn't just inefficient; it's a structural barrier that makes small business survival harder in an already challenging retail environment. George's work with NeoPay shows how one person can push back, help their community, and hopefully end the hidden
-          pressures behind every transaction.
-        </p>
-      </section>
-
-      <section class="case-section page-section-inner">
-        <h2>Reflection</h2>
-        <p>
-          Working on this project helped me understand how complex digital payment systems are and how difficult they can be for small businesses to navigate. As a team member of Neopay, working alongside George Peacock and learning about his journey to build NeoPay has shown me what it really means to be a helping hand in our community. I went into the assignment knowing that these fees existed on a basic level, but I did not realize how many layers and institutions were involved or how much the fee structure favors large companies over small ones. Translating that information into a clear narrative took time because the topic is very technical and often confusing. The more I learned, the more appreciation I grew for George and his startup. I am excited to see how it is able to successfully impact merchants in our community and hopefully others eventually as well!
-        </p>
-      </section>
-
-      <section id="sources" class="case-section page-section-inner">
-        <h2>Sources</h2>
-        <ul class="source-list">
-          <li>Board of Governors of the Federal Reserve System. (2025, March 12). Federal Reserve Payments Study (FRPS). Federal Reserve Board. Retrieved November 17, 2025, from https://www.federalreserve.gov/paymentsystems/fr-payments-study.htm</li>
-          <li>Crawford, H. (2025, January 24). Credit Card Processing Fees: A 2025 Guide for Businesses. NerdWallet. Retrieved November 17, 2025, from https://www.nerdwallet.com/business/software/learn/credit-card-processing-fees</li>
-          <li>Johnson, H. D. (2025, July 14). Average Cost Of Credit Card Processing Fees. Bankrate. Retrieved November 17, 2025, from https://www.bankrate.com/credit-cards/business/merchants-guide-to-credit-card-processing-fees/</li>
-          <li>Yuan, J., & McIntyre, K. (2025, May 6). We Must End the Hidden Growth Tax on U.S. Small Businesses. Entrepreneur. Retrieved November 17, 2025, from https://www.entrepreneur.com/money-finance/we-must-end-the-hidden-growth-tax-on-us-small-businesses/489523</li>
-        </ul>
-      </section>
-</template>
 <template id="cs-ebay">
 <section class="case-study-hero">
   <div class="case-study-hero__grid">
@@ -1058,6 +972,196 @@
     <figure><img src="assets/covers/ebay.webp" width="800" height="376" alt="eBay redesign screens"></figure>
   </div>
 </section>
+</template>
+<template id="cs-about">
+<section class="case-study-hero">
+  <p class="case-study-eyebrow">About me</p>
+  <h1 class="case-study-title">Logan Oscher</h1>
+  <p class="case-study-lede">I've always been drawn to the intersection of design, technology, and user experience. As a fourth-year undergraduate student at UNC Chapel Hill pursuing a double major in Computer Science and Media &amp; Journalism, I am focused on UI/UX design, web design, and interactive media. My passion for UI/UX, graphic design, and web design drives me to create content that is both visually appealing and user-centric. From 3D printing and laser cutting to building user-friendly web interfaces, I am constantly seeking ways to enhance the way people interact with technology.</p>
+</section>
+</template>
+<template id="cs-insightui">
+<section class="case-study-hero page-section-inner">
+        <div class="case-study-hero__grid">
+          <div>
+            <p class="case-study-eyebrow">AI Tool · Product Design + Front-End</p>
+            <h1 class="case-study-title">InsightUI: AI-Powered UX Critique</h1>
+            <p class="case-study-lede">
+              A designer-first web tool that turns a screenshot, a page's code, or both into a structured UX critique from a local LLM, with every issue sorted by category, rated by severity, and paired with a concrete fix.
+            </p>
+
+            <ul class="case-study-meta">
+              <li>Role: Designer &amp; developer</li>
+              <li>Platform: Web app + Chrome extension</li>
+              <li>Tools: React 18, Vite, Ollama, Chrome Manifest V3, jsPDF</li>
+            </ul>
+          </div>
+
+          <figure>
+            <img src="assets/covers/insightui.webp" width="800" height="376" alt="InsightUI cover: critique inspector rating usability, accessibility, and hierarchy issues">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>App Snapshot</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Problem</h3>
+            <p>General-purpose AI chat gives loose, unstructured design feedback that's hard to act on, and uploading work-in-progress to a cloud service isn't always an option.</p>
+          </div>
+          <div class="case-card">
+            <h3>Goal</h3>
+            <p>Give designers critique they can work through like a checklist: grouped by UX category, ranked by severity, tied to an element on the screen, and run entirely on their own machine.</p>
+          </div>
+          <div class="case-card">
+            <h3>Outcome</h3>
+            <p>A React app that sends inputs to a local Ollama model and returns categorized, severity-rated issues with fixes, follow-up questions, and a PDF report, plus a Chrome extension that captures any page.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner intro-section">
+        <h2>Why I built it</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Opportunity</h3>
+            <p>Design critiques follow a familiar rubric (usability, accessibility, hierarchy, interaction, consistency). Asking a model to answer in that exact shape makes its feedback far easier to scan, compare, and act on.</p>
+          </div>
+          <div class="case-card">
+            <h3>Approach</h3>
+            <p>Design the tool like a design tool: a canvas for the work and an inspector for the findings, then build it in React with a small utility layer that talks to Ollama and cleans up whatever the model returns.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>What I built</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Canvas + Inspector</h3>
+            <p>A split-screen layout (55% canvas, 45% inspector) that stacks on narrow windows, with a zoomable, pannable screenshot viewer and light and dark themes.</p>
+          </div>
+          <div class="case-card">
+            <h3>Flexible inputs</h3>
+            <p>Drag-and-drop screenshots, pasted or uploaded HTML and CSS, rendered DOM markup, and a short product description. Any combination works.</p>
+          </div>
+          <div class="case-card">
+            <h3>Interactive critique cards</h3>
+            <p>Expandable cards with High, Medium, and Low severity badges. Clicking one highlights its area on the screenshot and reveals the suggested fix and a follow-up question box.</p>
+          </div>
+          <div class="case-card">
+            <h3>Reporting</h3>
+            <p>One-click PDF export with the screenshot and every issue, and a model picker that lists whatever models are installed in the user's Ollama.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Product Screens</h2>
+        <div class="case-grid">
+          <figure class="case-figure">
+            <img src="../../assets/insightui/empty-state.webp" width="1600" height="953" alt="InsightUI in dark mode before an analysis: a screenshot drop zone and HTML, CSS, and DOM input fields on the left, an empty Critique panel listing the five categories on the right, and a model picker in the top bar">
+            <figcaption>Ready to analyze: the canvas and inputs on the left, the critique inspector waiting on the right, and the local Ollama model picker up top.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Key Flow</h2>
+        <p>From a page on screen to a prioritized list of fixes in four steps.</p>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Flow details</h3>
+            <ul class="case-list">
+              <li>Drop in a screenshot, or import a snapshot captured by the Chrome extension.</li>
+              <li>Optionally add HTML, CSS, DOM, and a one-line goal for the page.</li>
+              <li>Click Analyze Interface. Analysis never starts automatically, so the user stays in control of slow local runs.</li>
+              <li>Work through issues by category, ask follow-ups, and export the PDF report.</li>
+            </ul>
+          </div>
+          <div class="case-card">
+            <h3>Five critique categories</h3>
+            <ul class="case-list">
+              <li><strong>Usability</strong>: interaction patterns</li>
+              <li><strong>Accessibility</strong>: WCAG and inclusive design</li>
+              <li><strong>Visual hierarchy</strong>: structure and emphasis</li>
+              <li><strong>Interaction design</strong>: responsiveness and feedback</li>
+              <li><strong>Consistency</strong>: design system adherence</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>How the critique works</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Prompting</h3>
+            <p>Inputs go to Ollama's /api/generate with a UX-critic system prompt and JSON output mode. Screenshots are sent as images, so a vision-capable model reads the actual layout.</p>
+          </div>
+          <div class="case-card">
+            <h3>Structured output</h3>
+            <p>Every issue comes back as a one-sentence issue, the affected element, an actionable fix, and a severity, grouped under the five categories.</p>
+          </div>
+          <div class="case-card">
+            <h3>Normalization</h3>
+            <p>Local models drift, so responses are cleaned up: alternate keys like a11y, recommendation, or priority map onto the schema, and plain-text replies are split into issues and sorted into categories.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Chrome Extension</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>What it captures</h3>
+            <p>A Manifest V3 extension that snapshots a live page's HTML, accessible stylesheets, and DOM nodes with selectors, bounds, and a subset of computed styles.</p>
+          </div>
+          <div class="case-card">
+            <h3>Handoff</h3>
+            <p>From the popup, users can scrape on demand or on page load, download the snapshot as JSON, or open InsightUI with the HTML, CSS, and DOM fields already filled in.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner case-section--muted">
+        <h2>Build details</h2>
+        <div class="case-grid">
+          <div class="case-card">
+            <h3>Tech stack</h3>
+            <p>React 18 + Vite 4, plain CSS with no UI framework, Axios for the Ollama API, and jsPDF + html2canvas for reports.</p>
+          </div>
+          <div class="case-card">
+            <h3>Architecture</h3>
+            <p>Components for Canvas, InterfaceInput, Inspector, CritiqueCard, TopBar, and BottomBar, with utilities for the Ollama client, PDF export, and highlight regions.</p>
+          </div>
+          <div class="case-card">
+            <h3>Local and private</h3>
+            <p>Everything runs against the user's own Ollama server, configurable through .env.local, so screenshots and code never leave their machine.</p>
+          </div>
+          <div class="case-card">
+            <h3>Prompt limits</h3>
+            <p>Each HTML, CSS, DOM, and description section is capped at 20,000 characters to keep prompts within reach of smaller local models.</p>
+          </div>
+          <div class="case-card">
+            <h3>Honest highlighting</h3>
+            <p>Highlights are keyword-based estimates from the element name (header, button, footer) rather than true element detection, and the app says so.</p>
+          </div>
+          <div class="case-card">
+            <h3>What's next</h3>
+            <p>ML-based element detection for precise highlights, multi-screenshot comparison, design system integration, and custom prompt templates.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section page-section-inner">
+        <h2>Source Code</h2>
+        <p>InsightUI runs locally with Node.js and Ollama. Setup instructions, the critique schema, and the Chrome extension are all in the repository.</p>
+        <div class="case-actions case-actions--spaced">
+          <a class="btn" href="https://github.com/loganosc/insightui" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </section>
 </template>
 <template id="cs-hockey">
 <section class="case-study-hero">

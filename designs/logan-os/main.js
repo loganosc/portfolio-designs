@@ -108,18 +108,33 @@
 
       var card = link.closest('.card');
       var bar = card.querySelectorAll('.card__bar span');
-      var behance = link.hostname.indexOf('behance.net') !== -1;
+      var host = link.hostname.indexOf('behance.net') !== -1 ? 'Behance'
+        : link.hostname.indexOf('github.com') !== -1 ? 'GitHub' : null;
 
       viewerBar.style.setProperty('--tb', getComputedStyle(card).getPropertyValue('--bar'));
       viewerTitle.textContent = 'C:\\Logan\\Interactive_Works\\' + bar[0].textContent;
       viewerMeta.textContent = bar[1].textContent + ' · ' + CATEGORY[card.dataset.cat] + ' · Esc to close';
       viewerPage.href = link.href;
-      viewerPage.textContent = (behance ? 'View on Behance' : 'Open as page') + ' ↗';
+      viewerPage.textContent = (host ? 'View on ' + host : 'Open as page') + ' ↗';
       viewerBody.replaceChildren(tpl.content.cloneNode(true));
       enableZoom(viewerBody);
       viewer.showModal();
       viewerScroll.scrollTop = 0;
     });
+  });
+
+  // About me reuses the viewer, sized to its short content.
+  document.getElementById('about-open').addEventListener('click', function () {
+    if (typeof viewer.showModal !== 'function') return;
+    viewer.classList.add('viewer--fit');
+    viewerBar.style.setProperty('--tb', 'var(--yellow)');
+    viewerTitle.textContent = 'C:\\Logan\\About_Me.txt';
+    viewerMeta.textContent = 'About · Esc to close';
+    viewerPage.href = '../../assets/Logan_Oscher_Resume.pdf';
+    viewerPage.textContent = 'Resume.pdf ↗';
+    viewerBody.replaceChildren(document.getElementById('cs-about').content.cloneNode(true));
+    viewer.showModal();
+    viewerScroll.scrollTop = 0;
   });
 
   viewer.addEventListener('click', function (e) {
@@ -128,6 +143,7 @@
   });
   viewer.addEventListener('close', function () {
     viewerBody.replaceChildren(); // stops embedded video and prototypes
+    viewer.classList.remove('viewer--fit');
   });
 
   /* ---------- Image lightbox: gallery images open large, and you can scroll through the gallery ---------- */
