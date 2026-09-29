@@ -45,7 +45,7 @@ The content lives in `<template id="cs-…">` blocks at the bottom of `index.htm
 
 ## Content
 
-Thumbnails in `assets/thumbs/` are the same optimized WebPs Dual uses; `assets/headshot.webp` is a 256px crop of the portrait.
+Project covers in `assets/covers/` are 800×376 lossless WebPs, used uncropped on the cards and as each case study's hero; `assets/headshot.webp` is a 256px crop of the portrait.
 
 ### Still to fill in
 - **Resume URL:** the menu bar, the Contact tab and the `Resume.floppy` icon all link to `#`.
