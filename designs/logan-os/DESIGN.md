@@ -57,10 +57,6 @@ Project covers in `assets/covers/` are 800×376 lossless WebPs, used uncropped o
 - **Resume URL:** the menu bar, the Contact tab and the `Resume.floppy` icon all link to `#`.
 - **Copy to confirm:** project descriptions were completed from cut-off text in the design. Tags only list tools named in the case studies, so UNC Hockey uses `#Instagram #Social` because no tool is named.
 
-## Display scale
-
-On desktop (1024px and wider) the whole page renders at 80% via `zoom: 0.8` on `:root`, matching Chrome at 80% zoom: the layout gets 25% more room and everything draws smaller. Tablets and phones stay at 100%. Media queries still see the real window width, so a vw-based size that needs the zoomed layout width divides by `--zoom` (see the hero headline's `clamp`).
-
 ## Deploying
 
 The live host caches CSS and JS for a week, so `index.html` loads them as `styles.css?v=…`, `modern.css?v=…` and `main.js?v=…`. Bump that version (e.g. to the date) whenever any of those files change, or returning visitors keep the old copy.
