@@ -56,3 +56,7 @@ Project covers in `assets/covers/` are 800×376 lossless WebPs, used uncropped o
 ### Still to fill in
 - **Resume URL:** the menu bar, the Contact tab and the `Resume.floppy` icon all link to `#`.
 - **Copy to confirm:** project descriptions were completed from cut-off text in the design. Tags only list tools named in the case studies, so UNC Hockey uses `#Instagram #Social` because no tool is named.
+
+## Deploying
+
+The live host caches CSS and JS for a week, so `index.html` loads them as `styles.css?v=…`, `modern.css?v=…` and `main.js?v=…`. Bump that version (e.g. to the date) whenever any of those files change, or returning visitors keep the old copy.
