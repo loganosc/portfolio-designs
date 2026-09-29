@@ -26,6 +26,12 @@ Plain HTML/CSS/JS, no build step: `index.html`, `styles.css`, `main.js`.
 
 Geometry is pure CSS: `.stage` is a size container, so the screen opening is `72.22cqw × 72.22cqh` (the viewport's aspect ratio) and `--u` is one design-canvas pixel at that scale. Bezel, chin, stand and radii scale with `--u`, with minimums so the hardware still reads on phones. The `is-intro` class is set on `<html>` by an inline script in `<head>` before first paint, so the site never flashes unscaled.
 
+## Modern mode
+
+In retro mode a small **Modernize.exe** tip window sits under Logan Info (both live in `.hero__side`); its button switches modes, and its × hides it for good (`localStorage['logan-os:promo']`, applied in `<head>` as `.promo-dismissed`). The taskbar's **Modernize** button switches to a black-and-white, editorial serif (Newsreader) version with the same layout and content; it then reads **Retro mode**. The choice is saved in `localStorage['logan-os:theme']` and applied by the inline `<head>` script before first paint, so neither look flashes. Modern mode skips the intro and hides the Restart button, the desktop icons, the `C:\LOGAN>` prompt and the title-bar controls. Cards and case-study heroes swap the pixel covers for product mockups from `assets/covers/modern/` (cropped to 16:10 on the cards, uncropped in the hero). Both images are in the markup with `.only-retro` / `.only-modern`, and hidden lazy images aren't fetched, so each mode downloads only its own. The sync script writes both images into the generated case-study heroes.
+
+Every rule lives in `modern.css`, scoped to `html.is-modern`, so `styles.css` stays the retro source of truth. Borders and hard shadows in `styles.css` go through `--line`, `--shade`, `--bw` and `--bw-thin` (retro: ink, ink, 2px, 1.5px); modern mode sets them to a `#e4e4e7` hairline and no shadow, swaps the accent tokens to one neutral grey, and points `--pixel` and `--vt` at Newsreader. When you add a component, use those tokens for its borders and shadows, and give it font sizes in `modern.css` if it sets its own (the retro fonts run small, so their sizes don't carry over).
+
 ## Responsive
 
 - **< 1200px:** tighter padding, H1 64px.

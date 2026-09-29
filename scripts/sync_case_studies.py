@@ -18,13 +18,17 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 # Designs that embed case studies. Each lives two levels below the repo root,
-# which the relative-path rewrite below relies on. A design can swap each case
-# study's hero image for its own cover ("{key}" is the template key) and skip
-# case studies it doesn't show.
+# which the relative-path rewrite below relies on. A design can replace each
+# case study's hero <img> with its own markup ("{key}" is the template key,
+# "{alt}" the original alt text) and skip case studies it doesn't show.
 TARGETS = {
     ROOT / "designs" / "dual" / "index.html": {},
     ROOT / "designs" / "logan-os" / "index.html": {
-        "cover": 'src="assets/covers/{key}.webp" width="800" height="376"',
+        # Pixel cover in retro mode, product mockup in modern mode (see modern.css).
+        "hero": (
+            '<img class="only-retro" src="assets/covers/{key}.webp" width="800" height="376" alt="{alt}">\n'
+            '            <img class="only-modern" src="assets/covers/modern/{key}.webp" alt="{alt}" loading="lazy">'
+        ),
         "skip": {"fees"},
     },
 }
@@ -43,7 +47,8 @@ BACK_LINK = re.compile(r'\s*<a [^>]*href="index\.html[^"]*"[^>]*>Back to portfol
 EMPTY_ACTIONS = re.compile(r'<div class="case-actions">\s*</div>')
 # Relative asset/page references need to climb out of designs/<name>/
 RELATIVE_REF = re.compile(r'\b(src|href|data)="(?![a-z]+:|#|/|\.\./)([^"]+)"')
-HERO_IMG = re.compile(r'(<section class="case-study-hero.*?<figure>\s*<img )src="[^"]*"', re.S)
+HERO_IMG = re.compile(r'(<section class="case-study-hero.*?<figure>\s*)(<img [^>]*>)', re.S)
+ALT = re.compile(r'\balt="([^"]*)"')
 
 
 def render(page_path):
@@ -60,12 +65,15 @@ def render(page_path):
 def sync(index, rendered, options):
     html = index.read_text()
     updated = html
-    cover = options.get("cover")
+    hero = options.get("hero")
     for key, content in rendered.items():
         if key in options.get("skip", ()):
             continue
-        if cover:
-            content, found = HERO_IMG.subn(lambda m: m.group(1) + cover.format(key=key), content, count=1)
+        if hero:
+            def swap(m):
+                alt = ALT.search(m.group(2))
+                return m.group(1) + hero.format(key=key, alt=alt.group(1) if alt else "")
+            content, found = HERO_IMG.subn(swap, content, count=1)
             if not found:
                 raise SystemExit(f"{SOURCES[key]}: no hero image found")
         block = re.compile(rf'(<template id="cs-{key}">\n)(.*?)(</template>)', re.S)

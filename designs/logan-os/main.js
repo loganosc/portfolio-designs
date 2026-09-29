@@ -27,6 +27,34 @@
     root.classList.add('is-intro');
   });
 
+  /* ---------- Modernize: retro <-> modern (modern.css), remembered per browser ---------- */
+
+  var themeToggle = document.getElementById('theme-toggle');
+
+  function setModern(on) {
+    root.classList.toggle('is-modern', on);
+    themeToggle.textContent = on ? 'Retro mode' : 'Modernize';
+  }
+  setModern(root.classList.contains('is-modern'));
+
+  themeToggle.addEventListener('click', function () {
+    var on = !root.classList.contains('is-modern');
+    root.classList.remove('is-intro'); // no zoom into the monitor in modern mode
+    setModern(on);
+    try { localStorage.setItem('logan-os:theme', on ? 'modern' : 'retro'); } catch (e) {}
+  });
+
+  // Modernize tip under Logan Info: its button flips the mode, × hides the tip for good.
+  document.getElementById('promo-go').addEventListener('click', function () {
+    themeToggle.click();
+    themeToggle.focus(); // the tip hides in modern mode
+  });
+  document.getElementById('promo-close').addEventListener('click', function () {
+    root.classList.add('promo-dismissed');
+    try { localStorage.setItem('logan-os:promo', 'dismissed'); } catch (e) {}
+    themeToggle.focus(); // the tip is gone; the same switch lives in the taskbar
+  });
+
   /* ---------- Menu (collapsed under 768px) ---------- */
 
   var toggle = document.getElementById('menu-toggle');

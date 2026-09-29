@@ -9,19 +9,24 @@
 <link rel="apple-touch-icon" href="../../assets/favicon_io/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Silkscreen:wght@400;700&amp;family=VT323&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Silkscreen:wght@400;700&amp;family=VT323&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="modern.css">
 <script>
-  // Decide before first paint whether the intro plays, so the site never flashes unscaled.
+  // Decide before first paint whether the intro plays, so the site never flashes unscaled,
+  // and apply a saved Modern mode so the retro look never flashes first.
   (function () {
-    var played = false;
+    var played = false, modern = false;
     try { played = sessionStorage.getItem('logan-os:intro') === '1'; } catch (e) {}
+    try { modern = localStorage.getItem('logan-os:theme') === 'modern'; } catch (e) {}
+    if (modern) document.documentElement.classList.add('is-modern');
+    try { if (localStorage.getItem('logan-os:promo') === 'dismissed') document.documentElement.classList.add('promo-dismissed'); } catch (e) {}
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // Phones skip the intro: scaling the whole site is too heavy to animate smoothly there.
     var phone = /iPhone|iPod/.test(navigator.userAgent) ||
       window.matchMedia('(pointer: coarse) and (max-width: 767px)').matches;
     if (phone) document.documentElement.classList.add('no-intro');
-    if (!played && !reduce && !phone) document.documentElement.classList.add('is-intro');
+    if (!played && !reduce && !phone && !modern) document.documentElement.classList.add('is-intro');
   })();
 </script>
 </head>
@@ -77,6 +82,7 @@
             </div>
           </div>
 
+          <div class="hero__side">
           <section id="about" class="window window--info" aria-label="About Logan">
             <div class="titlebar titlebar--pink">
               <span class="titlebar__ctl" aria-hidden="true"></span>
@@ -108,6 +114,21 @@
               </div>
             </div>
           </section>
+
+          <!-- Retro-only tip that switches to modern mode; × dismisses it for good (remembered per browser). -->
+          <aside class="window promo" aria-label="Modernize tip">
+            <div class="titlebar promo__bar">
+              <span class="titlebar__ctl" aria-hidden="true"></span>
+              <span class="titlebar__title titlebar__title--sm"><span>Modernize.exe</span></span>
+              <button type="button" class="promo__x" id="promo-close" aria-label="Dismiss the Modernize tip">×</button>
+            </div>
+            <div class="promo__body">
+              <svg width="32" height="32" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><path fill="#12131C" d="M7 0h2v1H7zM7 1h2v1H7zM6 2h4v1H6zM6 3h4v1H6zM5 4h6v1H5zM4 5h8v1H4zM1 6h14v1H1zM0 7h16v1H0zM0 8h16v1H0zM1 9h14v1H1zM4 10h8v1H4zM5 11h6v1H5zM6 12h4v1H6zM6 13h4v1H6zM7 14h2v1H7zM7 15h2v1H7z"/><path fill="#F4A3C8" d="M7 2h2v1H7zM7 3h2v1H7zM6 4h4v1H6zM5 5h6v1H5zM4 6h8v1H4zM1 7h14v1H1zM1 8h14v1H1zM4 9h8v1H4zM5 10h6v1H5zM6 11h4v1H6zM7 12h2v1H7zM7 13h2v1H7z"/></svg>
+              <p>Not into retro? See this portfolio in a clean, modern layout.</p>
+              <button type="button" class="btn btn--pink promo__btn" id="promo-go">Modernize</button>
+            </div>
+          </aside>
+          </div>
         </section>
 
         <!-- Works window -->
@@ -115,9 +136,10 @@
           <div class="titlebar titlebar--blue">
             <span class="titlebar__ctl" aria-hidden="true"></span>
             <span class="titlebar__title"><span>C:\Logan\Interactive_Works — <span id="count-label">6 items</span></span></span>
-            <span class="sr-only" role="status" aria-live="polite" id="live-label"></span>
             <span class="titlebar__ctl titlebar__ctl--max" aria-hidden="true"><span></span></span>
           </div>
+          <!-- Announces filter results; kept outside the title bar, which modern mode hides. -->
+          <span class="sr-only" role="status" aria-live="polite" id="live-label"></span>
           <div class="works__head">
             <h2>Selected Work</h2>
             <div role="group" aria-label="Filter projects" class="works__filters">
@@ -130,7 +152,8 @@
 
             <article class="card" data-cat="ux" style="--bar: var(--pink)">
               <div class="card__bar"><span>01_Swiped.app</span><span>Next.js</span></div>
-              <img src="assets/covers/swiped.webp" alt="Swiped cover: meal swipe marketplace" width="800" height="376" class="card__img" loading="lazy">
+              <img src="assets/covers/swiped.webp" alt="Swiped cover: meal swipe marketplace" width="800" height="376" class="card__img only-retro" loading="lazy">
+              <img src="assets/covers/modern/swiped.webp" alt="Swiped web app screens: login, dashboard, listings, and settings" width="800" height="450" class="card__img card__img--photo only-modern" loading="lazy">
               <div class="card__body">
                 <h3>Swiped: Meal Swaps</h3>
                 <p>Full-stack Next.js marketplace where UNC students buy and sell meal swipes.</p>
@@ -143,7 +166,8 @@
 
             <article class="card" data-cat="ux" style="--bar: var(--yellow)">
               <div class="card__bar"><span>02_DinkLink.fig</span><span>Mobile UX</span></div>
-              <img src="assets/covers/dinklink.webp" alt="DinkLink cover: pickleball matchmaking" width="800" height="376" class="card__img" loading="lazy">
+              <img src="assets/covers/dinklink.webp" alt="DinkLink cover: pickleball matchmaking" width="800" height="376" class="card__img only-retro" loading="lazy">
+              <img src="assets/covers/modern/dinklink.webp" alt="DinkLink mobile screens: player profile stats, map, messages, and home" width="800" height="800" class="card__img card__img--photo only-modern" loading="lazy">
               <div class="card__body">
                 <h3>DinkLink: Pickleball App</h3>
                 <p>UI/UX design for a pickleball matchmaking app featuring player profiles and stats.</p>
@@ -156,7 +180,8 @@
 
             <article class="card" data-cat="ux" style="--bar: var(--periwinkle-light)">
               <div class="card__bar"><span>03_eBay.sys</span><span>Redesign</span></div>
-              <img src="assets/covers/ebay.webp" alt="eBay redesign cover: product pages and bidding" width="800" height="376" class="card__img" loading="lazy">
+              <img src="assets/covers/ebay.webp" alt="eBay redesign cover: product pages and bidding" width="800" height="376" class="card__img only-retro" loading="lazy">
+              <img src="assets/covers/modern/ebay.webp" alt="eBay redesign screens: product page with live bidding and a playful 404 page" width="800" height="534" class="card__img card__img--photo only-modern" loading="lazy">
               <div class="card__body">
                 <h3>eBay Interface Redesign</h3>
                 <p>Responsive UI redesign of eBay’s product pages and bidding experience.</p>
@@ -169,7 +194,8 @@
 
             <article class="card" data-cat="media" style="--bar: var(--pink)">
               <div class="card__bar"><span>04_UNCHockey.gfx</span><span>Sports GFX</span></div>
-              <img src="assets/covers/hockey.webp" alt="UNC Hockey cover: game-day scoreboard graphic" width="800" height="376" class="card__img" loading="lazy">
+              <img src="assets/covers/hockey.webp" alt="UNC Hockey cover: game-day scoreboard graphic" width="800" height="376" class="card__img only-retro" loading="lazy">
+              <img src="assets/covers/modern/hockey.webp" alt="UNC Hockey game-day graphics shown as Instagram posts" width="800" height="626" class="card__img card__img--photo only-modern" loading="lazy">
               <div class="card__body">
                 <h3>UNC Hockey Graphics</h3>
                 <p>Social media graphic collection for UNC Hockey featuring game-day promos.</p>
@@ -182,7 +208,8 @@
 
             <article class="card" data-cat="ux" style="--bar: var(--yellow)">
               <div class="card__bar"><span>05_Vanguard.sys</span><span>Fintech UX</span></div>
-              <img src="assets/covers/vanguard.webp" alt="Vanguard redesign cover: portfolio charts" width="800" height="376" class="card__img" loading="lazy">
+              <img src="assets/covers/vanguard.webp" alt="Vanguard redesign cover: portfolio charts" width="800" height="376" class="card__img only-retro" loading="lazy">
+              <img src="assets/covers/modern/vanguard.webp" alt="Vanguard Year in Review redesign screens" width="800" height="512" class="card__img card__img--photo only-modern" loading="lazy">
               <div class="card__body">
                 <h3>Vanguard Redesign</h3>
                 <p>Responsive redesign focused on clarity, confidence, and trust for everyday investors.</p>
@@ -196,7 +223,8 @@
 
             <article class="card" data-cat="ux" style="--bar: var(--pink)">
               <div class="card__bar"><span>07_InsightUI.jsx</span><span>AI Tool</span></div>
-              <img src="assets/covers/insightui.webp" alt="InsightUI cover: critique inspector rating usability, accessibility, and hierarchy issues" class="card__img" loading="lazy" width="800" height="376">
+              <img src="assets/covers/insightui.webp" alt="InsightUI cover: critique inspector rating usability, accessibility, and hierarchy issues" class="card__img only-retro" loading="lazy" width="800" height="376">
+              <img src="assets/covers/modern/insightui.webp" alt="InsightUI app in a browser with a usability issue, a critique summary, and the Chrome extension popup" width="1600" height="1000" class="card__img card__img--photo only-modern" loading="lazy">
               <div class="card__body">
                 <h3>InsightUI: AI UX Critique</h3>
                 <p>React tool that critiques an interface with a local LLM, sorting issues by category and severity.</p>
@@ -237,6 +265,7 @@
     <div class="taskbar__left">
       <button type="button" class="btn restart" id="restart" aria-label="Replay intro">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M12 3v8M6.3 6.3a8 8 0 1 0 11.4 0"/></svg>Restart</button>
+      <button type="button" class="theme-toggle" id="theme-toggle">Modernize</button>
       <a href="#top" class="taskbtn">bio.txt</a>
       <a href="#about" class="taskbtn">Logan Info</a>
       <a href="#work" class="taskbtn taskbtn--active">Interactive_Works</a>
@@ -335,7 +364,8 @@
           </div>
 
           <figure>
-            <img src="assets/covers/swiped.webp" width="800" height="376" alt="Swiped cover graphic with mobile screens">
+            <img class="only-retro" src="assets/covers/swiped.webp" width="800" height="376" alt="Swiped cover graphic with mobile screens">
+            <img class="only-modern" src="assets/covers/modern/swiped.webp" alt="Swiped cover graphic with mobile screens" loading="lazy">
           </figure>
         </div>
       </section>
@@ -553,7 +583,8 @@
           </div>
 
           <figure>
-            <img src="assets/covers/dinklink.webp" width="800" height="376" alt="DinkLink mobile screens">
+            <img class="only-retro" src="assets/covers/dinklink.webp" width="800" height="376" alt="DinkLink mobile screens">
+            <img class="only-modern" src="assets/covers/modern/dinklink.webp" alt="DinkLink mobile screens" loading="lazy">
           </figure>
         </div>
       </section>
@@ -675,7 +706,8 @@
           </div>
 
           <figure>
-            <img src="assets/covers/vanguard.webp" width="800" height="376" alt="Vanguard Year-in-Review redesign screens">
+            <img class="only-retro" src="assets/covers/vanguard.webp" width="800" height="376" alt="Vanguard Year-in-Review redesign screens">
+            <img class="only-modern" src="assets/covers/modern/vanguard.webp" alt="Vanguard Year-in-Review redesign screens" loading="lazy">
           </figure>
         </div>
       </section>
@@ -969,7 +1001,7 @@
       <ul class="case-study-meta"><li>Scope: product page, error screen, navigation</li><li>Tools: Figma</li></ul>
       <div class="case-actions"><a class="btn" href="https://www.behance.net/gallery/239575167/Ebay-Feature-Redesign-Project" target="_blank" rel="noopener">View full project on Behance</a></div>
     </div>
-    <figure><img src="assets/covers/ebay.webp" width="800" height="376" alt="eBay redesign screens"></figure>
+    <figure><img class="only-retro" src="assets/covers/ebay.webp" width="800" height="376" alt="eBay redesign screens"><img class="only-modern" src="assets/covers/modern/ebay.webp" width="800" height="534" alt="eBay redesign screens" loading="lazy"></figure>
   </div>
 </section>
 </template>
@@ -998,7 +1030,8 @@
           </div>
 
           <figure>
-            <img src="assets/covers/insightui.webp" width="800" height="376" alt="InsightUI cover: critique inspector rating usability, accessibility, and hierarchy issues">
+            <img class="only-retro" src="assets/covers/insightui.webp" width="800" height="376" alt="InsightUI cover: critique inspector rating usability, accessibility, and hierarchy issues">
+            <img class="only-modern" src="assets/covers/modern/insightui.webp" width="1600" height="1000" alt="InsightUI app in a browser with a usability issue, a critique summary, and the Chrome extension popup" loading="lazy">
           </figure>
         </div>
       </section>
@@ -1173,7 +1206,7 @@
       <ul class="case-study-meta"><li>Client: UNC Hockey</li><li>Format: Instagram &amp; social graphics</li></ul>
       <div class="case-actions"><a class="btn" href="https://www.behance.net/gallery/239582165/UNC-Hockey-Graphic-Designs" target="_blank" rel="noopener">View full project on Behance</a></div>
     </div>
-    <figure><img src="assets/covers/hockey.webp" width="800" height="376" alt="UNC Hockey social graphics"></figure>
+    <figure><img class="only-retro" src="assets/covers/hockey.webp" width="800" height="376" alt="UNC Hockey social graphics"><img class="only-modern" src="assets/covers/modern/hockey.webp" width="800" height="626" alt="UNC Hockey social graphics" loading="lazy"></figure>
   </div>
 </section>
 </template>
